@@ -333,13 +333,54 @@ html{scroll-padding-top:96px;scroll-behavior:smooth}
 }
 @media (max-width:900px){
   body{padding-top:56px}
-  .wrap{padding:0 20px;max-width:100%}
-  .slide{padding:56px 24px 40px;min-height:auto}
-  .slide h2{font-size:32px}
-  .three,.four,.stat-grid,.two,.two.weighted,.timeline,.tocgrid,.asset-row{grid-template-columns:1fr;gap:24px}
-  .cover-hero .brand{font-size:86px}
+  .wrap{padding:0 16px;max-width:100%}
+  .slide{padding:72px 20px 36px;min-height:auto;border-radius:4px}
+  .slide h2{font-size:28px;line-height:1.1}
+  h1.main{font-size:40px;line-height:1.05}
+  .main-sub{font-size:15.5px}
+  .three,.four,.stat-grid,.two,.two.weighted,.timeline,.tocgrid,.asset-row{grid-template-columns:1fr !important;gap:20px}
+  .cover-hero .brand{font-size:72px;line-height:0.95}
+  .cover-hero .tagline{font-size:18px}
   .stat{border-left:none;border-top:1px solid var(--ink-rule);padding:18px 0}
   .stat:first-child{border-top:none;padding-top:0}
+  /* Topnav: hide badge + Teaser/Appendix, keep Contact */
+  .topnav{padding:12px 16px}
+  .topnav .brand{font-size:14px}
+  .topnav .badge{display:none}
+  .topnav .right a[href="#teaser"],.topnav .right a[href="#appendix"]{display:none}
+  /* Wordmark vs corner-mark collision: stack corner-mark below wordmark, shrink */
+  .wordmark{font-size:13px;top:20px;left:20px}
+  .corner-mark{top:44px;right:auto;left:20px;font-size:9px}
+  /* Scroll containers for wide diagrams */
+  .svg-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+  /* Flow: override any inline repeat(N,1fr) */
+  .flow,.flow[style]{grid-template-columns:1fr !important;gap:12px !important}
+  .flow .step + .step{margin-left:0;margin-top:0}
+  .flow .step::after{display:none}
+  /* Tables: allow horizontal scroll instead of overflow */
+  .etable{display:block;overflow-x:auto;white-space:normal;font-size:12.5px}
+  .etable td.name{font-size:14px}
+  /* Timeline: stack */
+  .tphase{border-right:none;border-bottom:1px solid var(--ink-rule);padding:16px 0}
+  .slide.paper .tphase{border-color:var(--paper-rule)}
+  .tphase:last-child{border-bottom:none}
+  /* Pull quote size */
+  .pull{font-size:20px;padding-left:20px}
+  /* Meta header on main intro */
+  .meta{flex-direction:column;gap:6px;align-items:flex-start}
+  /* Deck footer tighten */
+  .deckfooter{font-size:9.5px;padding:0 16px}
+}
+
+@media (max-width:480px){
+  h1.main{font-size:32px}
+  .slide h2{font-size:24px}
+  .cover-hero .brand{font-size:58px}
+  .cover-hero .tagline{font-size:16px}
+  .pull{font-size:18px}
+  .wrap{padding:0 12px}
+  .slide{padding:64px 16px 32px}
+  .topnav .right a{font-size:9.5px;letter-spacing:0.1em}
 }
 </style>
 </head>
@@ -407,7 +448,8 @@ html{scroll-padding-top:96px;scroll-behavior:smooth}
   <p class="sub">Your brand, your deals, your commercial terms — unchanged. Underneath: licensed manager and trustee, MERW-drafted deed, tokenised unit register, bare-trust wallet, automated PIE tax, monthly distributions, and a secondary market.</p>
 
   <!-- Deal-flow diagram: syndicator → Homeshare wrap → retail + secondary -->
-  <svg viewBox="0 0 1200 360" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;margin:8px 0 20px" aria-label="Deal flow: syndicator deal into Homeshare wrap into retail investors and secondary market">
+  <div class="svg-scroll" style="overflow-x:auto;margin:8px -8px 20px">
+  <svg viewBox="0 0 1200 360" xmlns="http://www.w3.org/2000/svg" style="width:100%;min-width:880px;height:auto;display:block" aria-label="Deal flow: syndicator deal into Homeshare wrap into retail investors and secondary market">
     <defs>
       <marker id="arrS02" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
         <path d="M0,0 L10,5 L0,10 Z" fill="#8C3820"/>
@@ -484,6 +526,7 @@ html{scroll-padding-top:96px;scroll-behavior:smooth}
     <path class="s02-arr-d" d="M930 260 L870 260" marker-end="url(#arrS02)"/>
     <text class="s02-flw-d" x="900" y="250" text-anchor="middle">Subscription $</text>
   </svg>
+  </div>
 
   <div class="rule" style="margin-top:8px"></div>
   <p class="note" style="line-height:1.7;margin-top:14px;margin-bottom:0"><strong style="color:var(--paper-ink)">The sandbox is a bridge, not a ceiling.</strong> Homeshare is built to full-MIS standard. The FMA sandbox exemption let us launch 18 months earlier than a standard MIS path — with the full-MIS transition already in progress (9–12 months, scoped with FMA and MERW). The acquirer inherits an active transition, not a standing start. Sandbox caps and full-MIS transition schedule in Appendix A·01.</p>
@@ -753,6 +796,15 @@ html{scroll-padding-top:96px;scroll-behavior:smooth}
       <ul>
         <li>Listed PIE elected per cl 13.6/25</li>
         <li>Sharesies / adviser distribution</li>
+
+        <li>Optional — not required for thesis</li>
+      </ul>
+    </div>
+  </div>
+  <div class="rule" style="margin-top:32px"></div>
+  <p class="note" style="line-height:1.7"><strong style="color:var(--paper-ink)">Sandbox caps (full detail in Appendix A·01):</strong> 10 Exempt Offers · NZ$50K/$100K per investor · ≤NZ$1M property · zero gearing · revocation 30 Nov 2027. The full-MIS transition removes every constraint. <strong style="color:var(--paper-ink)">AU context:</strong> Digital Assets Framework Act received Royal Assent 8 Apr 2026, commences 9 Apr 2027 — creates a tokenised-custody category Homeshare's architecture is built toward.</p>
+</section>
+
 <!-- ========== SLIDE 09 · FOUNDER & TEAM ========== -->
 <section class="slide" id="a07">
   <div class="wordmark"><span class="mark"></span>Homeshare</div>
@@ -800,14 +852,6 @@ html{scroll-padding-top:96px;scroll-behavior:smooth}
   </div>
 </section>
 
-        <li>Optional — not required for thesis</li>
-      </ul>
-    </div>
-  </div>
-  <div class="rule" style="margin-top:32px"></div>
-  <p class="note" style="line-height:1.7"><strong style="color:var(--paper-ink)">Sandbox caps (full detail in Appendix A·01):</strong> 10 Exempt Offers · NZ$50K/$100K per investor · ≤NZ$1M property · zero gearing · revocation 30 Nov 2027. The full-MIS transition removes every constraint. <strong style="color:var(--paper-ink)">AU context:</strong> Digital Assets Framework Act received Royal Assent 8 Apr 2026, commences 9 Apr 2027 — creates a tokenised-custody category Homeshare's architecture is built toward.</p>
-</section>
-
 
 <!-- ========== SLIDE 11B · DAY-ONE REVENUE THESIS ========== -->
 <section class="slide paper" id="s11b">
@@ -816,7 +860,7 @@ html{scroll-padding-top:96px;scroll-behavior:smooth}
   <div class="eyebrow">What the acquirer runs on Monday</div>
   <h2>Plug your existing deal flow into the rails. <em>No new origination required.</em></h2>
   <p class="sub">Illustrative numbers, structural economics — not a commitment. Volume depends on the acquirer's own deal flow and distribution.</p>
-  <div class="flow" style="grid-template-columns:repeat(4,1fr)">
+  <div class="flow four-step" style="grid-template-columns:repeat(4,1fr)">
     <div class="step">
       <div class="n">01 · Inventory</div>
       <h5>Acquirer's wholesale deals</h5>
@@ -891,7 +935,7 @@ html{scroll-padding-top:96px;scroll-behavior:smooth}
         <tbody>
           <tr><td class="name">01 · NDA &amp; teaser</td><td class="status">Week 1</td><td class="tight">Mutual NDA executed. Teaser and targeted supplementary materials released.</td></tr>
           <tr><td class="name">02 · Management meeting</td><td class="status">Week 2–3</td><td class="tight">Founder-led walkthrough of regulatory, legal, technology, and counterparty stack. Live platform demo. Q&amp;A on strategic fit and integration.</td></tr>
-          <tr><td class="name">03 · Data-room access</td><td class="status">Week 3–4</td><td class="tight">Virtual data room opens. Legal, regulatory, technical, commercial, financial folders (index in Appendix A·09).</td></tr>
+          <tr><td class="name">03 · Data-room access</td><td class="status">Week 3–4</td><td class="tight">Virtual data room opens. Legal, regulatory, technical, commercial, financial folders (index in Appendix A·04).</td></tr>
           <tr><td class="name">04 · Indicative bid</td><td class="status">Day 30</td><td class="tight">Non-binding indicative offer: consideration mix, earn-out triggers, integration posture, conditions.</td></tr>
           <tr><td class="name">05 · Exclusivity</td><td class="status">Day 30–45</td><td class="tight">Exclusivity granted to one preferred bidder. Full due diligence period commences.</td></tr>
           <tr><td class="name">06 · SPA &amp; FMA consent</td><td class="status">Day 45–90</td><td class="tight">SPA negotiation in parallel with FMA change-of-control consent process (UBO / director fit-and-proper review).</td></tr>
