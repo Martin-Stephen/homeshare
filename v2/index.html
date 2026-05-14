@@ -545,14 +545,17 @@ table td.num,table th.num{text-align:right;font-variant-numeric:tabular-nums;fon
   function up(){var st=window.pageYOffset||0;var sh=docEl.scrollHeight-window.innerHeight||1;pf.style.width=Math.max(0,Math.min(100,st/sh*100))+'%'}
   window.addEventListener('scroll',up,{passive:true});up();
 
-  // Fade in
+  // Fade in (only elements that aren't in the initial viewport)
   if('IntersectionObserver' in window){
-    var els=document.querySelectorAll('.section, .cover, .entity, .org-node, .wf-step');
-    els.forEach(function(e){e.classList.add('fade-in')});
+    var els=document.querySelectorAll('.section');
+    els.forEach(function(e){
+      var r=e.getBoundingClientRect();
+      if(r.top > window.innerHeight){e.classList.add('fade-in')}
+    });
     var io=new IntersectionObserver(function(es){
       es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}});
     },{threshold:0.06,rootMargin:'0px 0px -40px 0px'});
-    els.forEach(function(e){io.observe(e)});
+    document.querySelectorAll('.fade-in').forEach(function(e){io.observe(e)});
   }
 })();
 </script>
