@@ -8,7 +8,16 @@
 <meta name="theme-color" content="#FBF9F4" />
 <meta name="robots" content="noindex, nofollow" />
 <title>Homeshare Group Limited — Confidential Acquisition Opportunity</title>
+
+<!-- Open Graph + Twitter (private link previews) -->
+<meta property="og:title" content="Homeshare Group Limited — Confidential Acquisition Opportunity" />
+<meta property="og:description" content="New Zealand-licensed retail property investment platform operating under an FMA sandbox exemption. Confidential acquisition opportunity. Distribution restricted." />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Homeshare" />
+<meta name="twitter:card" content="summary" />
+
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='3' fill='%231E3A5F'/%3E%3Cpath d='M9 8h2v8H9zM21 8h2v8h-2zM11 14h10v2H11z' fill='%23FBF9F4'/%3E%3C/svg%3E" />
+<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Crect width='180' height='180' rx='38' fill='%231E3A5F'/%3E%3Cpath d='M52 50h12v50H52zM118 50h12v50h-12zM64 80h54v10H64z' fill='%23FBF9F4'/%3E%3C/svg%3E" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:wght@400;500;600&display=swap" rel="stylesheet">
@@ -215,23 +224,162 @@ sup.fnref{font-size:9.5px;color:var(--navy);font-weight:600;font-variant-numeric
   .statbar .stat:last-child{border-bottom:none}
 }
 @media print{
-  body{padding:0;background:white;color:black;font-size:11pt}
-  .topstrip{display:none}
-  .wrap{max-width:none;padding:0 32pt}
-  .section{page-break-after:auto;page-break-inside:avoid;padding:24pt 0}
+  body{padding:0;background:white;color:black;font-size:10.5pt}
+  .topstrip,.progress,.sidenav,.totop,.fn-pop{display:none !important}
+  .wrap{max-width:none;padding:0 28pt}
+  .section,.cover{break-inside:avoid;page-break-inside:avoid;padding:18pt 0}
+  .app-divider{break-before:page;page-break-before:always}
+  .section.fade-prepare,.cover.fade-prepare,.app-divider.fade-prepare{opacity:1 !important;transform:none !important}
+  table thead th{background:#f4f0e5 !important}
+  .factpanel,.txbox,.statbar,.highlights li{background:#fbf9f4 !important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+
+/* ============================================================
+   UX POLISH LAYER
+   Reading progress · side-nav · fades · footnote popovers ·
+   anchor links · keyboard nav · refined hovers · selection
+   ============================================================ */
+
+/* Default cursor: caret colour */
+html{caret-color:var(--navy)}
+
+/* Selection colour */
+::selection{background:rgba(166,124,46,0.22);color:var(--ink)}
+::-moz-selection{background:rgba(166,124,46,0.22);color:var(--ink)}
+
+/* Tabular numerals + kerning by default */
+body{font-feature-settings:“tnum” 1,“kern” 1,“ss01” 1;font-variant-numeric:tabular-nums}
+.cover h1,.section h2,.section-head .num,.cover-hero .brand,h1,h2{font-feature-settings:“kern” 1;font-variant-numeric:normal}
+
+/* Focus rings — Apple style */
+a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2px solid var(--navy);outline-offset:3px;border-radius:3px;transition:outline-offset 0.15s ease}
+
+/* Reading progress bar */
+.progress{position:fixed;top:0;left:0;right:0;height:2px;background:transparent;z-index:101;pointer-events:none}
+.progress .fill{height:100%;width:0;background:linear-gradient(90deg,var(--navy) 0%,var(--gold) 100%);transition:width 0.08s linear;will-change:width}
+
+/* Side navigation — appears on wider screens */
+.sidenav{position:fixed;left:24px;top:50%;transform:translateY(-50%);z-index:50;display:flex;flex-direction:column;gap:2px;padding:18px 0;font-family:'Inter',sans-serif}
+.sidenav .head{font-size:9.5px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--ink-soft);padding:0 10px 12px;border-bottom:1px solid var(--rule);margin-bottom:8px;max-width:160px}
+.sidenav a{display:grid;grid-template-columns:32px 1fr;align-items:center;gap:6px;text-decoration:none;color:var(--ink-soft);font-size:11px;letter-spacing:0.02em;font-weight:500;padding:6px 10px;border-radius:3px;transition:color 0.25s cubic-bezier(0.22,1,0.36,1),background 0.25s ease}
+.sidenav a .num{font-family:'Source Serif 4',Georgia,serif;font-weight:500;font-size:11.5px;color:var(--navy-soft);font-variant-numeric:tabular-nums;letter-spacing:0;transition:color 0.25s ease}
+.sidenav a .lbl{transition:color 0.25s ease, transform 0.25s cubic-bezier(0.22,1,0.36,1);transform-origin:left}
+.sidenav a:hover{color:var(--navy)}
+.sidenav a:hover .num{color:var(--navy)}
+.sidenav a:hover .lbl{transform:translateX(2px)}
+.sidenav a.active{color:var(--ink)}
+.sidenav a.active .num{color:var(--gold)}
+.sidenav a.active .lbl{font-weight:600;color:var(--ink)}
+
+/* Back to top button */
+.totop{position:fixed;right:28px;bottom:28px;z-index:60;width:44px;height:44px;border-radius:50%;background:var(--navy);color:var(--paper);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transform:translateY(8px) scale(0.92);transition:opacity 0.35s cubic-bezier(0.22,1,0.36,1),transform 0.35s cubic-bezier(0.22,1,0.36,1),background 0.2s ease;box-shadow:0 6px 18px rgba(30,58,95,0.22)}
+.totop.show{opacity:1;pointer-events:auto;transform:translateY(0) scale(1)}
+.totop:hover{background:var(--navy-2);transform:translateY(-1px) scale(1.02)}
+.totop:active{transform:translateY(0) scale(0.98)}
+.totop svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+/* Section fade-in on first view (subtle) */
+.fade-prepare{opacity:0;transform:translateY(10px);transition:opacity 0.65s cubic-bezier(0.22,1,0.36,1),transform 0.65s cubic-bezier(0.22,1,0.36,1)}
+.fade-prepare.in{opacity:1;transform:translateY(0)}
+@media (prefers-reduced-motion: reduce){.fade-prepare{opacity:1 !important;transform:none !important;transition:none !important}}
+
+/* Anchor link on h3 hover */
+.section h3 .anchor{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;margin-left:8px;font-size:11px;color:var(--navy-soft);background:transparent;border:1px solid transparent;border-radius:3px;font-weight:400;letter-spacing:0;text-transform:none;cursor:pointer;opacity:0;transform:translateX(-3px);transition:opacity 0.2s ease,transform 0.2s ease,background 0.15s ease,border-color 0.15s ease,color 0.15s ease;vertical-align:middle}
+.section h3:hover .anchor{opacity:0.8;transform:translateX(0)}
+.section h3 .anchor:hover{opacity:1;background:var(--navy-tint);border-color:var(--rule);color:var(--navy)}
+.section h3 .anchor.copied{color:var(--success);opacity:1}
+
+/* Footnote ref micro-affordance */
+sup.fnref{cursor:help;padding:0 2px;border-radius:2px;transition:background 0.15s ease;outline:none}
+sup.fnref:hover,sup.fnref:focus-visible{background:var(--navy-tint-2)}
+
+/* Footnote popover */
+.fn-pop{position:fixed;background:var(--ink);color:var(--paper);padding:11px 15px;border-radius:4px;font-family:'Inter',sans-serif;font-size:12px;line-height:1.55;letter-spacing:0;text-transform:none;font-weight:400;max-width:340px;z-index:200;box-shadow:0 8px 28px rgba(0,0,0,0.22),0 2px 6px rgba(0,0,0,0.12);opacity:0;transform:translateY(4px);transition:opacity 0.18s cubic-bezier(0.22,1,0.36,1),transform 0.18s cubic-bezier(0.22,1,0.36,1);pointer-events:none}
+.fn-pop.show{opacity:1;transform:translateY(0)}
+.fn-pop em{font-style:italic;color:var(--paper-2)}
+
+/* Topstrip — reading meta on wide screens */
+.topstrip .meta{display:none;margin-left:16px;padding-left:16px;border-left:1px solid var(--rule);color:var(--ink-soft);font-size:10.5px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase}
+@media (min-width:1200px){.topstrip .meta{display:inline}}
+.topstrip .left{display:flex;align-items:center}
+
+/* Refined link underline-draw on topstrip + footer */
+.docfooter a,.topstrip a{position:relative;display:inline-block;text-decoration:none}
+.docfooter a::after,.topstrip a::after{content:'';position:absolute;left:0;right:0;bottom:-2px;height:1px;background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform 0.3s cubic-bezier(0.22,1,0.36,1)}
+.docfooter a:hover::after,.topstrip a:hover::after{transform:scaleX(1)}
+
+/* Table row hover */
+table tbody tr{transition:background 0.18s ease}
+table tbody tr:hover{background:var(--navy-tint)}
+
+/* Investment highlight cards — lift on hover */
+.highlights li{transition:transform 0.3s cubic-bezier(0.22,1,0.36,1),box-shadow 0.3s ease,border-color 0.25s ease}
+.highlights li:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(30,58,95,0.08),0 2px 6px rgba(30,58,95,0.05);border-left-color:var(--gold)}
+
+/* Stat-bar items hover */
+.statbar .stat{transition:background 0.2s ease}
+.statbar .stat:hover{background:var(--paper-3)}
+
+/* Fact-panel rows tiny hover */
+.factpanel .row{transition:background 0.15s ease}
+.factpanel .row:hover{background:rgba(30,58,95,0.04)}
+
+/* Screenshot subtle lift on hover */
+.screenshot{transition:box-shadow 0.3s cubic-bezier(0.22,1,0.36,1)}
+.screenshot:hover{box-shadow:0 12px 36px rgba(30,58,95,0.1)}
+
+/* Keyboard hint chip */
+.kbhint{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(8px);background:var(--ink);color:var(--paper);padding:8px 14px;border-radius:24px;font-family:'Inter',sans-serif;font-size:11px;letter-spacing:0.06em;font-weight:500;z-index:120;opacity:0;pointer-events:none;transition:opacity 0.2s ease,transform 0.25s cubic-bezier(0.22,1,0.36,1);box-shadow:0 4px 14px rgba(0,0,0,0.15);display:flex;align-items:center;gap:6px}
+.kbhint.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.kbhint kbd{font-family:'Inter',sans-serif;font-size:10px;background:rgba(255,255,255,0.15);padding:2px 6px;border-radius:3px;font-weight:600}
+
+/* Side nav hidden below this width */
+@media (max-width:1340px){.sidenav{display:none}}
+
+/* Slightly tighter line-height for long body paragraphs at mobile */
+@media (max-width:900px){
+  .totop{right:16px;bottom:16px;width:40px;height:40px}
+  .kbhint{display:none}
 }
 </style>
 </head>
 <body>
 
+<div class="progress" aria-hidden="true"><div class="fill" id="progFill"></div></div>
+
 <div class="topstrip">
-  <div class="left"><span class="dot"></span>Homeshare · Strictly Private &amp; Confidential</div>
+  <div class="left">
+    <span class="dot"></span>Homeshare · Strictly Private &amp; Confidential
+    <span class="meta">9 sections · ~12 min read</span>
+  </div>
   <div class="right">
     <a href="#executive-summary">Summary</a>
     <a href="#regulatory">Regulatory</a>
     <a href="#process">Process</a>
   </div>
 </div>
+
+<nav class="sidenav" aria-label="Section navigation">
+  <div class="head">Contents</div>
+  <a href="#executive-summary" data-target="executive-summary"><span class="num">01</span><span class="lbl">Executive summary</span></a>
+  <a href="#business-overview" data-target="business-overview"><span class="num">02</span><span class="lbl">Business overview</span></a>
+  <a href="#regulatory" data-target="regulatory"><span class="num">03</span><span class="lbl">Regulatory</span></a>
+  <a href="#counterparties" data-target="counterparties"><span class="num">04</span><span class="lbl">Counterparties</span></a>
+  <a href="#revenue" data-target="revenue"><span class="num">05</span><span class="lbl">Revenue model</span></a>
+  <a href="#comparables" data-target="comparables"><span class="num">06</span><span class="lbl">Comparables</span></a>
+  <a href="#risks" data-target="risks"><span class="num">07</span><span class="lbl">Liquidity &amp; risks</span></a>
+  <a href="#management" data-target="management"><span class="num">08</span><span class="lbl">Management</span></a>
+  <a href="#process" data-target="process"><span class="num">09</span><span class="lbl">Process</span></a>
+  <a href="#a-licence-deed" data-target="a-licence-deed"><span class="num">A·1</span><span class="lbl">Licence &amp; deed</span></a>
+  <a href="#a-platform" data-target="a-platform"><span class="num">A·2</span><span class="lbl">Platform &amp; ops</span></a>
+  <a href="#a-data-room" data-target="a-data-room"><span class="num">A·3</span><span class="lbl">Data room</span></a>
+</nav>
+
+<button class="totop" id="toTop" aria-label="Back to top" title="Back to top">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 14 12 8 18 14"></polyline></svg>
+</button>
+
+<div class="kbhint" id="kbHint"><kbd>J</kbd> next · <kbd>K</kbd> previous · <kbd>?</kbd> hide</div>
 
 <div class="wrap">
 
@@ -669,7 +817,7 @@ sup.fnref{font-size:9.5px;color:var(--navy);font-weight:600;font-variant-numeric
       <text class="pw-t" x="940" y="138" text-anchor="middle">Catalist / NZX</text>
       <text class="pw-t" x="940" y="152" text-anchor="middle">Listed-PIE elected</text>
       <text class="pw-t" x="940" y="166" text-anchor="middle">Sharesies distribution</text>
-      <text class="pw-t" x="940" y="180" text-anchor="middle">Acquirer's call</text>
+      <text class="pw-t" x="940" y="180" text-anchor="middle">Acquirer’s call</text>
       <text class="pw-period" x="940" y="200" text-anchor="middle">Not required</text>
     </svg>
     <div class="diagram-cap">The sandbox provides a launch window while the full FMC Act MIS authorisation pathway is completed in parallel. The acquirer inherits an active transition.</div>
@@ -838,7 +986,7 @@ sup.fnref{font-size:9.5px;color:var(--navy);font-weight:600;font-variant-numeric
   </div>
   <h2>Indicative revenue model</h2>
 
-  <p class="lede">The economics below are structural rather than projected. Actual monetisation is a function of the acquirer's distribution channels, asset class selection, fee schedule, and integration with existing wholesale inventory.</p>
+  <p class="lede">The economics below are structural rather than projected. Actual monetisation is a function of the acquirer’s distribution channels, asset class selection, fee schedule, and integration with existing wholesale inventory.</p>
 
   <h3>Revenue streams</h3>
 
@@ -921,7 +1069,7 @@ sup.fnref{font-size:9.5px;color:var(--navy);font-weight:600;font-variant-numeric
 
       <text class="rv-lbl" x="1020" y="332" text-anchor="end">All figures NZ$. Axis is illustrative; not to linear scale.</text>
     </svg>
-    <div class="diagram-cap">Year 3 and Year 5 figures assume completion of full FMC Act MIS authorisation. Volume depends on the acquirer's existing wholesale inventory and distribution. Full assumption build in data room / Folder 04.</div>
+    <div class="diagram-cap">Year 3 and Year 5 figures assume completion of full FMC Act MIS authorisation. Volume depends on the acquirer’s existing wholesale inventory and distribution. Full assumption build in data room / Folder 04.</div>
   </div>
 
   <h3>Unit economics</h3>
@@ -1023,7 +1171,7 @@ sup.fnref{font-size:9.5px;color:var(--navy);font-weight:600;font-variant-numeric
 
   <div class="fn">
     <div class="fn-row"><span class="marker">1</span><span><em>Praemium Limited, ASX release: Praemium acquires the OneVue platform business from Iress, 28 February 2024.</em> Subsequent Praemium disclosure indicated no earn-out tranche was triggered.</span></div>
-    <div class="fn-row"><span class="marker">2</span><span><em>Centuria Capital Group NZ takeover documents (NZ Takeovers Panel, July–August 2020); MarketScreener, "Centuria cancels acquisition of Augusta Capital", 26 March 2020.</em></span></div>
+    <div class="fn-row"><span class="marker">2</span><span><em>Centuria Capital Group NZ takeover documents (NZ Takeovers Panel, July–August 2020); MarketScreener, “Centuria cancels acquisition of Augusta Capital”, 26 March 2020.</em></span></div>
   </div>
 </section>
 
@@ -1083,7 +1231,7 @@ sup.fnref{font-size:9.5px;color:var(--navy);font-weight:600;font-variant-numeric
       <text class="ls-lbl-end" x="640" y="70" text-anchor="middle">Listed-PIE (opt.)</text>
       <text class="ls-h" x="640" y="138" text-anchor="middle">Catalist / NZX wrapper</text>
       <text class="ls-t" x="640" y="156" text-anchor="middle">Periodic-auction or continuous</text>
-      <text class="ls-ex" x="640" y="174" text-anchor="middle">Acquirer's call · roadmap</text>
+      <text class="ls-ex" x="640" y="174" text-anchor="middle">Acquirer’s call · roadmap</text>
 
       <!-- Right end: daily NAV -->
       <line class="ls-tick" x1="960" y1="92" x2="960" y2="108"/>
@@ -1093,7 +1241,7 @@ sup.fnref{font-size:9.5px;color:var(--navy);font-weight:600;font-variant-numeric
       <text class="ls-t" x="960" y="156" text-anchor="middle">Requires liquid underlying assets</text>
       <text class="ls-ex" x="960" y="174" text-anchor="middle">Equities · listed REITs · cash funds</text>
     </svg>
-    <div class="diagram-cap">Homeshare's structural position: one step up from locked-in property syndicates, materially below daily-NAV managed funds. Depth depends on investor base, sub-trust count, and the manager's use of cl 12 levers (matching, warehousing, market-making).</div>
+    <div class="diagram-cap">Homeshare’s structural position: one step up from locked-in property syndicates, materially below daily-NAV managed funds. Depth depends on investor base, sub-trust count, and the manager’s use of cl 12 levers (matching, warehousing, market-making).</div>
   </div>
 
   <h3>Liquidity mechanics</h3>
@@ -1103,7 +1251,7 @@ sup.fnref{font-size:9.5px;color:var(--navy);font-weight:600;font-variant-numeric
     <tbody>
       <tr><td class="label">Investor-to-investor secondary market<small>Deed cl 12; ±25% AVM band</small></td><td>On-platform venue for matched buyer/seller transfers without sponsor wind-up.</td><td>Does not guarantee a match. Depth scales with the investor base and the number of sub-trusts.</td></tr>
       <tr><td class="label">AVM-anchored fixed-price corridor<small>CoreLogic, 4-monthly</small></td><td>Constrains transfers to within ±25% of independent valuation. Limits panic-floor outcomes.</td><td>Does not assist in correlated-sell events; the floor is the floor.</td></tr>
-      <tr><td class="label">Non-redeemable units<small>Deed cl 12.11</small></td><td>The scheme cannot suspend redemptions because no redemption right exists; structural protection against the "redemptions suspended" outcome.</td><td>No fund-level exit; secondary market or eventual wind-up only.</td></tr>
+      <tr><td class="label">Non-redeemable units<small>Deed cl 12.11</small></td><td>The scheme cannot suspend redemptions because no redemption right exists; structural protection against the “redemptions suspended” outcome.</td><td>No fund-level exit; secondary market or eventual wind-up only.</td></tr>
       <tr><td class="label">Manager discretion under Secondary Market Rules<small>Deed cl 12</small></td><td>Permits manager to set matching logic, introduce transaction fees, warehouse stranded orders, or appoint a market-maker.</td><td>Levers available to the acquirer at its discretion.</td></tr>
     </tbody>
   </table>
@@ -1119,7 +1267,7 @@ sup.fnref{font-size:9.5px;color:var(--navy);font-weight:600;font-variant-numeric
       <tr><td class="label">Sandbox expiry 30 November 2027</td><td>The Exemption Notice does not auto-renew. Continued operation past expiry requires full FMC Act MIS authorisation.</td><td>9–12 month transition project actively in progress with FMA and MERW. Substantive groundwork complete.</td></tr>
       <tr><td class="label">Sandbox volume caps</td><td>10 Exempt Offers; NZ$50K / NZ$100K per-investor caps; ≤NZ$1M property cap; no gearing.</td><td>Material scale requires full FMC Act MIS authorisation. Acquirer inherits the prepared transition.</td></tr>
       <tr><td class="label">Counterparty concentration</td><td>Single residential property manager, single AVM vendor, single engineering partner.</td><td>Each agreement is templated and portable; no exclusivity granted; alternative providers available.</td></tr>
-      <tr><td class="label">Secondary-market depth</td><td>Depth depends on investor base and number of sub-trusts. Pre-launch, depth is theoretical.</td><td>Acquirer's distribution scale produces depth. Cross-sub-trust diversification, AVM band, and Deed cl 12 levers provide structural support.</td></tr>
+      <tr><td class="label">Secondary-market depth</td><td>Depth depends on investor base and number of sub-trusts. Pre-launch, depth is theoretical.</td><td>Acquirer’s distribution scale produces depth. Cross-sub-trust diversification, AVM band, and Deed cl 12 levers provide structural support.</td></tr>
       <tr><td class="label">Founder prior-venture profile</td><td>Co-founded Pixelmon (2022). Disclosed in Section 08 and to the FMA at sandbox admission.</td><td>MERW written confirmation of FMA disclosure in data room. Sandbox admission granted on full disclosure.</td></tr>
     </tbody>
   </table>
@@ -1365,7 +1513,7 @@ sup.fnref{font-size:9.5px;color:var(--navy);font-weight:600;font-variant-numeric
       <tr><td class="label">cl 10.1</td><td>Valuation</td><td>AVM-anchored, refreshed 4-monthly (sandbox cl 7(j)(1)) and on material change.</td></tr>
       <tr><td class="label">cl 11</td><td>Compulsory sale or redemption</td><td>Manager force-sale or redemption to preserve PIE eligibility or recover shortfall.</td></tr>
       <tr><td class="label">cl 12</td><td>Secondary market</td><td>Transfers within Secondary Market Rules; ±25% AVM band. cl 12.9 permits introduction of transaction fees.</td></tr>
-      <tr><td class="label">cl 12.11</td><td>Non-redeemable units</td><td>Units are not redeemable at the scheme level. Eliminates the "redemptions suspended" failure mode.</td></tr>
+      <tr><td class="label">cl 12.11</td><td>Non-redeemable units</td><td>Units are not redeemable at the scheme level. Eliminates the “redemptions suspended” failure mode.</td></tr>
       <tr><td class="label">cl 13.6, cl 25</td><td>PIE compliance</td><td>Per-sub-trust listed-PIE election at 28% cap; PIR attribution, withholding, disposal preservation.</td></tr>
       <tr><td class="label">cl 15.15</td><td>Borrowing</td><td>Sub-trust-level borrowing permitted post full-MIS (sandbox prohibits gearing).</td></tr>
       <tr><td class="label">cl 19, cl 20</td><td>Manager and trustee replacement</td><td>Consent-based change-of-control pathway.</td></tr>
@@ -1472,5 +1620,258 @@ sup.fnref{font-size:9.5px;color:var(--navy);font-weight:600;font-variant-numeric
 </div>
 
 </div>
+
+<script>
+(function(){
+  'use strict';
+  var docEl = document.documentElement;
+  var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // ---------- Reading progress ----------
+  var progFill = document.getElementById('progFill');
+  var rafProg = false;
+  function updateProgress(){
+    rafProg = false;
+    var st = window.pageYOffset || docEl.scrollTop || 0;
+    var sh = (docEl.scrollHeight - window.innerHeight) || 1;
+    var pct = Math.max(0, Math.min(100, (st / sh) * 100));
+    if(progFill) progFill.style.width = pct + '%';
+  }
+  function onScrollProg(){
+    if(!rafProg){ rafProg = true; requestAnimationFrame(updateProgress); }
+  }
+  window.addEventListener('scroll', onScrollProg, {passive:true});
+  window.addEventListener('resize', updateProgress, {passive:true});
+  updateProgress();
+
+  // ---------- Section fade-in on first view ----------
+  var fadeEls = document.querySelectorAll('.section, .app-divider, .cover');
+  if(!reduceMotion){
+    fadeEls.forEach(function(s){ s.classList.add('fade-prepare'); });
+    if('IntersectionObserver' in window){
+      var ioFade = new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting){
+            e.target.classList.add('in');
+            ioFade.unobserve(e.target);
+          }
+        });
+      }, {threshold:0.06, rootMargin:'0px 0px -40px 0px'});
+      fadeEls.forEach(function(s){ ioFade.observe(s); });
+    } else {
+      fadeEls.forEach(function(s){ s.classList.add('in'); });
+    }
+  }
+
+  // ---------- Side-nav active-section highlight ----------
+  var sideLinks = document.querySelectorAll('.sidenav a');
+  var sideMap = {};
+  sideLinks.forEach(function(a){
+    var t = a.getAttribute('data-target');
+    if(t) sideMap[t] = a;
+  });
+  if('IntersectionObserver' in window){
+    var ioNav = new IntersectionObserver(function(entries){
+      // Pick the entry closest to top with largest visibility
+      var visible = entries
+        .filter(function(e){ return e.isIntersecting; })
+        .sort(function(a,b){ return a.boundingClientRect.top - b.boundingClientRect.top; });
+      if(visible.length){
+        var id = visible[0].target.id;
+        sideLinks.forEach(function(a){ a.classList.toggle('active', a.getAttribute('data-target') === id); });
+      }
+    }, {rootMargin:'-25% 0px -60% 0px', threshold:[0, 0.25, 0.5, 0.75, 1]});
+    Object.keys(sideMap).forEach(function(id){
+      var el = document.getElementById(id);
+      if(el) ioNav.observe(el);
+    });
+  }
+
+  // ---------- Back to top ----------
+  var btn = document.getElementById('toTop');
+  function updateBtn(){
+    var st = window.pageYOffset || 0;
+    btn.classList.toggle('show', st > 600);
+  }
+  window.addEventListener('scroll', updateBtn, {passive:true});
+  btn.addEventListener('click', function(){
+    window.scrollTo({top:0, behavior: reduceMotion ? 'auto' : 'smooth'});
+  });
+  updateBtn();
+
+  // ---------- Footnote popovers ----------
+  var fnRefs = document.querySelectorAll('sup.fnref');
+  var pop = null;
+  var popTimer = null;
+  function findFootnoteHTML(num, fromEl){
+    var section = fromEl.closest('.section');
+    if(!section) return '';
+    var rows = section.querySelectorAll('.fn-row');
+    for(var i=0;i<rows.length;i++){
+      var marker = rows[i].querySelector('.marker');
+      if(marker && marker.textContent.trim() === num){
+        // The text content sits in the span AFTER the marker
+        var spans = rows[i].querySelectorAll('span');
+        for(var j=0;j<spans.length;j++){
+          if(spans[j] !== marker && !spans[j].classList.contains('marker')) {
+            return spans[j].innerHTML;
+          }
+        }
+      }
+    }
+    return '';
+  }
+  function hidePop(){
+    if(popTimer){ clearTimeout(popTimer); popTimer = null; }
+    if(pop){
+      var p = pop; pop = null;
+      p.classList.remove('show');
+      setTimeout(function(){ if(p && p.parentNode) p.parentNode.removeChild(p); }, 240);
+    }
+  }
+  function showPop(el){
+    hidePop();
+    var num = el.textContent.trim();
+    var html = findFootnoteHTML(num, el);
+    if(!html) return;
+    pop = document.createElement('div');
+    pop.className = 'fn-pop';
+    pop.setAttribute('role','tooltip');
+    pop.innerHTML = html;
+    document.body.appendChild(pop);
+    var r = el.getBoundingClientRect();
+    var pr = pop.getBoundingClientRect();
+    var left = r.left - 4;
+    var top = r.bottom + 8;
+    // Keep within viewport
+    var maxLeft = window.innerWidth - pr.width - 12;
+    if(left > maxLeft) left = maxLeft;
+    if(left < 12) left = 12;
+    if(top + pr.height > window.innerHeight - 8){
+      top = r.top - pr.height - 8;
+    }
+    pop.style.left = left + 'px';
+    pop.style.top = top + 'px';
+    requestAnimationFrame(function(){ if(pop) pop.classList.add('show'); });
+  }
+  fnRefs.forEach(function(el){
+    el.setAttribute('tabindex','0');
+    el.setAttribute('role','button');
+    el.setAttribute('aria-label','Show citation ' + el.textContent.trim());
+    el.addEventListener('mouseenter', function(){ showPop(el); });
+    el.addEventListener('mouseleave', function(){ popTimer = setTimeout(hidePop, 120); });
+    el.addEventListener('focus', function(){ showPop(el); });
+    el.addEventListener('blur', hidePop);
+    el.addEventListener('click', function(e){ e.preventDefault(); showPop(el); });
+  });
+  document.addEventListener('scroll', hidePop, {passive:true});
+
+  // ---------- H3 anchor links ----------
+  document.querySelectorAll('.section h3').forEach(function(h){
+    var section = h.closest('.section');
+    if(!section || !section.id) return;
+    // Skip if inside transaction-box (h3 there is decorative)
+    if(h.closest('.txbox')) return;
+    var anchor = document.createElement('span');
+    anchor.className = 'anchor';
+    anchor.setAttribute('role','button');
+    anchor.setAttribute('tabindex','0');
+    anchor.setAttribute('title','Copy section link');
+    anchor.textContent = '§';
+    h.appendChild(anchor);
+    function doCopy(){
+      var url = window.location.origin + window.location.pathname + '#' + section.id;
+      var done = function(){
+        anchor.textContent = '✓';
+        anchor.classList.add('copied');
+        setTimeout(function(){ anchor.textContent = '§'; anchor.classList.remove('copied'); }, 1400);
+      };
+      if(navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(url).then(done, done);
+      } else {
+        // fallback
+        var ta = document.createElement('textarea');
+        ta.value = url; document.body.appendChild(ta); ta.select();
+        try { document.execCommand('copy'); } catch(e){}
+        document.body.removeChild(ta);
+        done();
+      }
+    }
+    anchor.addEventListener('click', function(e){ e.stopPropagation(); doCopy(); });
+    anchor.addEventListener('keydown', function(e){
+      if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); doCopy(); }
+    });
+  });
+
+  // ---------- Keyboard navigation ----------
+  var navSections = Array.from(document.querySelectorAll('.cover, .section, .app-divider'));
+  var hintEl = document.getElementById('kbHint');
+  var hintTimer = null;
+  function showHint(){
+    if(!hintEl) return;
+    hintEl.classList.add('show');
+    if(hintTimer) clearTimeout(hintTimer);
+    hintTimer = setTimeout(function(){ hintEl.classList.remove('show'); }, 2200);
+  }
+  function findCurrentSection(){
+    var bestIdx = 0;
+    for(var i=0;i<navSections.length;i++){
+      var r = navSections[i].getBoundingClientRect();
+      if(r.top <= 80) bestIdx = i;
+      else break;
+    }
+    return bestIdx;
+  }
+  document.addEventListener('keydown', function(e){
+    var tag = (e.target && e.target.tagName) || '';
+    if(tag === 'INPUT' || tag === 'TEXTAREA' || e.target.isContentEditable) return;
+    if(e.metaKey || e.ctrlKey || e.altKey) return;
+    var dir = 0;
+    if(e.key === 'j' || e.key === 'J') dir = 1;
+    else if(e.key === 'k' || e.key === 'K') dir = -1;
+    else if(e.key === 'ArrowDown' && e.shiftKey) dir = 1;
+    else if(e.key === 'ArrowUp' && e.shiftKey) dir = -1;
+    else if(e.key === '?'){ showHint(); return; }
+    else if(e.key === 'Home'){ e.preventDefault(); window.scrollTo({top:0, behavior: reduceMotion ? 'auto' : 'smooth'}); return; }
+    else if(e.key === 'End'){ e.preventDefault(); window.scrollTo({top:docEl.scrollHeight, behavior: reduceMotion ? 'auto' : 'smooth'}); return; }
+    if(dir === 0) return;
+    e.preventDefault();
+    var cur = findCurrentSection();
+    var next = Math.max(0, Math.min(navSections.length - 1, cur + dir));
+    navSections[next].scrollIntoView({behavior: reduceMotion ? 'auto' : 'smooth', block:'start'});
+  });
+
+  // Show keyboard hint once on first scroll (desktop only)
+  var hintShown = false;
+  function maybeShowHint(){
+    if(hintShown || window.innerWidth < 1000) return;
+    hintShown = true;
+    if(hintEl){
+      setTimeout(function(){
+        hintEl.classList.add('show');
+        setTimeout(function(){ hintEl.classList.remove('show'); }, 3500);
+      }, 1200);
+    }
+  }
+  window.addEventListener('scroll', function once(){
+    window.removeEventListener('scroll', once);
+    maybeShowHint();
+  }, {passive:true, once:true});
+
+  // ---------- Smooth scroll for in-page anchors ----------
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){
+    a.addEventListener('click', function(e){
+      var href = a.getAttribute('href');
+      if(!href || href === '#') return;
+      var target = document.getElementById(href.slice(1));
+      if(!target) return;
+      e.preventDefault();
+      target.scrollIntoView({behavior: reduceMotion ? 'auto' : 'smooth', block:'start'});
+      history.replaceState(null, '', href);
+    });
+  });
+})();
+</script>
+
 </body>
 </html>
