@@ -147,10 +147,12 @@ table tbody tr:last-child td{border-bottom:1px solid var(--rule)}
 table tbody tr:hover td{background:rgba(30,58,95,0.025)}
 table td.label{font-weight:500;color:var(--ink)}
 table td.label small{display:block;font-weight:400;color:var(--ink-soft);font-size:var(--t-11);margin-top:3px;letter-spacing:0}
-table td.num{font-variant-numeric:tabular-nums;font-weight:500;color:var(--ink);white-space:nowrap}
-table td.status{font-size:var(--t-11);font-weight:600;letter-spacing:0.08em;color:var(--navy);text-transform:uppercase;white-space:nowrap}
+table td.num{font-variant-numeric:tabular-nums;font-weight:500;color:var(--ink);white-space:nowrap;text-align:right}
+table th.num{text-align:right}
+table td.status{font-size:var(--t-11);font-weight:600;letter-spacing:0.08em;color:var(--navy);text-transform:uppercase;white-space:nowrap;text-align:right}
+table th.status{text-align:right}
 table td.status.muted{color:var(--ink-soft);font-weight:500}
-table tfoot td{padding-top:var(--s-16);border-top:1.5px solid var(--ink);font-weight:600;color:var(--ink)}
+table tfoot td{padding-top:var(--s-16);border-top:1px solid var(--navy);font-weight:600;color:var(--ink)}
 
 .txbox{background:var(--paper-tint);border:1px solid var(--rule);border-left:3px solid var(--gold);border-radius:12px;padding:var(--s-32);margin:var(--s-32) 0 var(--s-16)}
 .txbox h3{margin:0 0 var(--s-16)}
@@ -713,7 +715,7 @@ sup.fnref:hover,sup.fnref:focus-visible{background:rgba(30,58,95,0.12)}
 
   <h3>Transition status, what is done, what remains</h3>
   <table>
-    <thead><tr><th style="width:46%">Requirement</th><th style="width:30%">Status</th><th>Completion</th></tr></thead>
+    <thead><tr><th style="width:46%">Requirement</th><th style="width:30%">Status</th><th class="status">Completion</th></tr></thead>
     <tbody>
       <tr><td class="label">Master Trust Deed</td><td>Executed 30 January 2026</td><td class="status">Complete</td></tr>
       <tr><td class="label">Licensed manager and trustee entities</td><td>Established and operating</td><td class="status">Complete</td></tr>
@@ -736,7 +738,7 @@ sup.fnref:hover,sup.fnref:focus-visible{background:rgba(30,58,95,0.12)}
 
   <h3>Counterparty schedule</h3>
   <table>
-    <thead><tr><th style="width:24%">Counterparty</th><th style="width:26%">Role</th><th style="width:28%">Status</th><th>Transfer position</th></tr></thead>
+    <thead><tr><th style="width:24%">Counterparty</th><th style="width:26%">Role</th><th style="width:28%">Status</th><th class="status">Transfer position</th></tr></thead>
     <tbody>
       <tr><td class="label">MinterEllisonRuddWatts<small>Jeremy Muir, partner</small></td><td>Lead legal counsel, scheme, deed, FMA engagement</td><td>Ongoing engagement; deed executed 30 Jan 2026</td><td class="status">Continues</td></tr>
       <tr><td class="label">Online Rentals Limited<small>t/a Ray White Hamilton</small></td><td>Residential property management for sub-trust assets</td><td>PMA executed; 7.5% of gross rent + GST on cost-recovery basis</td><td class="status">Assignable</td></tr>
@@ -770,7 +772,7 @@ sup.fnref:hover,sup.fnref:focus-visible{background:rgba(30,58,95,0.12)}
 
   <h3>Cumulative cost incurred to date</h3>
   <table>
-    <thead><tr><th style="width:58%">Category</th><th>Cumulative</th></tr></thead>
+    <thead><tr><th style="width:58%">Category</th><th class="num">Cumulative</th></tr></thead>
     <tbody>
       <tr><td class="label">Legal and regulatory<small>MERW, FMA sandbox admission, licensing</small></td><td class="num">~A$0.7M</td></tr>
       <tr><td class="label">Platform engineering<small>Miquido, 24 months</small></td><td class="num">~A$1.5M</td></tr>
@@ -844,12 +846,12 @@ sup.fnref:hover,sup.fnref:focus-visible{background:rgba(30,58,95,0.12)}
 
   <h3>Scaling detail</h3>
   <table>
-    <thead><tr><th>Horizon</th><th>Sub-trusts</th><th>Indicative retail AUM</th><th>Indicative ARR (71–95 bps)</th></tr></thead>
+    <thead><tr><th>Horizon</th><th class="num">Sub-trusts</th><th class="num">Indicative retail AUM</th><th class="num">Indicative ARR (71–95 bps)</th></tr></thead>
     <tbody>
-      <tr><td class="label">Year 1</td><td>2–3</td><td class="num">NZ$5–15M</td><td class="num">~NZ$35–140K</td></tr>
-      <tr><td class="label">Year 2</td><td>5–8</td><td class="num">NZ$20–50M</td><td class="num">~NZ$140–475K</td></tr>
-      <tr><td class="label">Year 3</td><td>10–15</td><td class="num">NZ$50–100M</td><td class="num">~NZ$350–950K</td></tr>
-      <tr><td class="label">Year 5 (upside)</td><td>30–40</td><td class="num">NZ$300–500M</td><td class="num">~NZ$2.1–4.8M</td></tr>
+      <tr><td class="label">Year 1</td><td class="num">2–3</td><td class="num">NZ$5–15M</td><td class="num">~NZ$35–140K</td></tr>
+      <tr><td class="label">Year 2</td><td class="num">5–8</td><td class="num">NZ$20–50M</td><td class="num">~NZ$140–475K</td></tr>
+      <tr><td class="label">Year 3</td><td class="num">10–15</td><td class="num">NZ$50–100M</td><td class="num">~NZ$350–950K</td></tr>
+      <tr><td class="label">Year 5 (upside)</td><td class="num">30–40</td><td class="num">NZ$300–500M</td><td class="num">~NZ$2.1–4.8M</td></tr>
     </tbody>
   </table>
 </section>
@@ -1120,7 +1122,7 @@ sup.fnref:hover,sup.fnref:focus-visible{background:rgba(30,58,95,0.12)}
 
   <h3>Platform components</h3>
   <table>
-    <thead><tr><th style="width:26%">Component</th><th style="width:48%">Function</th><th>Status</th></tr></thead>
+    <thead><tr><th style="width:26%">Component</th><th style="width:48%">Function</th><th class="status">Status</th></tr></thead>
     <tbody>
       <tr><td class="label">Retail onboarding</td><td>Account creation, identity verification, PIR collection, bank account linking</td><td class="status">Deployed</td></tr>
       <tr><td class="label">Homeshare Wallet</td><td>Per-investor notional balance over a single bare-trust Custodial Bank Account</td><td class="status">Deployed</td></tr>
