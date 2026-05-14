@@ -185,27 +185,23 @@ sup.fnref:hover,sup.fnref:focus-visible{background:rgba(30,58,95,0.12)}
 .two-col{display:grid;grid-template-columns:1fr 1fr;gap:var(--s-48);align-items:start;margin:0 0 var(--s-16)}
 @media (max-width:900px){.two-col{grid-template-columns:1fr;gap:var(--s-24)}}
 
-/* Deal flow */
-.flowdiag{padding:var(--s-32) 0;border-top:1px solid var(--rule-soft);border-bottom:1px solid var(--rule-soft);display:grid;grid-template-columns:1fr 32px 2fr 32px 1fr;gap:0;align-items:start}
-.flowdiag .col{padding:0 var(--s-24)}
+/* Deal flow — clean 3-column type layout */
+.flowdiag{padding:var(--s-32) 0;border-top:1px solid var(--rule-soft);border-bottom:1px solid var(--rule-soft);display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;align-items:start}
+.flowdiag .col{padding:0 var(--s-32);border-right:1px solid var(--rule-soft);min-width:0}
 .flowdiag .col:first-child{padding-left:0}
-.flowdiag .col:last-child{padding-right:0}
-.flowdiag .col .step{font-family:'Source Serif 4',Georgia,serif;font-size:48px;font-weight:400;color:var(--navy);line-height:1;letter-spacing:-0.022em;margin-bottom:var(--s-12);font-variant-numeric:normal}
-.flowdiag .col h4{font-family:'Source Serif 4',Georgia,serif;font-size:var(--t-22);font-weight:500;color:var(--ink);margin:0 0 var(--s-12);line-height:1.2;letter-spacing:-0.012em;font-variant-numeric:normal}
-.flowdiag .col .kicker{font-size:var(--t-11);font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:var(--s-16)}
+.flowdiag .col:last-child{padding-right:0;border-right:none}
+.flowdiag .col .kicker{font-size:var(--t-11);font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--navy);margin-bottom:var(--s-12)}
+.flowdiag .col h4{font-family:'Source Serif 4',Georgia,serif;font-size:var(--t-22);font-weight:500;color:var(--ink);margin:0 0 var(--s-16);line-height:1.25;letter-spacing:-0.012em;font-variant-numeric:normal}
 .flowdiag .col .list{margin:0;padding:0;list-style:none}
-.flowdiag .col .list li{font-size:var(--t-13);color:var(--ink-2);padding:6px 0;border-bottom:1px solid var(--rule-soft);line-height:1.4}
-.flowdiag .col .list li:last-child{border-bottom:none}
-.flowdiag .arrow{display:flex;flex-direction:column;align-items:center;justify-content:center;padding-top:90px;height:100%;gap:6px}
-.flowdiag .arrow .line{width:1px;flex:1;background:var(--ink-soft);min-height:24px}
-.flowdiag .arrow .head{width:8px;height:8px;border-right:1px solid var(--ink);border-bottom:1px solid var(--ink);transform:rotate(-45deg);margin-top:-4px}
-.flowdiag .arrow .label{font-size:9px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--navy);background:var(--paper);padding:4px 6px}
-.flowdiag .midpills{margin-top:var(--s-16);display:grid;grid-template-columns:1fr 1fr;gap:var(--s-8)}
-.flowdiag .midpills .pill{font-size:var(--t-12);color:var(--ink);background:var(--paper);border:1px solid var(--rule);border-radius:4px;padding:8px 10px;line-height:1.3}
-.flowdiag .midpills .pill small{display:block;color:var(--ink-soft);font-size:10px;margin-top:2px}
-.flowdiag .midfoot{margin-top:var(--s-16);padding-top:var(--s-12);border-top:1px solid var(--rule-soft);font-size:var(--t-12);color:var(--ink-2)}
-.flowdiag .midfoot strong{color:var(--ink);font-weight:600;font-size:var(--t-11);letter-spacing:0.14em;text-transform:uppercase;display:block;margin-bottom:4px}
-@media (max-width:900px){.flowdiag{grid-template-columns:1fr;gap:var(--s-24);padding:var(--s-24) 0}.flowdiag .col{padding:0}.flowdiag .arrow{display:none}}
+.flowdiag .col .list li{font-size:var(--t-13);color:var(--ink-2);padding:9px 0;border-top:1px solid var(--rule-soft);line-height:1.45}
+.flowdiag .col .list li:first-child{border-top:none;padding-top:0}
+.flowdiag .components{margin:0;padding:0;list-style:none}
+.flowdiag .components li{display:grid;grid-template-columns:1fr auto;gap:var(--s-12);padding:9px 0;border-top:1px solid var(--rule-soft);font-size:var(--t-13);color:var(--ink);line-height:1.4;align-items:baseline}
+.flowdiag .components li:first-child{border-top:none;padding-top:0}
+.flowdiag .components li small{color:var(--ink-soft);font-size:var(--t-11);font-weight:400;text-align:right}
+.flowdiag .col .foot{margin-top:var(--s-16);padding-top:var(--s-12);border-top:1px solid var(--rule);font-size:var(--t-12);color:var(--ink-2);line-height:1.5}
+.flowdiag .col .foot strong{color:var(--navy);font-weight:600;font-size:var(--t-11);letter-spacing:0.14em;text-transform:uppercase;display:block;margin-bottom:6px}
+@media (max-width:900px){.flowdiag{grid-template-columns:1fr;gap:var(--s-24);padding:var(--s-24) 0}.flowdiag .col{padding:0 0 var(--s-24);border-right:none;border-bottom:1px solid var(--rule-soft)}.flowdiag .col:last-child{border-bottom:none;padding-bottom:0}}
 
 /* Group structure type-only */
 .groupstruct{padding:var(--s-24) 0;border-top:1px solid var(--rule-soft);border-bottom:1px solid var(--rule-soft);max-width:760px}
@@ -224,10 +220,9 @@ sup.fnref:hover,sup.fnref:focus-visible{background:rgba(30,58,95,0.12)}
 
 /* Workflow */
 .workflow{padding:var(--s-32) 0;border-top:1px solid var(--rule-soft);border-bottom:1px solid var(--rule-soft);display:grid;grid-template-columns:repeat(7,1fr);gap:var(--s-24);position:relative}
-.workflow::before{content:'';position:absolute;left:var(--s-24);right:var(--s-24);top:62px;height:1px;background:var(--rule)}
+.workflow::before{content:'';position:absolute;left:0;right:0;top:43px;height:1px;background:var(--rule);z-index:0}
 .workflow .step{position:relative}
-.workflow .step .n{font-family:'Source Serif 4',Georgia,serif;font-size:var(--t-22);font-weight:500;color:var(--navy);line-height:1;font-variant-numeric:normal;background:var(--paper);padding:0 8px 0 0;display:inline-block;position:relative;z-index:1}
-.workflow .step .dot{width:8px;height:8px;border-radius:50%;background:var(--navy);position:relative;z-index:1;margin:var(--s-12) 0 var(--s-16);box-shadow:0 0 0 4px var(--paper)}
+.workflow .step .n{font-family:'Source Serif 4',Georgia,serif;font-size:var(--t-22);font-weight:500;color:var(--navy);line-height:1;font-variant-numeric:normal;background:var(--paper);padding:0 12px 0 0;display:inline-block;position:relative;z-index:1;margin-bottom:var(--s-24)}
 .workflow .step h5{font-size:var(--t-13);font-weight:600;color:var(--ink);margin:0 0 var(--s-8);line-height:1.3}
 .workflow .step p{font-size:var(--t-12);color:var(--ink-soft);margin:0;line-height:1.45}
 .workflow .step .dur{display:inline-block;font-size:10px;color:var(--ink-2);background:var(--paper-tint);border:1px solid var(--rule);padding:2px 6px;border-radius:4px;margin-top:var(--s-8);font-variant-numeric:tabular-nums;letter-spacing:0.04em}
@@ -458,7 +453,7 @@ sup.fnref:hover,sup.fnref:focus-visible{background:rgba(30,58,95,0.12)}
 <section class="section" id="executive-summary">
   <div class="section-head"><div class="num">01</div><div class="meta"><div class="label">Section 01</div><div class="pager">Page 01 / 10</div></div></div>
   <h2>What you inherit at close</h2>
-  <p class="lede">Homeshare gives a property syndicator a licensed retail-distribution platform, built, deployed, and regulator-engaged, that would take 24–36 months and A$3–4 million to assemble from scratch. The first sub-trust is selected and launched under the acquirer's brand, on the acquirer's commercial terms, within ~90 days of close.<sup class="fnref">1</sup></p>
+  <p class="lede">Homeshare gives a property syndicator a licensed retail-distribution platform, built, deployed, and regulator-engaged, that would take 24–36 months and A$3–4 million to assemble from scratch. The first sub-trust is selected and launched under the acquirer's brand, on the acquirer's commercial terms, within ~90 days of close.</p>
 
   <div class="statbar">
     <div class="stat"><div class="lbl">Replacement cost</div><div class="val">A$3–4M</div><div class="sub">24–36 months to assemble</div></div>
@@ -469,11 +464,11 @@ sup.fnref:hover,sup.fnref:focus-visible{background:rgba(30,58,95,0.12)}
 
   <h3>Investment highlights</h3>
   <ol class="highlights">
-    <li><strong>You inherit an active FMA licence and regulatory relationship that takes a new entrant 12–18 months to establish.</strong> Homeshare Scheme Management Limited (FSP1008923) and Homeshare Trustees Limited operate a licensed Managed Investment Scheme, with a 9–12 month transition to full FMC Act MIS authorisation already in progress with the FMA and MERW.<sup class="fnref">2</sup></li>
+    <li><strong>You inherit an active FMA licence and regulatory relationship that takes a new entrant 12–18 months to establish.</strong> Homeshare Scheme Management Limited (FSP1008923) and Homeshare Trustees Limited operate a licensed Managed Investment Scheme, with a 9–12 month transition to full FMC Act MIS authorisation already in progress with the FMA and MERW.<sup class="fnref">1</sup></li>
     <li><strong>You inherit a Master Trust Deed drafted by tier-1 NZ funds counsel, A$0.7M of legal work, executed and ready to use.</strong> 36 clauses, drafted by MinterEllisonRuddWatts, executed 30 January 2026. Provides ring-fenced sub-trusts, per-sub-trust PIE tax election, an investor-to-investor secondary market, and a smart-contract permission layer. Reusable for every future deal under the same scheme.</li>
     <li><strong>You inherit seven contracted counterparty relationships, each assignable on change of control.</strong> Ray White Hamilton (residential property management), CoreLogic NZ (automated valuation), MinterEllisonRuddWatts (legal), The Compliance Company (AML/CFT), an appointed auditor, KYC/AML vendor, and Miquido sp. z o.o. (Kraków, 24-month engineering engagement, transferable).</li>
     <li><strong>You inherit a built, deployed retail platform, A$1.5M of engineering, no rebuild required.</strong> Production, staging, and development environments deployed. Retail onboarding, tokenised unit register, Homeshare Wallet, primary and secondary market, NAV and distribution engines, automated PIE tax, all live and ready to operate.</li>
-    <li><strong>You inherit positioning for the AU Digital Assets Framework Act before it commences.</strong> The Act received Royal Assent 8 April 2026 and commences 9 April 2027 with a 6-month transition window. Homeshare's deed (cl 2.6) and architecture are tokenisation-ready. An acquirer is positioned for AU expansion the day the Framework Act begins.</li>
+    <li><strong>You inherit a clean platform with no legacy obligations.</strong> Pre-AUM, pre-launch. The acquirer selects the first sub-trust, sets the fee schedule, configures the unit count per Home Trust Conditions, and launches under the acquirer's own brand. 100% founder-held, no external equity, no preference stack.</li>
   </ol>
 
   <div class="txbox">
@@ -486,8 +481,7 @@ sup.fnref:hover,sup.fnref:focus-visible{background:rgba(30,58,95,0.12)}
   </div>
 
   <div class="fn">
-    <div class="fn-row"><span class="marker">1</span><span>Corporations Amendment (Digital Assets Framework) Bill 2025 received Royal Assent 8 April 2026; commences 9 April 2027 with a 6-month transition period (<em>Gilbert + Tobin, 2026</em>).</span></div>
-    <div class="fn-row"><span class="marker">2</span><span>Financial Markets Conduct (Homeshare) Exemption Notice 2025; FMA, December 2025. Full instrument and FMA correspondence log available in data room / Folder 01.</span></div>
+    <div class="fn-row"><span class="marker">1</span><span>Financial Markets Conduct (Homeshare) Exemption Notice 2025; FMA, December 2025. Full instrument and FMA correspondence log available in data room / Folder 01.</span></div>
   </div>
 </section>
 
@@ -500,41 +494,36 @@ sup.fnref:hover,sup.fnref:focus-visible{background:rgba(30,58,95,0.12)}
     <div class="chart-head"><h3 class="chart-title">A syndicator deal becomes retail-tradable units, then a monthly income and an exit.</h3></div>
     <div class="flowdiag">
       <div class="col">
-        <div class="kicker">01 · Syndicator</div>
-        <div class="step">01</div>
+        <div class="kicker">01 · Syndicator brings the deal</div>
         <h4>Your deal</h4>
         <ul class="list">
-          <li>Residential or commercial</li>
-          <li>Infrastructure or income</li>
+          <li>Residential or commercial asset</li>
+          <li>Infrastructure or income asset</li>
           <li>Origination and brand stay yours</li>
           <li>Commercial terms unchanged</li>
         </ul>
       </div>
-      <div class="arrow"><div class="line"></div><div class="label">Deal</div><div class="line"></div></div>
       <div class="col">
-        <div class="kicker">02 · Homeshare wrap</div>
-        <div class="step">02</div>
-        <h4>Sub-trust · ring-fenced · PIE-elected</h4>
-        <div class="midpills">
-          <div class="pill">MERW deed<small>36 clauses</small></div>
-          <div class="pill">Tokenised register<small>Per Home Trust</small></div>
-          <div class="pill">Bare-trust wallet<small>Custodial Bank Account</small></div>
-          <div class="pill">PIE tax @ 28%<small>Per sub-trust</small></div>
-          <div class="pill">Monthly distributions<small>Time-weighted</small></div>
-          <div class="pill">Secondary market<small>±25% AVM band</small></div>
-        </div>
-        <div class="midfoot"><strong>Counterparties integrated</strong>Ray White PMA · CoreLogic AVM · KYC/AML · Auditor, all assignable on change of control</div>
+        <div class="kicker">02 · Homeshare wraps it</div>
+        <h4>Sub-trust, ring-fenced, PIE-elected</h4>
+        <ul class="components">
+          <li>MERW-drafted deed<small>36 clauses</small></li>
+          <li>Tokenised register<small>Per Home Trust</small></li>
+          <li>Bare-trust wallet<small>Custodial Bank Account</small></li>
+          <li>PIE tax election<small>28% cap, per sub-trust</small></li>
+          <li>Monthly distributions<small>Time-weighted</small></li>
+          <li>Secondary market<small>±25% AVM band</small></li>
+        </ul>
+        <div class="foot"><strong>Counterparties integrated</strong>Ray White PMA · CoreLogic AVM · KYC/AML · Auditor. All assignable on change of control.</div>
       </div>
-      <div class="arrow"><div class="line"></div><div class="label">Units</div><div class="line"></div></div>
       <div class="col">
-        <div class="kicker">03 · Retail investors</div>
-        <div class="step">03</div>
+        <div class="kicker">03 · Retail investors subscribe</div>
         <h4>Subscribe, hold, exit</h4>
         <ul class="list">
           <li>From $100 minimum</li>
           <li>Digital KYC onboarding</li>
           <li>Monthly distributions to wallet</li>
-          <li>Match-based exit via secondary market</li>
+          <li>Match-based exit on secondary market</li>
         </ul>
       </div>
     </div>
@@ -565,13 +554,13 @@ sup.fnref:hover,sup.fnref:focus-visible{background:rgba(30,58,95,0.12)}
   <div class="chart">
     <div class="chart-head"><h3 class="chart-title">A new sub-trust goes from template to live operations in days, not months.</h3></div>
     <div class="workflow">
-      <div class="step"><span class="n">01</span><div class="dot"></div><h5>Instantiate</h5><p>Home Trust Conditions, asset, price, PIE election</p><span class="dur">~1 hour</span></div>
-      <div class="step"><span class="n">02</span><div class="dot"></div><h5>Offer page</h5><p>12-month prospective financials published</p><span class="dur">T + 1 day</span></div>
-      <div class="step"><span class="n">03</span><div class="dot"></div><h5>Subscribe</h5><p>Retail commits via Wallet → bare-trust custodial</p><span class="dur">T + 7 days</span></div>
-      <div class="step"><span class="n">04</span><div class="dot"></div><h5>Target met</h5><p>Sub-trust activates on Establishment Target (cl 4.4)</p><span class="dur">T + 14 days</span></div>
-      <div class="step"><span class="n">05</span><div class="dot"></div><h5>Issue units</h5><p>Funds → Scheme Account; units issued; Confirmations</p><span class="dur">T + 15 days</span></div>
-      <div class="step"><span class="n">06</span><div class="dot"></div><h5>Acquire</h5><p>Trustee completes purchase; asset held for unitholders</p><span class="dur">T + 30 days</span></div>
-      <div class="step"><span class="n">07</span><div class="dot"></div><h5>Operate</h5><p>Monthly distributions · 4-monthly AVM · secondary ±25%</p><span class="dur">Ongoing</span></div>
+      <div class="step"><span class="n">01</span><h5>Instantiate</h5><p>Home Trust Conditions, asset, price, PIE election</p><span class="dur">~1 hour</span></div>
+      <div class="step"><span class="n">02</span><h5>Offer page</h5><p>12-month prospective financials published</p><span class="dur">T + 1 day</span></div>
+      <div class="step"><span class="n">03</span><h5>Subscribe</h5><p>Retail commits via Wallet → bare-trust custodial</p><span class="dur">T + 7 days</span></div>
+      <div class="step"><span class="n">04</span><h5>Target met</h5><p>Sub-trust activates on Establishment Target (cl 4.4)</p><span class="dur">T + 14 days</span></div>
+      <div class="step"><span class="n">05</span><h5>Issue units</h5><p>Funds → Scheme Account; units issued; Confirmations</p><span class="dur">T + 15 days</span></div>
+      <div class="step"><span class="n">06</span><h5>Acquire</h5><p>Trustee completes purchase; asset held for unitholders</p><span class="dur">T + 30 days</span></div>
+      <div class="step"><span class="n">07</span><h5>Operate</h5><p>Monthly distributions · 4-monthly AVM · secondary ±25%</p><span class="dur">Ongoing</span></div>
     </div>
     <p class="chart-cap">Timing illustrative. The deed, manager, trustee, and FMA posture do not change between sub-trusts, only the Home Trust Conditions parameters.</p>
   </div>
@@ -615,8 +604,8 @@ sup.fnref:hover,sup.fnref:focus-visible{background:rgba(30,58,95,0.12)}
       </div>
       <div class="fit-case">
         <div class="num">03</div>
-        <h5>Position for the AU Digital Assets Framework Act</h5>
-        <p>The Act commences 9 April 2027 with a 6-month transition. Homeshare's deed (cl 2.6) and architecture are tokenisation-ready. An NZ beachhead today is an AU expansion path the day the Framework Act begins.</p>
+        <h5>Brand and commercial terms unchanged</h5>
+        <p>The first sub-trust launches under the acquirer's own brand. Fee schedule, unit count, and Secondary Market Rules are configured per Home Trust Conditions. The acquirer keeps full control over how each deal is priced and presented to investors.</p>
       </div>
     </div>
   </div>
@@ -798,62 +787,10 @@ sup.fnref:hover,sup.fnref:focus-visible{background:rgba(30,58,95,0.12)}
     </tbody>
   </table>
 
-  <div class="chart">
-    <div class="chart-head"><h3 class="chart-title">ARR scales roughly 60× from Year 1 to Year 5 on 30–40 sub-trusts.</h3><span class="chip-illust">Illustrative · not a forecast</span></div>
-    <div class="rev">
-      <div class="rev-hero">
-        <div class="multiple">60×</div>
-        <div class="lbl">ARR multiple<br>Year 1 → Year 5 upside</div>
-      </div>
-      <div class="rev-slope">
-        <div class="title">Retail AUM (NZ$)</div>
-        <svg viewBox="0 0 340 210" xmlns="http://www.w3.org/2000/svg">
-          <style>.rs-axis{stroke:#D8D2C2;stroke-width:1}.rs-line{stroke:#1E3A5F;stroke-width:2;fill:none}.rs-dot{fill:#1E3A5F}.rs-h{font-family:'Source Serif 4',Georgia,serif;font-size:14px;fill:#1A1A1A;font-weight:500}.rs-y{font-family:'Inter',sans-serif;font-size:10px;fill:#86868B;letter-spacing:0.06em;text-transform:uppercase;font-weight:600}</style>
-          <line class="rs-axis" x1="80" y1="30" x2="80" y2="170"/>
-          <line class="rs-axis" x1="260" y1="30" x2="260" y2="170"/>
-          <line class="rs-axis" x1="80" y1="170" x2="260" y2="170"/>
-          <text class="rs-y" x="80" y="192" text-anchor="middle">Y1</text>
-          <text class="rs-y" x="260" y="192" text-anchor="middle">Y5</text>
-          <path class="rs-line" d="M 80 150 Q 170 80 260 38"/>
-          <circle class="rs-dot" cx="80" cy="150" r="5"/>
-          <circle class="rs-dot" cx="260" cy="38" r="5"/>
-          <text class="rs-h" x="73" y="143" text-anchor="end">$5–15M</text>
-          <text class="rs-h" x="267" y="33" text-anchor="start">$300–500M</text>
-        </svg>
-      </div>
-      <div class="rev-slope">
-        <div class="title">Indicative ARR @ 71–95 bps</div>
-        <svg viewBox="0 0 340 210" xmlns="http://www.w3.org/2000/svg">
-          <style>.as-axis{stroke:#D8D2C2;stroke-width:1}.as-line{stroke:#A67C2E;stroke-width:2;fill:none}.as-dot{fill:#A67C2E}.as-h{font-family:'Source Serif 4',Georgia,serif;font-size:14px;fill:#1A1A1A;font-weight:500}.as-y{font-family:'Inter',sans-serif;font-size:10px;fill:#86868B;letter-spacing:0.06em;text-transform:uppercase;font-weight:600}</style>
-          <line class="as-axis" x1="80" y1="30" x2="80" y2="170"/>
-          <line class="as-axis" x1="260" y1="30" x2="260" y2="170"/>
-          <line class="as-axis" x1="80" y1="170" x2="260" y2="170"/>
-          <text class="as-y" x="80" y="192" text-anchor="middle">Y1</text>
-          <text class="as-y" x="260" y="192" text-anchor="middle">Y5</text>
-          <path class="as-line" d="M 80 155 Q 170 100 260 36"/>
-          <circle class="as-dot" cx="80" cy="155" r="5"/>
-          <circle class="as-dot" cx="260" cy="36" r="5"/>
-          <text class="as-h" x="73" y="148" text-anchor="end">$35–140K</text>
-          <text class="as-h" x="267" y="31" text-anchor="start">$2.1–4.8M</text>
-        </svg>
-      </div>
-    </div>
-    <p class="chart-cap">Year 3 and Year 5 figures assume completion of full FMC Act MIS authorisation. Volume depends on the acquirer's existing wholesale inventory and distribution.</p>
-  </div>
-
-  <h3>Unit economics</h3>
-  <p>At an indicative 71 basis points per annum on a single A$800,000 residential asset, the recurring Trust Service Fee is approximately A$5,700 per annum per sub-trust. Shared platform infrastructure (register, distribution engine, reporting) amortises across sub-trusts; incremental sub-trusts add revenue faster than variable cost.</p>
-
-  <h3>Scaling detail</h3>
-  <table>
-    <thead><tr><th>Horizon</th><th class="num">Sub-trusts</th><th class="num">Indicative retail AUM</th><th class="num">Indicative ARR (71–95 bps)</th></tr></thead>
-    <tbody>
-      <tr><td class="label">Year 1</td><td class="num">2–3</td><td class="num">NZ$5–15M</td><td class="num">~NZ$35–140K</td></tr>
-      <tr><td class="label">Year 2</td><td class="num">5–8</td><td class="num">NZ$20–50M</td><td class="num">~NZ$140–475K</td></tr>
-      <tr><td class="label">Year 3</td><td class="num">10–15</td><td class="num">NZ$50–100M</td><td class="num">~NZ$350–950K</td></tr>
-      <tr><td class="label">Year 5 (upside)</td><td class="num">30–40</td><td class="num">NZ$300–500M</td><td class="num">~NZ$2.1–4.8M</td></tr>
-    </tbody>
-  </table>
+  <h3>Unit economics per sub-trust</h3>
+  <p>The Trust Service Fee is the recurring economic anchor. At an indicative 71 basis points per annum on a single A$800,000 residential asset, the recurring fee is approximately <strong>A$5,700 per annum per sub-trust</strong>. The fee is configurable per Home Trust Conditions, so the acquirer sets the schedule on each deal.</p>
+  <p>Shared platform infrastructure (register, distribution engine, reporting, PIE engine) amortises across sub-trusts. Incremental sub-trusts add revenue faster than variable cost. Total scheme revenue scales with the number of sub-trusts launched, the asset size of each, and the fee schedule the acquirer sets — all of which are acquirer decisions, not Homeshare projections.</p>
+  <p class="source">Pre-revenue. No projections shown. The economics above are structural mathematics; AUM-level outcomes depend entirely on the acquirer's distribution and asset selection.</p>
 </section>
 
 <section class="section" id="comparables">
