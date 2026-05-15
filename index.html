@@ -403,6 +403,26 @@ table tfoot td{padding-top:var(--s-16);border-top:1px solid var(--navy);font-wei
 .cover-hero{margin:var(--s-24) 0 var(--s-48)}
 .cover-hero .hero-text{max-width:900px}
 
+/* Versus card grid (Build / Sharesies / Homeshare) */
+.versus{margin:var(--s-16) 0 var(--s-32);max-width:1000px}
+.versus-head{font-size:var(--t-11);font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--navy);margin-bottom:var(--s-16)}
+.versus-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:var(--s-16)}
+@media (max-width:900px){.versus-grid{grid-template-columns:1fr}}
+.vs-card{background:var(--paper);border:1px solid var(--rule);border-radius:14px;padding:var(--s-20) var(--s-24);position:relative}
+.vs-card.primary{background:var(--paper-2);border-color:var(--navy);border-width:1.5px}
+.vs-card .vs-lbl{font-size:var(--t-13);font-weight:600;color:var(--ink);letter-spacing:-0.005em;margin-bottom:var(--s-8)}
+.vs-card.primary .vs-lbl{color:var(--navy)}
+.vs-card .vs-detail{font-size:var(--t-12);color:var(--ink-2);line-height:1.55}
+
+/* Demand signal stat strip */
+.demand{margin:var(--s-32) 0 var(--s-16);display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+@media (max-width:760px){.demand{grid-template-columns:1fr}.demand .ds{border-right:none !important;border-bottom:1px solid var(--rule-soft)}.demand .ds:last-child{border-bottom:none}}
+.demand .ds{padding:var(--s-32) var(--s-24);border-right:1px solid var(--rule-soft);text-align:left}
+.demand .ds:last-child{border-right:none}
+.demand .ds .big{font-family:'Source Serif 4',Georgia,serif;font-size:48px;font-weight:500;color:var(--navy);line-height:1;letter-spacing:-0.024em;margin-bottom:var(--s-12);font-variant-numeric:normal}
+.demand .ds .copy{font-size:var(--t-13);color:var(--ink);font-weight:500;line-height:1.45;margin-bottom:var(--s-8);max-width:280px}
+.demand .ds .src{font-size:10.5px;color:var(--ink-soft);letter-spacing:0.04em;line-height:1.4}
+
 /* WORKED EXAMPLE: A$15M building -> 150,000 shares -> retail */
 .worked{margin:var(--s-32) 0 var(--s-24)}
 .worked-header{margin-bottom:var(--s-24)}
@@ -597,15 +617,35 @@ sup.fnref{font-size:9.5px;color:var(--navy);font-weight:600;font-variant-numeric
     </div>
     <div class="uc">
       <div class="uc-num">02</div>
-      <h5>Buy out of the FMA queue</h5>
-      <p>A new entrant faces 12 to 18 months of FMA work before issuing a single retail unit. At close, you step into an active engagement with a documented path to full FMC Act MIS authorisation in 9 to 12 months.</p>
+      <h5>Move at platform speed, not regulator speed</h5>
+      <p>A standalone build is 12 to 18 months of FMA work before your first retail unit. Partnering with Homeshare puts you into an active FMA relationship with a documented 9 to 12 month path to full FMC Act MIS authorisation.</p>
     </div>
     <div class="uc">
       <div class="uc-num">03</div>
       <h5>Brand and terms unchanged</h5>
-      <p>Every offer launches under the acquirer&rsquo;s own brand. Fee schedule and unit count are configured per deal. The acquirer keeps full control over how each deal is priced and presented to investors.</p>
+      <p>Every offer launches under your brand. Fee schedule and unit count are configured per deal. You keep full control over how each deal is priced and presented to investors.</p>
     </div>
   </div>
+
+  <h3>Retail demand is measured, real, and unmet</h3>
+  <div class="demand">
+    <div class="ds">
+      <div class="big">75%</div>
+      <div class="copy">of Kiwis want exposure to real estate.</div>
+      <div class="src">Pollfish nationally representative survey, March 2025, N=500</div>
+    </div>
+    <div class="ds">
+      <div class="big">49%</div>
+      <div class="copy">rank &ldquo;start investing for under $100&rdquo; as a top-3 most appealing feature.</div>
+      <div class="src">Doyle Dane Bernbach research, June 2025, N=417</div>
+    </div>
+    <div class="ds">
+      <div class="big">84%</div>
+      <div class="copy">said yes or maybe to investing on Homeshare if available today.</div>
+      <div class="src">Pollfish, March 2025, N=500</div>
+    </div>
+  </div>
+  <p class="source">Two independent surveys, six months apart, agree: there&rsquo;s a large Kiwi audience that wants property exposure but cannot access it through traditional syndicate minimums. They will arrive on day one of any retail-enabled offer.</p>
 </section>
 
 
@@ -618,6 +658,24 @@ sup.fnref{font-size:9.5px;color:var(--navy);font-weight:600;font-variant-numeric
 
   <h2>What we built.</h2>
   <p class="lede">A licensed New Zealand financial product, ready to issue retail tickets on your next deal. Built for property syndicators across asset classes; the architecture is asset-agnostic and configurable per deal.</p>
+
+  <div class="versus">
+    <div class="versus-head">Compared with the alternatives</div>
+    <div class="versus-grid">
+      <div class="vs-card">
+        <div class="vs-lbl">Build it yourself</div>
+        <div class="vs-detail">24 to 36 months and A$3 to 4M before issuing a single retail unit. The FMA work alone is 12 to 18 months. You also need engineering, an AML/CFT programme, a registry, a custody arrangement and a secondary venue.</div>
+      </div>
+      <div class="vs-card">
+        <div class="vs-lbl">Use a generic retail broker</div>
+        <div class="vs-detail">Sharesies, Hatch and InvestNow are built for listed securities, not single-asset property syndicates. No per-deal trust, no ring-fencing between deals, no PIE election, no AVM-anchored secondary band, no per-deal fee schedule control.</div>
+      </div>
+      <div class="vs-card primary">
+        <div class="vs-lbl">Partner with Homeshare</div>
+        <div class="vs-detail">First retail offer in ~90 days, under your brand and fee schedule. Per-deal ring-fenced trust. PIE-elected. Configurable per asset. Built for syndicators, not generic retail.</div>
+      </div>
+    </div>
+  </div>
 
   <p><strong>The licensed manager and trustee operate under an FMA-issued exemption</strong> that admitted the scheme to NZ&rsquo;s regulatory sandbox in late 2025. A 9 to 12 month transition to full FMC Act MIS authorisation is in progress with the FMA and MinterEllisonRuddWatts (lead legal counsel).</p>
 
@@ -814,7 +872,12 @@ sup.fnref{font-size:9.5px;color:var(--navy);font-weight:600;font-variant-numeric
       </div>
     </div>
   </div>
-  <p class="diagram-cap">Illustrative view of the issuer console operating at typical syndicator scale. Each deal sits inside its own ring-fenced trust; the acquirer manages the whole book from a single console. Full deed clauses and the group corporate structure are shared on diligence.</p>
+  <p class="diagram-cap">Illustrative view of the issuer console operating at typical syndicator scale. Each deal sits inside its own ring-fenced trust; you manage the whole book from a single console. Full deed clauses and the group corporate structure are shared on diligence.</p>
+
+  <div class="pullquote2">
+    <p class="q">&ldquo;With decades of PM expertise, we know strong partnerships matter. Homeshare complements our commitment to excellence, giving everyday investors confidence their properties are well-managed.&rdquo;</p>
+    <p class="attr">Fraser Coombes &amp; An&eacute;l Mostert &middot; Managing Director &amp; Development Manager, Ray White</p>
+  </div>
 </section>
 
 
@@ -826,7 +889,7 @@ sup.fnref{font-size:9.5px;color:var(--navy);font-weight:600;font-variant-numeric
   </div>
 
   <h2>What&rsquo;s ready.</h2>
-  <p class="lede">Six asset categories. All assignable, no legacy obligations.</p>
+  <p class="lede">Six asset categories. All transferable, no legacy obligations.</p>
 
   <ol class="inherit-list">
     <li>
@@ -857,7 +920,7 @@ sup.fnref{font-size:9.5px;color:var(--navy);font-weight:600;font-variant-numeric
       <div class="n">4</div>
       <div class="body">
         <h4>Standing regulatory and compliance relationships</h4>
-        <p>Ongoing legal counsel with MinterEllisonRuddWatts (Jeremy Muir, Partner) and AML/CFT programme with The Compliance Company. Both assignable to the acquirer on close. Property management and asset-valuation are deliberately not bundled, so the acquirer can plug in their existing vendors.</p>
+        <p>Ongoing legal counsel with MinterEllisonRuddWatts (Jeremy Muir, Partner) and AML/CFT programme with The Compliance Company. Both transfer with you from day one of partnership. Property management and asset valuation are deliberately not bundled, so you plug in your own vendors.</p>
       </div>
       <div class="tag">Assignable</div>
     </li>
@@ -879,7 +942,7 @@ sup.fnref{font-size:9.5px;color:var(--navy);font-weight:600;font-variant-numeric
     </li>
   </ol>
 
-  <p class="source">Platform built with Miquido (Krak&oacute;w). MinterEllisonRuddWatts is lead legal counsel; The Compliance Company supports AML/CFT. Both relationships continue at the acquirer&rsquo;s option. Detailed schedules shared on diligence.</p>
+  <p class="source">Platform built with Miquido (Krak&oacute;w). MinterEllisonRuddWatts is lead legal counsel; The Compliance Company supports AML/CFT. Both relationships continue at your option. Detailed schedules shared on diligence.</p>
 </section>
 
 
@@ -907,7 +970,7 @@ sup.fnref{font-size:9.5px;color:var(--navy);font-weight:600;font-variant-numeric
     <div class="why-card">
       <div class="why-kicker">Founder transition</div>
       <h4>Available for a clean 60–90 day handover.</h4>
-      <p>Founder-led for 24 months to date; ready to hand over to the acquirer's CEO, Compliance Lead, and independent directors. No legacy team to integrate, no pension overhang, no equity issues.</p>
+      <p>Founder-led for 24 months to date; ready to hand over to your CEO, Compliance Lead, and independent directors. No legacy team to integrate, no pension overhang, no equity issues.</p>
     </div>
   </div>
 
@@ -936,8 +999,13 @@ sup.fnref{font-size:9.5px;color:var(--navy);font-weight:600;font-variant-numeric
   <p>He founded Homeshare in 2024 to bring the same product-and-distribution discipline to a regulated New Zealand financial product. Capital structure is straightforward; the full schedule is shared on diligence.</p>
 
   <h3>Transition</h3>
-  <p>Mr van Blerk is available for a 6 to 12 month transition consulting engagement covering FMA relationship handover, legal continuity with MinterEllisonRuddWatts, and operational knowledge transfer. The acquirer is expected to appoint a CEO, Compliance Lead, and independent directors post-close.</p>
+  <p>Mr van Blerk is available for a 6 to 12 month transition consulting engagement covering FMA relationship handover, legal continuity with MinterEllisonRuddWatts, and operational knowledge transfer. You appoint the permanent CEO, Compliance Lead, and independent directors after partnership.</p>
   <p class="source">Full organisation and capital structure shared on diligence.</p>
+
+  <div class="pullquote2">
+    <p class="q">&ldquo;Homeshare is reshaping property investing into something simple, intuitive, and aspirational. It&rsquo;s the kind of brand vision we love to champion.&rdquo;</p>
+    <p class="attr">James Blair &middot; Group Managing Director, Brand &amp; Marketing Partner</p>
+  </div>
 </section>
 
 
