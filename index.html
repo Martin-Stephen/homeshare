@@ -405,19 +405,43 @@ table tfoot td{padding-top:var(--s-16);border-top:1px solid var(--navy);font-wei
 .cover-hero{margin:var(--s-24) 0 var(--s-48)}
 .cover-hero .hero-text{max-width:900px}
 
-/* Comparison table: traditional vs Homeshare structure */
-.compare-table{margin:var(--s-24) 0 var(--s-32);border:1px solid var(--rule);border-radius:14px;overflow:hidden;background:var(--paper)}
-.compare-table .ct-head{display:grid;grid-template-columns:1fr 140px 1fr;background:var(--paper-2);border-bottom:1px solid var(--rule)}
-.compare-table .ct-head .ct-h{padding:var(--s-16) var(--s-20);font-size:var(--t-12);font-weight:600;letter-spacing:0.04em;color:var(--ink)}
-.compare-table .ct-head .ct-hs{color:var(--navy)}
-.compare-table .ct-head .ct-axis{text-align:center;font-size:9.5px;color:var(--ink-soft);font-weight:500;letter-spacing:0.18em;text-transform:uppercase}
-.compare-table .ct-row{display:grid;grid-template-columns:1fr 140px 1fr;border-bottom:1px solid var(--rule-soft)}
-.compare-table .ct-row:last-child{border-bottom:none}
-.compare-table .ct-row > div{padding:var(--s-16) var(--s-20);font-size:var(--t-13);line-height:1.5}
-.compare-table .ct-row .ct-trad{color:var(--ink-soft);background:var(--paper)}
-.compare-table .ct-row .ct-axis{background:var(--paper-2);text-align:center;font-size:10px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-2);display:flex;align-items:center;justify-content:center;border-left:1px solid var(--rule-soft);border-right:1px solid var(--rule-soft)}
-.compare-table .ct-row .ct-hs{color:var(--ink);font-weight:500}
-@media (max-width:760px){.compare-table .ct-head,.compare-table .ct-row{grid-template-columns:1fr}.compare-table .ct-row .ct-axis{justify-content:flex-start;padding:6px var(--s-20);border:none;border-top:1px solid var(--rule-soft)}.compare-table .ct-row > div{padding:var(--s-12) var(--s-20)}}
+/* Benefit pills row (in §03 between worked example and console mockup) */
+.benefit-pills{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:var(--s-32) 0 var(--s-24);padding:var(--s-24) var(--s-32);background:linear-gradient(135deg,var(--paper-2) 0%,var(--paper-3) 100%);border-radius:14px;border:1px solid var(--rule)}
+.benefit-pills .bp-lead{font-size:10.5px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--navy);margin-right:var(--s-12)}
+.benefit-pills .bp{display:inline-flex;align-items:center;font-size:var(--t-12);font-weight:500;color:var(--ink);background:var(--paper);border:1px solid var(--rule);border-radius:999px;padding:7px 14px;letter-spacing:-0.005em;white-space:nowrap;transition:box-shadow 0.22s var(--ease),transform 0.22s var(--ease)}
+.benefit-pills .bp::before{content:'';display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--gold);margin-right:9px;flex-shrink:0}
+.benefit-pills .bp:hover{box-shadow:0 4px 12px rgba(30,58,95,0.10);transform:translateY(-1px)}
+@media (max-width:760px){.benefit-pills{padding:var(--s-20)}}
+
+/* Versus board: hero comparison of traditional vs Homeshare structure */
+.versus-board{margin:var(--s-24) 0 var(--s-32);border-radius:18px;overflow:hidden;background:var(--paper);border:1px solid var(--rule)}
+.vb-headers{display:grid;grid-template-columns:1fr 64px 1fr;align-items:stretch}
+.vb-head{padding:var(--s-32);position:relative}
+.vb-head.vb-trad{background:var(--paper-2);border-right:1px solid var(--rule-soft)}
+.vb-head.vb-hs{background:linear-gradient(135deg,var(--navy) 0%,#172E4D 100%);color:var(--paper);border-left:1px solid var(--rule-soft)}
+.vb-head.vb-hs::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold) 0%,#D9A852 100%)}
+.vb-head .vb-tag{font-size:9.5px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;margin-bottom:var(--s-12)}
+.vb-head.vb-trad .vb-tag{color:var(--ink-soft)}
+.vb-head.vb-hs .vb-tag{color:var(--gold)}
+.vb-head h4{font-family:'Source Serif 4',Georgia,serif;font-size:22px;font-weight:500;line-height:1.2;letter-spacing:-0.012em;margin:0 0 var(--s-12);font-variant-numeric:normal}
+.vb-head.vb-trad h4{color:var(--ink-2)}
+.vb-head.vb-hs h4{color:var(--paper)}
+.vb-head p{font-size:var(--t-13);line-height:1.55;margin:0}
+.vb-head.vb-trad p{color:var(--ink-soft)}
+.vb-head.vb-hs p{color:rgba(251,249,244,0.78)}
+.vb-vs{display:flex;align-items:center;justify-content:center;font-family:'Source Serif 4',Georgia,serif;font-size:28px;color:var(--ink-soft);font-weight:400;letter-spacing:-0.02em;background:var(--paper);font-variant-numeric:normal;font-style:italic}
+.vb-rows{display:flex;flex-direction:column}
+.vb-row{display:grid;grid-template-columns:1fr 64px 1fr;border-top:1px solid var(--rule-soft);position:relative}
+.vb-row::before{content:'';position:absolute;left:50%;top:0;bottom:0;width:64px;transform:translateX(-50%);background:var(--paper)}
+.vb-row .vb-axis{position:relative;z-index:1;display:flex;align-items:center;justify-content:center;font-size:9.5px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--navy);padding:0 10px}
+.vb-row .vb-l,.vb-row .vb-r{padding:var(--s-20) var(--s-24);font-size:var(--t-13);line-height:1.55}
+.vb-row .vb-l{color:var(--ink-soft);background:rgba(244,240,229,0.4);position:relative;padding-left:var(--s-32)}
+.vb-row .vb-l::before{content:'';display:inline-block;width:14px;height:14px;border-radius:50%;background:rgba(0,0,0,0.05);position:absolute;left:var(--s-24);top:var(--s-20);margin-top:4px}
+.vb-row .vb-l::after{content:'\00d7';position:absolute;left:var(--s-24);top:var(--s-20);width:14px;text-align:center;color:var(--ink-soft);font-size:11px;line-height:14px;margin-top:4px}
+.vb-row .vb-r{color:var(--ink);font-weight:500;padding-left:var(--s-32);position:relative}
+.vb-row .vb-r::before{content:'';display:inline-block;width:14px;height:14px;border-radius:50%;background:var(--gold-soft);position:absolute;left:var(--s-24);top:var(--s-20);margin-top:4px}
+.vb-row .vb-r::after{content:'\2713';position:absolute;left:var(--s-24);top:var(--s-20);width:14px;text-align:center;color:var(--gold);font-size:10px;line-height:14px;font-weight:700;margin-top:4px}
+@media (max-width:760px){.vb-headers,.vb-row{grid-template-columns:1fr}.vb-head.vb-trad{border-right:none;border-bottom:1px solid var(--rule-soft)}.vb-head.vb-hs{border-left:none}.vb-vs{padding:var(--s-12) 0}.vb-row .vb-axis{justify-content:flex-start;padding:8px var(--s-20)}.vb-row::before{display:none}}
 
 /* Capability grid: 8 platform features */
 .capgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s-16);margin:var(--s-24) 0 var(--s-32)}
@@ -797,6 +821,16 @@ sup.fnref{font-size:9.5px;color:var(--navy);font-weight:600;font-variant-numeric
     </div>
   </div>
 
+  <div class="benefit-pills">
+    <span class="bp-lead">Every deal inherits</span>
+    <span class="bp">Hours, not weeks</span>
+    <span class="bp">One scheme audit</span>
+    <span class="bp">One AML programme</span>
+    <span class="bp">One investor account, all deals</span>
+    <span class="bp">Live secondary market</span>
+    <span class="bp">28% PIE tax cap</span>
+  </div>
+
   <h3>The issuer console at scale</h3>
 
   <div class="console-mock">
@@ -980,54 +1014,60 @@ sup.fnref{font-size:9.5px;color:var(--navy);font-weight:600;font-variant-numeric
 
   <h3>Traditional structure vs Homeshare structure</h3>
 
-  <div class="compare-table">
-    <div class="ct-head">
-      <div class="ct-h ct-trad">Traditional NZ syndicate</div>
-      <div class="ct-h ct-axis">&nbsp;</div>
-      <div class="ct-h ct-hs">Homeshare per-deal trust</div>
+  <div class="versus-board">
+    <div class="vb-headers">
+      <div class="vb-head vb-trad">
+        <div class="vb-tag">Traditional</div>
+        <h4>New entity per property</h4>
+        <p>POS, LP, or company. Stood up from scratch every time you launch a syndicate.</p>
+      </div>
+      <div class="vb-vs">vs</div>
+      <div class="vb-head vb-hs">
+        <div class="vb-tag">Homeshare</div>
+        <h4>One scheme, every deal</h4>
+        <p>Per-deal trust instantiated from a template under a single licensed scheme.</p>
+      </div>
     </div>
-    <div class="ct-row">
-      <div class="ct-trad">New legal entity per property (POS, LP, or company)</div>
-      <div class="ct-axis">Structure</div>
-      <div class="ct-hs">Templated Home Trust under one Master Trust Deed</div>
-    </div>
-    <div class="ct-row">
-      <div class="ct-trad">Weeks of legal setup, ~A$30&ndash;50K legal cost per deal</div>
-      <div class="ct-axis">Setup</div>
-      <div class="ct-hs">Template instantiation in hours; no new deed, no FMA re-filing</div>
-    </div>
-    <div class="ct-row">
-      <div class="ct-trad">Separate audit and annual financial statements per syndicate</div>
-      <div class="ct-axis">Audit</div>
-      <div class="ct-hs">Single scheme-level audit covers every per-deal trust</div>
-    </div>
-    <div class="ct-row">
-      <div class="ct-trad">Separate AML/CFT registration per entity</div>
-      <div class="ct-axis">Compliance</div>
-      <div class="ct-hs">One scheme-level AML/CFT programme; one set of FMA filings</div>
-    </div>
-    <div class="ct-row">
-      <div class="ct-trad">Separate investor register (Computershare / equivalent) per deal</div>
-      <div class="ct-axis">Register</div>
-      <div class="ct-hs">Single platform register; one investor account spans all current and future deals</div>
-    </div>
-    <div class="ct-row">
-      <div class="ct-trad">Investor onboarded and KYC&rsquo;d per deal</div>
-      <div class="ct-axis">Onboarding</div>
-      <div class="ct-hs">KYC once, invest in any deal; cross-deal friction approaches zero</div>
-    </div>
-    <div class="ct-row">
-      <div class="ct-trad">Exit only via 75% wind-up vote</div>
-      <div class="ct-axis">Liquidity</div>
-      <div class="ct-hs">On-platform secondary market within &plusmn;25% AVM band</div>
-    </div>
-    <div class="ct-row">
-      <div class="ct-trad">PIE tax election per syndicate (where eligible)</div>
-      <div class="ct-axis">Tax</div>
-      <div class="ct-hs">Per-trust listed-PIE election under a single scheme-level framework</div>
+
+    <div class="vb-rows">
+      <div class="vb-row">
+        <div class="vb-axis">Setup</div>
+        <div class="vb-l">4 to 8 weeks. A$30&ndash;50K legal per deal.</div>
+        <div class="vb-r">Hours. Template instantiation; no new deed, no FMA re-filing.</div>
+      </div>
+      <div class="vb-row">
+        <div class="vb-axis">Audit</div>
+        <div class="vb-l">Separate audit + annual financial statements per syndicate.</div>
+        <div class="vb-r">Single scheme-level audit covers every per-deal trust.</div>
+      </div>
+      <div class="vb-row">
+        <div class="vb-axis">Compliance</div>
+        <div class="vb-l">AML/CFT registration per entity.</div>
+        <div class="vb-r">One scheme-level AML/CFT programme. One set of FMA filings.</div>
+      </div>
+      <div class="vb-row">
+        <div class="vb-axis">Register</div>
+        <div class="vb-l">Computershare or equivalent per deal.</div>
+        <div class="vb-r">Single platform register. One investor account, every deal.</div>
+      </div>
+      <div class="vb-row">
+        <div class="vb-axis">Onboarding</div>
+        <div class="vb-l">Investor KYC&rsquo;d per deal.</div>
+        <div class="vb-r">KYC once. Cross-deal friction approaches zero.</div>
+      </div>
+      <div class="vb-row">
+        <div class="vb-axis">Liquidity</div>
+        <div class="vb-l">Exit only via 75% wind-up vote.</div>
+        <div class="vb-r">Live secondary market within &plusmn;25% AVM band.</div>
+      </div>
+      <div class="vb-row">
+        <div class="vb-axis">Tax</div>
+        <div class="vb-l">PIE election per syndicate, where eligible.</div>
+        <div class="vb-r">Listed-PIE election under one scheme-level framework.</div>
+      </div>
     </div>
   </div>
-  <p class="diagram-cap">Every per-deal trust under Homeshare gets the same ring-fenced legal protections as a standalone entity, with none of the per-deal setup, audit, AML, or register costs.</p>
+  <p class="diagram-cap">Every per-deal trust gets the same ring-fenced legal protections as a standalone entity, with none of the per-deal setup, audit, AML, or register costs.</p>
 
   <h3>Group structure</h3>
 
@@ -1199,8 +1239,9 @@ sup.fnref{font-size:9.5px;color:var(--navy);font-weight:600;font-variant-numeric
   </div>
 
   <h3>About the founder</h3>
-  <p>Martin van Blerk founded Homeshare in 2024 after building Pixelmon, a digital collectibles project whose primary mint generated approximately US$70 million in sales (February 2022). He sold a controlling interest to LiquidX Ventures (Singapore) in October 2022, and Animoca Brands later led a US$8.0 million seed round for the project in 2024.</p>
-  <p>He&rsquo;s available for a 6 to 12 month transition consulting engagement covering FMA relationship handover, legal continuity with MinterEllisonRuddWatts, and operational knowledge transfer.</p>
+  <p>Martin van Blerk founded Homeshare in 2024. He previously founded Pixelmon, a digital collectibles project whose February 2022 primary mint generated approximately US$70 million in sales. The launch attracted critical public commentary, which the team addressed through a structured rebuild covering new leadership, a revised roadmap, and replaced art assets. Martin sold a controlling interest to LiquidX Ventures (Singapore) in October 2022, and Animoca Brands led a US$8.0 million seed round for the project in 2024.</p>
+  <p>Homeshare reflects two years of methodical product and regulatory work, applying the operating discipline of shipping at scale under public scrutiny to a fully-licensed New Zealand financial product.</p>
+  <p>Martin is available for a 6 to 12 month transition consulting engagement covering FMA relationship handover, legal continuity with MinterEllisonRuddWatts, and operational knowledge transfer.</p>
 
   <p class="source">All material in this deck is non-confidential. The technical pack (Master Trust Deed, Disclosure Statement, Licence Conditions, Home Trust Conditions, platform components, capital structure schedule) is available on a short NDA.</p>
 </section>
