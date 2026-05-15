@@ -42,9 +42,9 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--navy);outline-offse
 
 /* Top strip with real logo */
 .topstrip{position:fixed;top:0;left:0;right:0;background:rgba(251,249,244,0.86);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--rule-soft);padding:10px 32px;z-index:100;display:flex;justify-content:space-between;align-items:center;font-size:var(--t-11);color:var(--ink-soft);font-variant-numeric:normal}
-.topstrip .left{display:flex;align-items:center;gap:14px;color:var(--navy)}
-.topstrip .left .logo{height:22px;width:auto;display:block}
-.topstrip .left .conf{font-size:10px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--ink-soft);padding-left:14px;border-left:1px solid var(--rule)}
+.topstrip .left{display:flex;align-items:center;gap:12px;color:var(--navy)}
+.topstrip .left .logo{height:15px;width:auto;display:block}
+.topstrip .left .conf{font-size:9.5px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--ink-soft);padding-left:12px;border-left:1px solid var(--rule)}
 .topstrip .right{display:flex;gap:var(--s-20)}
 .topstrip a{color:var(--navy);text-decoration:none;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;font-size:var(--t-11);position:relative}
 .topstrip a::after{content:'';position:absolute;left:0;right:0;bottom:-3px;height:1px;background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform 0.28s var(--ease)}
@@ -165,31 +165,36 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--navy);outline-offse
    gantt); preserved from prior build.
    ============================================================ */
 /* Deal flow */
-.dealflow{margin:var(--s-32) 0 var(--s-24);position:relative}
-.dealflow-frame{display:grid;grid-template-columns:1fr 64px 1.5fr 64px 1fr;gap:0;align-items:stretch}
-@media (max-width:900px){.dealflow-frame{grid-template-columns:1fr;gap:var(--s-24)}}
-.entity{background:var(--paper);border:1px solid var(--rule);border-radius:16px;padding:var(--s-24);display:flex;flex-direction:column;transition:transform 0.25s var(--ease),box-shadow 0.25s var(--ease)}
-.entity:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(30,58,95,0.08)}
-.entity .e-num{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;background:var(--navy);color:var(--paper);font-family:'Source Serif 4',Georgia,serif;font-size:var(--t-15);font-weight:500;margin-bottom:var(--s-16);font-variant-numeric:normal}
-.entity h4{font-family:'Source Serif 4',Georgia,serif;font-size:var(--t-22);font-weight:500;color:var(--ink);margin:0 0 var(--s-8);line-height:1.2;letter-spacing:-0.012em;font-variant-numeric:normal}
-.entity .e-kicker{font-size:var(--t-11);font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:var(--s-12)}
-.entity .e-list{margin:auto 0 0;padding:0;list-style:none}
-.entity .e-list li{font-size:var(--t-13);color:var(--ink-2);padding:8px 0;border-top:1px solid var(--rule-soft);line-height:1.45}
-.entity .e-list li:first-child{border-top:none;padding-top:0}
-.entity.center{background:var(--paper-2);border-color:var(--navy);border-width:1.5px;padding:var(--s-32)}
-.entity.center .e-num{background:var(--gold);width:36px;height:36px;font-size:var(--t-17)}
-.entity.center .components{display:grid;grid-template-columns:1fr 1fr;gap:var(--s-8);margin-top:var(--s-16)}
-.entity.center .components .c{background:var(--paper);border:1px solid var(--rule-soft);border-radius:8px;padding:10px 12px}
-.entity.center .components .c .c-t{font-size:var(--t-13);color:var(--ink);font-weight:500;line-height:1.2}
-.entity.center .components .c .c-s{font-size:10px;color:var(--ink-soft);letter-spacing:0.04em;margin-top:3px}
-.entity.center .e-foot{margin-top:var(--s-16);padding-top:var(--s-12);border-top:1px solid var(--rule-soft);font-size:var(--t-11);color:var(--ink-soft);line-height:1.5}
-.entity.center .e-foot strong{color:var(--navy);font-weight:600;font-size:9.5px;letter-spacing:0.18em;text-transform:uppercase;display:block;margin-bottom:5px}
-.connector{display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;padding:var(--s-48) 0}
-.connector svg{display:block;width:48px;height:auto}
-.connector .label{position:absolute;background:var(--paper);padding:3px 8px;font-size:9.5px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--navy);white-space:nowrap}
-.connector .label.top{top:32px}
-.connector .label.bottom{bottom:32px;color:var(--gold)}
-@media (max-width:900px){.connector{display:none}}
+/* Deal flow: vertical stack of 3 wide cards with connector flows between */
+.dealflow{margin:var(--s-32) 0 var(--s-24);position:relative;max-width:920px}
+.dealflow-frame{display:flex;flex-direction:column;gap:0;align-items:stretch}
+.entity{background:var(--paper);border:1px solid var(--rule);border-radius:18px;padding:var(--s-32) var(--s-48);display:grid;grid-template-columns:auto 1fr;column-gap:var(--s-32);row-gap:var(--s-16);align-items:start;transition:box-shadow 0.3s var(--ease)}
+.entity:hover{box-shadow:0 16px 40px rgba(30,58,95,0.08)}
+.entity .e-num{grid-row:1/3;display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:50%;background:var(--navy);color:var(--paper);font-family:'Source Serif 4',Georgia,serif;font-size:var(--t-22);font-weight:500;font-variant-numeric:normal}
+.entity .e-head{display:flex;flex-direction:column;gap:6px}
+.entity .e-kicker{font-size:var(--t-11);font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--ink-soft)}
+.entity h4{font-family:'Source Serif 4',Georgia,serif;font-size:var(--t-22);font-weight:500;color:var(--ink);margin:0;line-height:1.2;letter-spacing:-0.012em;font-variant-numeric:normal}
+.entity .e-body{grid-column:2;display:grid;grid-template-columns:1fr 1fr;gap:8px 24px;font-size:var(--t-13);color:var(--ink-2);line-height:1.5}
+.entity .e-body span{padding:6px 0;border-top:1px solid var(--rule-soft)}
+.entity .e-body span:nth-child(-n+2){border-top:none;padding-top:0}
+.entity.center{background:var(--paper-2);border-color:var(--navy);border-width:1.5px}
+.entity.center .e-num{background:var(--gold)}
+.entity.center .components{grid-column:2;display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s-12);margin-top:var(--s-8)}
+.entity.center .components .c{background:var(--paper);border:1px solid var(--rule-soft);border-radius:10px;padding:14px 16px}
+.entity.center .components .c .c-t{font-size:var(--t-13);color:var(--ink);font-weight:500;line-height:1.3;margin-bottom:4px}
+.entity.center .components .c .c-s{font-size:10.5px;color:var(--ink-soft);letter-spacing:0.04em}
+.entity.center .e-foot{grid-column:1/-1;margin-top:var(--s-16);padding-top:var(--s-16);border-top:1px solid var(--rule-soft);font-size:var(--t-12);color:var(--ink-soft);line-height:1.55}
+.entity.center .e-foot strong{color:var(--navy);font-weight:600;font-size:10px;letter-spacing:0.18em;text-transform:uppercase;display:block;margin-bottom:5px}
+
+/* Connector between cards: vertical bar + label badge */
+.connector{display:flex;flex-direction:column;align-items:center;gap:0;padding:0;height:64px;position:relative;justify-content:center}
+.connector::before,.connector::after{content:'';flex:1;width:2px;background:var(--rule)}
+.connector::before{background:linear-gradient(180deg,var(--rule) 0%,var(--navy) 100%)}
+.connector::after{background:linear-gradient(180deg,var(--navy) 0%,var(--rule) 100%)}
+.connector .label{background:var(--paper);border:1px solid var(--rule);border-radius:999px;padding:5px 14px;font-size:10px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--navy);white-space:nowrap;z-index:1;position:relative}
+.connector svg{display:none}
+.connector .top,.connector .bottom{display:none}
+@media (max-width:760px){.entity{padding:var(--s-24);grid-template-columns:auto 1fr}.entity .e-body{grid-column:2;grid-template-columns:1fr}.entity.center .components{grid-template-columns:1fr 1fr}.entity.center .e-foot{grid-column:1/-1}}
 
 /* Org chart */
 .orgchart{margin:var(--s-32) 0 var(--s-24);padding:var(--s-48) 0;background:linear-gradient(180deg,rgba(244,240,229,0.4) 0%,transparent 100%);border-radius:16px;display:flex;flex-direction:column;align-items:center;gap:0;position:relative}
@@ -227,19 +232,20 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--navy);outline-offse
 @media (max-width:900px){.workflow2-track{grid-template-columns:1fr;gap:var(--s-16)}.workflow2-track::before{display:none}.wf-step{text-align:left;display:grid;grid-template-columns:auto 1fr;gap:var(--s-16);align-items:start}.wf-step .wf-title{margin-top:6px}}
 
 /* Pathway */
-.pathway{margin:var(--s-32) 0 var(--s-48);padding:var(--s-48) 0;background:linear-gradient(180deg,rgba(244,240,229,0.3) 0%,transparent 100%);border-radius:16px;position:relative}
-.pathway-track{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative;padding:0 var(--s-32)}
-.pathway-track::before{content:'';position:absolute;left:calc(12.5% + var(--s-32));right:calc(12.5% + var(--s-32));top:62px;height:1px;background:var(--rule);z-index:0}
-.pw-step{text-align:center;position:relative;padding:0 var(--s-16)}
-.pw-step .pw-dot{width:14px;height:14px;border-radius:50%;background:var(--paper);border:2px solid var(--navy);margin:54px auto 0;position:relative;z-index:1;transition:transform 0.25s var(--ease)}
+.pathway{margin:var(--s-32) 0 var(--s-48);padding:var(--s-48) var(--s-32);background:linear-gradient(180deg,rgba(244,240,229,0.3) 0%,transparent 100%);border-radius:16px;position:relative}
+.pathway-track{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative}
+/* Axis line passes through the vertical centre of the dots */
+.pathway-track::before{content:'';position:absolute;left:12.5%;right:12.5%;top:43px;height:1px;background:var(--rule);z-index:0}
+.pw-step{text-align:center;position:relative;padding:0 var(--s-16);display:flex;flex-direction:column;align-items:center}
+.pw-step .pw-when{font-size:9.5px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--ink-soft);height:14px;line-height:14px;margin-bottom:22px}
+.pw-step.now .pw-when{color:var(--gold)}
+.pw-step .pw-dot{width:14px;height:14px;border-radius:50%;background:var(--paper);border:2px solid var(--navy);margin:0;position:relative;z-index:1;transition:transform 0.25s var(--ease);flex-shrink:0}
 .pw-step.now .pw-dot{background:var(--gold);border-color:var(--gold);box-shadow:0 0 0 6px rgba(166,124,46,0.15)}
 .pw-step.future .pw-dot{background:var(--paper);border-color:var(--rule)}
-.pw-step .pw-when{font-size:9.5px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:var(--s-12);min-height:14px}
-.pw-step.now .pw-when{color:var(--gold)}
-.pw-step .pw-title{font-family:'Source Serif 4',Georgia,serif;font-size:var(--t-17);font-weight:500;color:var(--ink);margin:var(--s-16) 0 var(--s-12);line-height:1.25;letter-spacing:-0.008em;font-variant-numeric:normal}
+.pw-step .pw-title{font-family:'Source Serif 4',Georgia,serif;font-size:var(--t-17);font-weight:500;color:var(--ink);margin:var(--s-20) 0 var(--s-12);line-height:1.25;letter-spacing:-0.008em;font-variant-numeric:normal}
 .pw-step .pw-list{margin:0;padding:0;list-style:none;font-size:var(--t-12);color:var(--ink-soft);line-height:1.5}
 .pw-step .pw-list li{padding:3px 0}
-@media (max-width:900px){.pathway-track{grid-template-columns:1fr;gap:var(--s-32)}.pathway-track::before{display:none}.pw-step{text-align:left;display:grid;grid-template-columns:auto 1fr;gap:var(--s-16)}.pw-step .pw-dot{margin:0}}
+@media (max-width:900px){.pathway-track{grid-template-columns:1fr;gap:var(--s-32)}.pathway-track::before{display:none}.pw-step{text-align:left;align-items:flex-start}.pw-step .pw-when{margin-bottom:8px}}
 
 /* Counterparty grid */
 .cpgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s-16);margin:var(--s-32) 0 var(--s-48)}
@@ -344,21 +350,22 @@ table tfoot td{padding-top:var(--s-16);border-top:1px solid var(--navy);font-wei
 .screenshot img{display:block;width:100%;height:auto}
 .screenshot .cap{padding:var(--s-12) var(--s-20);border-top:1px solid var(--rule);font-size:var(--t-11);color:var(--ink-soft);font-style:italic;background:var(--paper);letter-spacing:0.02em}
 
-/* Shot grid (platform screenshots in main flow) */
-.shotgrid{display:grid;grid-template-columns:1fr 1fr;gap:var(--s-24);margin:var(--s-24) 0 var(--s-32)}
-@media (max-width:900px){.shotgrid{grid-template-columns:1fr}}
-.shot{margin:0;border:1px solid var(--rule);background:var(--paper-2);border-radius:14px;overflow:hidden;transition:box-shadow 0.3s var(--ease),transform 0.3s var(--ease)}
-.shot:hover{box-shadow:0 16px 40px rgba(30,58,95,0.10);transform:translateY(-2px)}
-.shot img{display:block;width:100%;height:auto}
-.shot figcaption{padding:var(--s-12) var(--s-20);border-top:1px solid var(--rule);font-size:var(--t-11);color:var(--ink-soft);background:var(--paper);letter-spacing:0.02em;line-height:1.5}
+/* Platform screenshot stack: full-width, vertical */
+.shotstack{display:flex;flex-direction:column;gap:var(--s-32);margin:var(--s-32) 0 var(--s-32)}
+.shotstack .shot{margin:0;border-radius:14px;overflow:hidden;background:var(--paper-2);border:1px solid var(--rule);transition:box-shadow 0.3s var(--ease)}
+.shotstack .shot:hover{box-shadow:0 24px 60px rgba(30,58,95,0.10)}
+.shotstack .shot img{display:block;width:100%;height:auto}
+.shotstack .shot figcaption{padding:var(--s-12) var(--s-24);border-top:1px solid var(--rule);font-size:var(--t-11);color:var(--ink-soft);background:var(--paper);letter-spacing:0.02em;line-height:1.5}
+.shotstack .shot .shot-head{padding:var(--s-16) var(--s-24);border-bottom:1px solid var(--rule);background:var(--paper);display:flex;justify-content:space-between;align-items:baseline;gap:var(--s-16)}
+.shotstack .shot .shot-head .ttl{font-size:var(--t-13);font-weight:600;color:var(--ink);letter-spacing:-0.005em}
+.shotstack .shot .shot-head .meta{font-size:var(--t-11);color:var(--ink-soft);letter-spacing:0.04em;text-transform:uppercase}
 
-/* Hero visual on cover (right-side product mockup) */
-.cover-hero{display:grid;grid-template-columns:1.15fr 1fr;gap:var(--s-48);align-items:center}
-.cover-hero .hero-art{position:relative;border-radius:18px;overflow:hidden;background:linear-gradient(135deg,var(--paper-2) 0%,var(--paper-3) 100%);padding:var(--s-32);border:1px solid var(--rule);box-shadow:0 8px 32px rgba(30,58,95,0.06)}
-.cover-hero .hero-art::before{content:'';position:absolute;top:-40%;right:-20%;width:80%;height:140%;background:radial-gradient(ellipse at center,rgba(166,124,46,0.18) 0%,rgba(166,124,46,0) 65%);pointer-events:none}
-.cover-hero .hero-art img{width:100%;height:auto;display:block;position:relative;z-index:1}
-.cover-hero .hero-art .caption{position:relative;z-index:1;margin-top:var(--s-16);font-size:var(--t-11);color:var(--ink-soft);letter-spacing:0.08em;text-transform:uppercase;text-align:center}
-@media (max-width:900px){.cover-hero{grid-template-columns:1fr}.cover-hero .hero-art{display:none}}
+/* Hero visual on cover: large free-floating product photo */
+.cover-hero{display:grid;grid-template-columns:1fr 1.15fr;gap:var(--s-64);align-items:center;margin:var(--s-24) 0 var(--s-48)}
+.cover-hero .hero-art{position:relative;margin:0}
+.cover-hero .hero-art::before{content:'';position:absolute;top:-15%;right:-10%;width:100%;height:130%;background:radial-gradient(ellipse at center,rgba(166,124,46,0.14) 0%,rgba(166,124,46,0) 60%);pointer-events:none;z-index:0}
+.cover-hero .hero-art img{width:108%;max-width:none;height:auto;display:block;position:relative;z-index:1;filter:drop-shadow(0 30px 40px rgba(30,58,95,0.12)) drop-shadow(0 4px 12px rgba(30,58,95,0.06))}
+@media (max-width:900px){.cover-hero{grid-template-columns:1fr;gap:var(--s-32)}.cover-hero .hero-art img{width:100%}}
 
 /* Appendix CTA at the end of main flow */
 .appendix-cta{margin:var(--s-96) 0 var(--s-48);padding:var(--s-48) var(--s-48);background:linear-gradient(135deg,var(--paper-2) 0%,var(--paper-3) 100%);border:1px solid var(--rule);border-radius:18px;display:grid;grid-template-columns:1fr auto;align-items:center;gap:var(--s-32);position:relative;overflow:hidden}
@@ -430,7 +437,7 @@ sup.fnref{font-size:9.5px;color:var(--navy);font-weight:600;font-variant-numeric
 <!-- Left-side TOC navigation -->
 <nav class="sidenav" aria-label="Section navigation">
   <a href="#cover" data-target="cover"><span class="ix">00</span><span class="lb">Cover</span></a>
-  <a href="#fit" data-target="fit"><span class="ix">01</span><span class="lb">Why this matters</span></a>
+  <a href="#fit" data-target="fit"><span class="ix">01</span><span class="lb">How you'd use it</span></a>
   <a href="#what" data-target="what"><span class="ix">02</span><span class="lb">What this is</span></a>
   <a href="#how" data-target="how"><span class="ix">03</span><span class="lb">How it works</span></a>
   <a href="#inherit" data-target="inherit"><span class="ix">04</span><span class="lb">What transfers</span></a>
@@ -445,7 +452,7 @@ sup.fnref{font-size:9.5px;color:var(--navy);font-weight:600;font-variant-numeric
 
 <!-- ============ COVER ============ -->
 <section class="cover" id="cover">
-  <div class="eyebrow">Confidential Acquisition Opportunity &middot; Prepared May 2026</div>
+  <div class="eyebrow">Confidential Acquisition Opportunity · Prepared May 2026</div>
 
   <div class="cover-hero">
     <div class="hero-text">
@@ -453,25 +460,16 @@ sup.fnref{font-size:9.5px;color:var(--navy);font-weight:600;font-variant-numeric
       <p class="sub">A New Zealand-licensed Managed Investment Scheme platform, built for property syndicators. First retail deal goes live in approximately 90 days post-close, under your brand and on your commercial terms.</p>
     </div>
     <figure class="hero-art">
-      <img src="../assets/hero-product.png" alt="Homeshare retail product preview" />
-      <div class="caption">Live product &middot; homeshare.co.nz</div>
+      <img src="../assets/hero-product.png" alt="Homeshare retail product, live at homeshare.co.nz" />
     </figure>
   </div>
 
   <div class="cover-metrics">
-    <div class="m"><div class="lbl">What you get</div><div class="v">NZ MIS</div><div class="s">Licensed manager, deed, platform</div></div>
-    <div class="m"><div class="lbl">Time saved</div><div class="v">24–36 mo</div><div class="s">vs. building from scratch</div></div>
-    <div class="m"><div class="lbl">Capital saved</div><div class="v">A$3–4M</div><div class="s">to build from scratch</div></div>
-    <div class="m"><div class="lbl">First retail deal</div><div class="v">~90 days</div><div class="s">post-close, under your brand</div></div>
+    <div class="m"><div class="lbl">Structure</div><div class="v">NZ MIS</div><div class="s">Licensed manager, trustee, deed</div></div>
+    <div class="m"><div class="lbl">FMA sandbox</div><div class="v">2-year window</div><div class="s">to 30 November 2027</div></div>
+    <div class="m"><div class="lbl">Deed executed</div><div class="v">Jan 2026</div><div class="s">36 clauses, MERW-drafted</div></div>
+    <div class="m"><div class="lbl">First retail deal</div><div class="v">~90 days</div><div class="s">post-close, your brand</div></div>
   </div>
-
-  <div class="cover-meta">
-    <div class="col"><strong>Distribution</strong><span>NDA-restricted</span></div>
-    <div class="col"><strong>Process</strong><span>Targeted strategic sale</span></div>
-    <div class="col"><strong>Adviser</strong><span>MinterEllisonRuddWatts · Jeremy Muir</span></div>
-  </div>
-
-  <div class="scrollcue"><span>Scroll</span><div class="l"></div></div>
 </section>
 
 
@@ -482,8 +480,8 @@ sup.fnref{font-size:9.5px;color:var(--navy);font-weight:600;font-variant-numeric
     <div class="meta"><div class="label">Section 01</div><div class="pager">Page 01 / 07</div></div>
   </div>
 
-  <h2>Why this matters to you.</h2>
-  <p class="lede">Three concrete ways an AU/NZ property syndicator can deploy Homeshare on day one. None require new origination, brand changes, or commercial-term concessions.</p>
+  <h2>How you'd use it.</h2>
+  <p class="lede">Three concrete ways an AU or NZ property syndicator can deploy Homeshare on day one. None require new origination, brand changes, or commercial-term concessions.</p>
 
   <div class="fit3">
     <div class="col gold">
@@ -560,30 +558,61 @@ sup.fnref{font-size:9.5px;color:var(--navy);font-weight:600;font-variant-numeric
 
   <div class="dealflow">
     <div class="dealflow-frame">
+
       <div class="entity">
         <div class="e-num">1</div>
-        <div class="e-kicker">Syndicator</div>
-        <h4>Your deal</h4>
-        <ul class="e-list">
-          <li>Originate the asset</li>
-          <li>Set the commercial terms</li>
-          <li>Keep your investor brand</li>
-          <li>Operate as you do today</li>
-        </ul>
+        <div class="e-head">
+          <div class="e-kicker">Syndicator</div>
+          <h4>Your deal</h4>
+        </div>
+        <div class="e-body">
+          <span>Originate the asset</span>
+          <span>Set the commercial terms</span>
+          <span>Keep your investor brand</span>
+          <span>Operate as you do today</span>
+        </div>
       </div>
-      <div class="connector">
-        <span class="label top">Deal</span>
-        <svg viewBox="0 0 48 24" xmlns="http://www.w3.org/2000/svg">
-          <line x1="0" y1="12" x2="40" y2="12" stroke="#1E3A5F" stroke-width="1.5"/>
-          <path d="M 36 6 L 44 12 L 36 18" stroke="#1E3A5F" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </div>
+
+      <div class="connector"><span class="label">Deal flows in</span></div>
+
       <div class="entity center">
         <div class="e-num">2</div>
-        <div class="e-kicker">Homeshare platform</div>
-        <h4>Per-deal trust, ring-fenced, tax-efficient</h4>
+        <div class="e-head">
+          <div class="e-kicker">Homeshare platform</div>
+          <h4>Per-deal trust, ring-fenced, tax-efficient</h4>
+        </div>
         <div class="components">
           <div class="c"><div class="c-t">MERW-drafted deed</div><div class="c-s">36 clauses</div></div>
+          <div class="c"><div class="c-t">Tokenised register</div><div class="c-s">Per deal</div></div>
+          <div class="c"><div class="c-t">Bare-trust wallet</div><div class="c-s">Custodial bank account</div></div>
+          <div class="c"><div class="c-t">PIE tax election</div><div class="c-s">28% retail cap</div></div>
+          <div class="c"><div class="c-t">Monthly distributions</div><div class="c-s">Time-weighted</div></div>
+          <div class="c"><div class="c-t">Secondary market</div><div class="c-s">&plusmn;25% AVM band</div></div>
+        </div>
+        <div class="e-foot">
+          <strong>Counterparties integrated</strong>
+          Custodial bank, AML/CFT programme, KYC vendor, AVM data, scheme audit. Plug-in providers; acquirer brings own.
+        </div>
+      </div>
+
+      <div class="connector"><span class="label">Units issued</span></div>
+
+      <div class="entity">
+        <div class="e-num">3</div>
+        <div class="e-head">
+          <div class="e-kicker">Retail investors</div>
+          <h4>Subscribe, hold, exit</h4>
+        </div>
+        <div class="e-body">
+          <span>Low-minimum tickets</span>
+          <span>Digital KYC onboarding</span>
+          <span>Monthly distributions to wallet</span>
+          <span>Match-based exit on secondary market</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
           <div class="c"><div class="c-t">Tokenised register</div><div class="c-s">Per deal</div></div>
           <div class="c"><div class="c-t">Bare-trust wallet</div><div class="c-s">Custodial bank account</div></div>
           <div class="c"><div class="c-t">PIE tax election</div><div class="c-s">28% retail cap</div></div>
@@ -629,14 +658,30 @@ sup.fnref{font-size:9.5px;color:var(--navy);font-weight:600;font-variant-numeric
 
   <h3>What the acquirer sees on day one</h3>
 
-  <div class="shotgrid">
+  <div class="shotstack">
     <figure class="shot">
-      <img src="../assets/admin-properties.png" alt="Homeshare issuer admin console: properties view" loading="lazy" />
-      <figcaption>Issuer admin console. List of per-deal trusts with status, AUM, investor count.</figcaption>
+      <div class="shot-head">
+        <div class="ttl">Issuer admin console &middot; properties</div>
+        <div class="meta">Production</div>
+      </div>
+      <img src="../assets/admin-properties.png" alt="Homeshare issuer admin console, properties view" loading="lazy" />
+      <figcaption>Every per-deal trust at a glance: status, total value, share count, days on market, next earliest exit. Illustrative data.</figcaption>
     </figure>
     <figure class="shot">
-      <img src="../assets/admin-activity.png" alt="Homeshare issuer admin console: activity feed" loading="lazy" />
-      <figcaption>Activity log. Every onboarding, subscription, distribution, secondary trade.</figcaption>
+      <div class="shot-head">
+        <div class="ttl">Issuer admin console &middot; activity log</div>
+        <div class="meta">Production</div>
+      </div>
+      <img src="../assets/admin-activity.png" alt="Homeshare issuer admin console, activity log" loading="lazy" />
+      <figcaption>Full audit trail of platform actions and events: onboarding, share-buy, share-sale, wallet top-up, wallet withdrawal, admin login. Filterable by actor type, action type, and target entity.</figcaption>
+    </figure>
+    <figure class="shot">
+      <div class="shot-head">
+        <div class="ttl">Retail investor application &middot; homepage</div>
+        <div class="meta">Production &middot; homeshare.co.nz</div>
+      </div>
+      <img src="../assets/homeshare-home.png" alt="Homeshare retail investor application, homepage" loading="lazy" />
+      <figcaption>The retail-facing product. Browse live deals, KYC-onboard, subscribe, hold, exit on secondary market. Fully white-label-able for the acquirer's brand.</figcaption>
     </figure>
   </div>
   <p class="diagram-cap">Group structure, full deed clause schedule, and unit register architecture are in the appendix.</p>
@@ -800,7 +845,7 @@ sup.fnref{font-size:9.5px;color:var(--navy);font-weight:600;font-variant-numeric
   <div class="text">
     <h3>For diligence</h3>
     <h4 id="appendix-cta-title">Want the full picture? Open the appendix.</h4>
-    <p>Regulatory pathway, group structure, fee model, comparable transactions, liquidity mechanics, capital structure, licence and deed schedules, platform components, and data-room index.</p>
+    <p>Regulatory pathway, group structure, partners, fee model, comparable transactions, capital structure, licence and deed schedules, platform components, and data-room index.</p>
   </div>
   <a href="#appendix" class="btn" id="openAppendixBtn">
     <span>View appendix</span>
@@ -828,7 +873,7 @@ sup.fnref{font-size:9.5px;color:var(--navy);font-weight:600;font-variant-numeric
   <div class="body">
     <div class="label">Appendix</div>
     <h2>Supporting schedules.</h2>
-    <p>Detailed reference material for diligence: diagrams, regulatory pathway, counterparty schedule, fee model, comparable transactions, liquidity mechanics, organisation, licence and deed text, platform components, indicative timeline, and data-room index. All structured for the curious reader; the front matter stands without it.</p>
+    <p>Reference material for diligence: regulatory pathway, partners, fee model, comparable transactions, organisation and capital structure, licence and deed text, platform components, indicative timeline, and data-room contents. Structured for the curious reader; the front matter stands without it.</p>
   </div>
 </div>
 
@@ -847,30 +892,61 @@ sup.fnref{font-size:9.5px;color:var(--navy);font-weight:600;font-variant-numeric
 
   <div class="dealflow">
     <div class="dealflow-frame">
+
       <div class="entity">
         <div class="e-num">1</div>
-        <div class="e-kicker">Syndicator</div>
-        <h4>Your deal</h4>
-        <ul class="e-list">
-          <li>Originate the asset</li>
-          <li>Set the commercial terms</li>
-          <li>Keep your investor brand</li>
-          <li>Operate as you do today</li>
-        </ul>
+        <div class="e-head">
+          <div class="e-kicker">Syndicator</div>
+          <h4>Your deal</h4>
+        </div>
+        <div class="e-body">
+          <span>Originate the asset</span>
+          <span>Set the commercial terms</span>
+          <span>Keep your investor brand</span>
+          <span>Operate as you do today</span>
+        </div>
       </div>
-      <div class="connector">
-        <span class="label top">Deal</span>
-        <svg viewBox="0 0 48 24" xmlns="http://www.w3.org/2000/svg">
-          <line x1="0" y1="12" x2="40" y2="12" stroke="#1E3A5F" stroke-width="1.5"/>
-          <path d="M 36 6 L 44 12 L 36 18" stroke="#1E3A5F" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </div>
+
+      <div class="connector"><span class="label">Deal flows in</span></div>
+
       <div class="entity center">
         <div class="e-num">2</div>
-        <div class="e-kicker">Homeshare platform</div>
-        <h4>Per-deal trust, ring-fenced, tax-efficient</h4>
+        <div class="e-head">
+          <div class="e-kicker">Homeshare platform</div>
+          <h4>Per-deal trust, ring-fenced, tax-efficient</h4>
+        </div>
         <div class="components">
           <div class="c"><div class="c-t">MERW-drafted deed</div><div class="c-s">36 clauses</div></div>
+          <div class="c"><div class="c-t">Tokenised register</div><div class="c-s">Per deal</div></div>
+          <div class="c"><div class="c-t">Bare-trust wallet</div><div class="c-s">Custodial bank account</div></div>
+          <div class="c"><div class="c-t">PIE tax election</div><div class="c-s">28% retail cap</div></div>
+          <div class="c"><div class="c-t">Monthly distributions</div><div class="c-s">Time-weighted</div></div>
+          <div class="c"><div class="c-t">Secondary market</div><div class="c-s">&plusmn;25% AVM band</div></div>
+        </div>
+        <div class="e-foot">
+          <strong>Counterparties integrated</strong>
+          Custodial bank, AML/CFT programme, KYC vendor, AVM data, scheme audit. Plug-in providers; acquirer brings own.
+        </div>
+      </div>
+
+      <div class="connector"><span class="label">Units issued</span></div>
+
+      <div class="entity">
+        <div class="e-num">3</div>
+        <div class="e-head">
+          <div class="e-kicker">Retail investors</div>
+          <h4>Subscribe, hold, exit</h4>
+        </div>
+        <div class="e-body">
+          <span>Low-minimum tickets</span>
+          <span>Digital KYC onboarding</span>
+          <span>Monthly distributions to wallet</span>
+          <span>Match-based exit on secondary market</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
           <div class="c"><div class="c-t">Tokenised register</div><div class="c-s">Per deal</div></div>
           <div class="c"><div class="c-t">Bare-trust wallet</div><div class="c-s">Custodial bank account</div></div>
           <div class="c"><div class="c-t">PIE tax election</div><div class="c-s">28% retail cap</div></div>
@@ -879,7 +955,7 @@ sup.fnref{font-size:9.5px;color:var(--navy);font-weight:600;font-variant-numeric
         </div>
         <div class="e-foot">
           <strong>Counterparties integrated</strong>
-          Ray White PMA · CoreLogic AVM · KYC/AML · Auditor. All assignable on change of control.
+          Custodial bank, AML/CFT programme, KYC vendor, AVM data, scheme audit. Plug-in providers; acquirer brings own.
         </div>
       </div>
       <div class="connector">
@@ -1065,79 +1141,27 @@ sup.fnref{font-size:9.5px;color:var(--navy);font-weight:600;font-variant-numeric
 </section>
 
 
-<!-- ============ APPENDIX A·3 · SERVICE PROVIDERS ============ -->
+<!-- ============ APPENDIX A·3 · PARTNERS ============ -->
 <section class="section" id="a-providers">
   <div class="section-head">
     <div class="num">A·3</div>
-    <div class="meta"><div class="label">Appendix A·3</div><div class="pager">Service providers</div></div>
+    <div class="meta"><div class="label">Appendix A·3</div><div class="pager">Partners</div></div>
   </div>
 
-  <h2>Service providers.</h2>
-  <p class="lede">Seven contracted service providers. Each agreement is in place and assignable subject to standard change-of-control consent.</p>
+  <h2>Who helped build this.</h2>
+  <p class="lede">Two ongoing relationships transfer at close. The others were build-phase partners and are not pitched as inherited assets; the acquirer plugs in its own equivalents.</p>
 
-  <div class="cpgrid">
-    <div class="cp-card">
-      <div class="cp-role">Legal counsel</div>
-      <h5>MinterEllisonRuddWatts</h5>
-      <p>Lead legal counsel · scheme, deed, FMA engagement</p>
-      <span class="cp-status">Continues</span>
-    </div>
-    <div class="cp-card">
-      <div class="cp-role">Property management</div>
-      <h5>Online Rentals Limited</h5>
-      <p>Ray White Hamilton · PMA executed · 7.5% gross rent</p>
-      <span class="cp-status">Assignable</span>
-    </div>
-    <div class="cp-card">
-      <div class="cp-role">AVM data</div>
-      <h5>CoreLogic NZ</h5>
-      <p>Automated valuation model · data licence in place</p>
-      <span class="cp-status">Assignable</span>
-    </div>
-    <div class="cp-card">
-      <div class="cp-role">AML/CFT</div>
-      <h5>The Compliance Company</h5>
-      <p>Programme documented · ongoing advisory</p>
-      <span class="cp-status">Continues</span>
-    </div>
-    <div class="cp-card">
-      <div class="cp-role">KYC vendor</div>
-      <h5>KYC/AML vendor</h5>
-      <p>Identity verification · PEP &amp; sanctions screening</p>
-      <span class="cp-status">Assignable</span>
-    </div>
-    <div class="cp-card">
-      <div class="cp-role">Audit</div>
-      <h5>Auditor</h5>
-      <p>Regulation 87 custodial-money assurance · appointed</p>
-      <span class="cp-status">Continues</span>
-    </div>
-    <div class="cp-card">
-      <div class="cp-role">Engineering</div>
-      <h5>Miquido sp. z o.o.</h5>
-      <p>Kraków · 24-month build · SOW current</p>
-      <span class="cp-status">Transferable</span>
-    </div>
-    <div class="cp-card">
-      <div class="cp-role">Accounting</div>
-      <h5>Bentleys</h5>
-      <p>Statutory accounting · BAS / GST · monthly close</p>
-      <span class="cp-status">Continues</span>
-    </div>
-  </div>
-
-  <h3>Cumulative cost incurred to date</h3>
-
+  <h3>Ongoing</h3>
   <table>
-    <thead><tr><th style="width:58%">Category</th><th class="num">Cumulative</th></tr></thead>
+    <thead><tr><th style="width:34%">Relationship</th><th>Detail</th></tr></thead>
     <tbody>
-      <tr><td class="label">Legal and regulatory<br><span style="font-size:10.5px;color:var(--ink-soft);letter-spacing:0.04em">MERW, FMA sandbox admission, licensing</span></td><td class="num">~A$0.7M</td></tr>
-      <tr><td class="label">Platform engineering<br><span style="font-size:10.5px;color:var(--ink-soft);letter-spacing:0.04em">Miquido, 24 months</span></td><td class="num">~A$1.5M</td></tr>
-      <tr><td class="label">Compliance and counterparty setup<br><span style="font-size:10.5px;color:var(--ink-soft);letter-spacing:0.04em">AML/CFT programme, DRS, Privacy, BCP</span></td><td class="num">~A$0.1M</td></tr>
+      <tr><td class="label">MinterEllisonRuddWatts<br><span style="font-size:10.5px;color:var(--ink-soft);letter-spacing:0.04em">Jeremy Muir, Partner</span></td><td>Lead legal counsel. Drafted the Master Trust Deed, ran the FMA sandbox admission, and continues to act on the full FMC Act MIS transition. Continues at the acquirer's option.</td></tr>
+      <tr><td class="label">The Compliance Company<br><span style="font-size:10.5px;color:var(--ink-soft);letter-spacing:0.04em">Jeanette Kreft, Managing Director</span></td><td>AML/CFT programme and ongoing compliance advisory. Continues at the acquirer's option.</td></tr>
     </tbody>
-    <tfoot><tr><td>Total cumulative cost</td><td class="num">~A$2.3M</td></tr></tfoot>
   </table>
-  <p class="source">Reference cost basis. Replacement cost (build-from-scratch) estimated at A$3.0–4.0M plus 24–36 months; the additional spread reflects the cost of repeating the FMA admission process, which a new entrant would need to negotiate from zero.</p>
+
+  <h3>Build phase, not inherited</h3>
+  <p>The platform was built over 24 months with <strong>Miquido</strong> (Krak&oacute;w) as engineering partner. The first acquired property is managed by <strong>Ray White Hamilton</strong> on a standard PMA. Neither relationship is positioned as inherited value; the acquirer is expected to bring its own engineering team and its own property-management arrangements.</p>
 </section>
 
 
@@ -1249,74 +1273,11 @@ sup.fnref{font-size:9.5px;color:var(--navy);font-weight:600;font-variant-numeric
 </section>
 
 
-<!-- ============ APPENDIX A·6 · LIQUIDITY & RISKS ============ -->
-<section class="section" id="a-risks">
-  <div class="section-head">
-    <div class="num">A·6</div>
-    <div class="meta"><div class="label">Appendix A·6</div><div class="pager">Liquidity &amp; key risks</div></div>
-  </div>
-
-  <h2>Liquidity mechanics and key risks.</h2>
-  <p class="lede">Structural liquidity mechanics and key risks summarised below. Risks are disclosed for diligence completeness; mitigants are included where the position is structural rather than residual.</p>
-
-  <h3>Liquidity spectrum positioning</h3>
-
-  <div class="spectrum2">
-    <div class="spectrum2-axis">
-      <div class="spectrum2-tick major" style="left:5%"></div>
-      <div class="spectrum2-dot" style="left:32%"></div>
-      <div class="spectrum2-tick" style="left:64%"></div>
-      <div class="spectrum2-tick major" style="left:95%"></div>
-      <div class="spectrum2-label top" style="left:5%">Less liquid</div>
-      <div class="spectrum2-label now top" style="left:32%">Homeshare</div>
-      <div class="spectrum2-label top" style="left:64%">Optional listed wrapper</div>
-      <div class="spectrum2-label top" style="left:95%">More liquid</div>
-      <div class="spectrum2-h" style="left:5%">Locked-in syndicates</div>
-      <div class="spectrum2-h emph" style="left:32%">±25% AVM secondary</div>
-      <div class="spectrum2-h" style="left:64%">Catalist / NZX wrapper</div>
-      <div class="spectrum2-h" style="left:95%">Daily-NAV funds</div>
-      <div class="spectrum2-desc" style="left:5%">Exit only on sponsor wind-up. Oyster, Du Val, Maat / Nido.</div>
-      <div class="spectrum2-desc" style="left:32%">Match-based investor-to-investor exit. No sponsor wind-up required.</div>
-      <div class="spectrum2-desc" style="left:64%">Periodic-auction or continuous. Acquirer's call.</div>
-      <div class="spectrum2-desc" style="left:95%">Requires liquid underlying assets. Equities, listed REITs, cash funds.</div>
-    </div>
-  </div>
-
-  <h3>Liquidity mechanics</h3>
-
-  <table>
-    <thead><tr><th style="width:34%">Mechanism</th><th style="width:33%">Effect</th><th>Limitation</th></tr></thead>
-    <tbody>
-      <tr><td class="label">Investor-to-investor secondary market<br><span style="font-size:10.5px;color:var(--ink-soft)">Deed cl 12 · ±25% AVM band</span></td><td>On-platform venue for matched buyer/seller transfers without sponsor wind-up.</td><td>Does not guarantee a match. Depth scales with the investor base.</td></tr>
-      <tr><td class="label">AVM-anchored corridor<br><span style="font-size:10.5px;color:var(--ink-soft)">CoreLogic, 4-monthly</span></td><td>Constrains transfers to within ±25% of independent valuation.</td><td>Does not assist in correlated-sell events.</td></tr>
-      <tr><td class="label">Non-redeemable units<br><span style="font-size:10.5px;color:var(--ink-soft)">Deed cl 12.11</span></td><td>Structural protection against the "redemptions suspended" outcome.</td><td>No fund-level exit; secondary market or eventual wind-up only.</td></tr>
-      <tr><td class="label">Manager discretion<br><span style="font-size:10.5px;color:var(--ink-soft)">Secondary Market Rules, Deed cl 12</span></td><td>Manager may set matching logic, introduce transaction fees, warehouse stranded orders, or appoint a market-maker.</td><td>Levers available to the acquirer.</td></tr>
-    </tbody>
-  </table>
-
-  <h3>Key risk factors</h3>
-
-  <table>
-    <thead><tr><th style="width:24%">Risk</th><th style="width:38%">Description</th><th>Mitigant</th></tr></thead>
-    <tbody>
-      <tr><td class="label">Pre-revenue, zero AUM</td><td>No deals, properties, investors, or AUM as at the date of this document. First deal selected and launched by the acquirer post-close.</td><td>Valuation anchored on regulatory and counterparty assets plus replacement cost, not AUM multiples.</td></tr>
-      <tr><td class="label">Key-person</td><td>Sole director and shareholder. No current employees.</td><td>Acquirer appoints CEO, Compliance Lead, and independent directors post-close. Founder available for 6–12 month transition consulting.</td></tr>
-      <tr><td class="label">FMA change-of-control consent</td><td>UBO and director fit-and-proper reassessment required. 30–60 days from complete application. Outcome not guaranteed.</td><td>SPA conditioned on FMA consent. Founder background fully disclosed with MERW written confirmation in data room.</td></tr>
-      <tr><td class="label">Sandbox expiry 30 November 2027</td><td>The Exemption Notice does not auto-renew. Continued operation past expiry requires full FMC Act MIS authorisation.</td><td>9–12 month transition project actively in progress with FMA and MERW. Substantive groundwork complete.</td></tr>
-      <tr><td class="label">Sandbox volume caps</td><td>10 Exempt Offers; NZ$50K / NZ$100K per-investor caps; ≤NZ$1M property cap; no gearing.</td><td>Material scale requires full FMC Act MIS authorisation. Acquirer inherits the prepared transition.</td></tr>
-      <tr><td class="label">Counterparty concentration</td><td>Single residential property manager, single AVM vendor, single engineering partner.</td><td>Each agreement is templated and portable; no exclusivity granted; alternatives available.</td></tr>
-      <tr><td class="label">Secondary-market depth</td><td>Depth depends on investor base and number of deals. Pre-launch, depth is theoretical.</td><td>Acquirer's distribution scale produces depth. Cross-deal diversification, AVM band, and cl 12 levers provide structural support.</td></tr>
-      <tr><td class="label">Founder prior-venture profile</td><td>Co-founded Pixelmon (2022). Disclosed in Section 05 and to the FMA at sandbox admission.</td><td>MERW written confirmation of FMA disclosure in data room. Sandbox admission granted on full disclosure.</td></tr>
-    </tbody>
-  </table>
-</section>
-
-
-<!-- ============ APPENDIX A·7 · ORG & CAPITAL STRUCTURE ============ -->
+<!-- ============ APPENDIX A·6 · ORG & CAPITAL STRUCTURE ============ -->
 <section class="section" id="a-org">
   <div class="section-head">
-    <div class="num">A·7</div>
-    <div class="meta"><div class="label">Appendix A·7</div><div class="pager">Organisation &amp; capital</div></div>
+    <div class="num">A·6</div>
+    <div class="meta"><div class="label">Appendix A·6</div><div class="pager">Organisation &amp; capital</div></div>
   </div>
 
   <h2>Organisation and capital structure.</h2>
@@ -1332,7 +1293,7 @@ sup.fnref{font-size:9.5px;color:var(--navy);font-weight:600;font-variant-numeric
           <tr><td class="label">Employees</td><td>None</td></tr>
           <tr><td class="label">Legal counsel</td><td>MinterEllisonRuddWatts (Jeremy Muir)</td></tr>
           <tr><td class="label">AML/CFT advisor</td><td>The Compliance Company</td></tr>
-          <tr><td class="label">Accounting</td><td>Bentleys</td></tr>
+          <tr><td class="label">External accountant</td><td>Engaged for statutory accounting and monthly close. Replaceable.</td></tr>
           <tr><td class="label">Engineering partner</td><td>Miquido sp. z o.o. (Kraków)</td></tr>
           <tr><td class="label">Auditor</td><td>Appointed; named in data room</td></tr>
         </tbody>
@@ -1355,11 +1316,11 @@ sup.fnref{font-size:9.5px;color:var(--navy);font-weight:600;font-variant-numeric
 </section>
 
 
-<!-- ============ APPENDIX A·8 · LICENCE & DEED ============ -->
+<!-- ============ APPENDIX A·7 · LICENCE & DEED ============ -->
 <section class="section" id="a-licence">
   <div class="section-head">
-    <div class="num">A·8</div>
-    <div class="meta"><div class="label">Appendix A·8</div><div class="pager">Licence &amp; Deed</div></div>
+    <div class="num">A·7</div>
+    <div class="meta"><div class="label">Appendix A·7</div><div class="pager">Licence &amp; Deed</div></div>
   </div>
 
   <h2>Licence and deed schedule.</h2>
@@ -1377,7 +1338,7 @@ sup.fnref{font-size:9.5px;color:var(--navy);font-weight:600;font-variant-numeric
       <tr><td class="label">Cohort</td><td>One of six entities admitted to the current FMA sandbox cohort</td></tr>
       <tr><td class="label">Scheme scope</td><td>Fractional retail residential property; deed architecture asset-agnostic</td></tr>
       <tr><td class="label">Core exemptions</td><td>FMC Act Part 3 (PDS); Part 4 (licensed-supervisor and independent-custodian); Part 7 subpart 3 (audited annual financial statements)</td></tr>
-      <tr><td class="label">Replacement obligations</td><td>Templated Offer Page per Exempt Offer; scheme-level Disclosure Statement; quarterly Investor Dashboard (cl 7); 4-monthly CoreLogic AVM (cl 7(j)(1)); Reg 87 assurance retained on applicant money</td></tr>
+      <tr><td class="label">Replacement obligations</td><td>Templated Offer Page per Exempt Offer; scheme-level Disclosure Statement; quarterly Investor Dashboard (cl 7); 4-monthly independent AVM (cl 7(j)(1)); Reg 87 assurance retained on applicant money</td></tr>
       <tr><td class="label">Change of control</td><td>FMA reassessment of UBO and directors; 30–60 days from complete application</td></tr>
     </tbody>
   </table>
@@ -1405,29 +1366,17 @@ sup.fnref{font-size:9.5px;color:var(--navy);font-weight:600;font-variant-numeric
 </section>
 
 
-<!-- ============ APPENDIX A·9 · PLATFORM SCREENSHOTS ============ -->
+<!-- ============ APPENDIX A·8 · PLATFORM SCREENSHOTS ============ -->
 <section class="section" id="a-platform">
   <div class="section-head">
-    <div class="num">A·9</div>
-    <div class="meta"><div class="label">Appendix A·9</div><div class="pager">Platform &amp; operations</div></div>
+    <div class="num">A·8</div>
+    <div class="meta"><div class="label">Appendix A·8</div><div class="pager">Platform &amp; operations</div></div>
   </div>
 
-  <h2>Platform and operations.</h2>
-  <p class="lede">Platform components deployed across production, staging, and development environments. Built by Miquido sp. z o.o. (Kraków) over 24 months. Engineering engagement is transferable to the acquirer.</p>
+  <h2>Platform component schedule.</h2>
+  <p class="lede">Issuer console, investor app, and audit trail are shown in Section 03. This appendix lists the underlying components and residential operations parameters. Platform built over 24 months with Miquido (Krak&oacute;w); the codebase is transferable to the acquirer's engineering team.</p>
 
-  <h3>Issuer admin console</h3>
-  <div class="screenshot">
-    <img src="../assets/admin-properties.png" alt="Homeshare issuer admin console; properties page" loading="lazy" />
-    <div class="cap">Issuer admin console · properties page · production environment · illustrative data.</div>
-  </div>
-
-  <h3>Investor application</h3>
-  <div class="screenshot">
-    <img src="../assets/homeshare-home.png" alt="Homeshare investor application; homepage" loading="lazy" />
-    <div class="cap">Retail investor application · production environment · illustrative.</div>
-  </div>
-
-  <h3>Platform components</h3>
+  <h3>Components</h3>
   <table>
     <thead><tr><th style="width:26%">Component</th><th style="width:48%">Function</th><th class="status">Status</th></tr></thead>
     <tbody>
@@ -1435,7 +1384,7 @@ sup.fnref{font-size:9.5px;color:var(--navy);font-weight:600;font-variant-numeric
       <tr><td class="label">Custody wallet</td><td>Per-investor notional balance over a single bare-trust Custodial Bank Account</td><td class="status">Deployed</td></tr>
       <tr><td class="label">Unit register</td><td>Per-trust register (Deed cl 7); on-chain-ready per cl 2.6</td><td class="status">Deployed</td></tr>
       <tr><td class="label">Primary market</td><td>Applications, Establishment Target tracking, unit issuance, Confirmations</td><td class="status">Deployed</td></tr>
-      <tr><td class="label">Secondary market</td><td>Fixed-band listings at ±25% of CoreLogic AVM; matching, settlement, transfer</td><td class="status">Deployed</td></tr>
+      <tr><td class="label">Secondary market</td><td>Fixed-band listings at ±25% of independent AVM; matching, settlement, transfer</td><td class="status">Deployed</td></tr>
       <tr><td class="label">NAV and pricing engine</td><td>Per-trust NAV, unit pricing, fee accrual, revaluation cycles</td><td class="status">Deployed</td></tr>
       <tr><td class="label">Distribution engine</td><td>Time-weighted sub-period entitlements; automated distributions to wallets</td><td class="status">Deployed</td></tr>
       <tr><td class="label">PIE tax engine</td><td>PIR attribution, imputation-credit attachment, withholding, IR860 reconciliation</td><td class="status">Deployed</td></tr>
@@ -1449,9 +1398,9 @@ sup.fnref{font-size:9.5px;color:var(--navy);font-weight:600;font-variant-numeric
   <table>
     <thead><tr><th style="width:30%">Item</th><th>Detail</th></tr></thead>
     <tbody>
-      <tr><td class="label">Property manager</td><td>Online Rentals Limited (t/a Ray White Hamilton); PMA executed; 7.5% of gross rent (plus GST) on cost-recovery basis; reusable template</td></tr>
+      <tr><td class="label">Property management</td><td>The acquirer plugs in its own residential PM provider. The deed and platform accommodate any standard PMA on a cost-recovery basis.</td></tr>
       <tr><td class="label">Property acquisition criteria</td><td>Maximum NZ$1,000,000; fee simple; standalone dwelling or single townhouse; CCC; valid title (sandbox cl 4)</td></tr>
-      <tr><td class="label">Valuation</td><td>CoreLogic AVM at listing; refreshed every four months (cl 7(j)(1)) or on material change</td></tr>
+      <tr><td class="label">Valuation</td><td>Independent AVM at listing; refreshed every four months (cl 7(j)(1)) or on material change</td></tr>
       <tr><td class="label">Tenant lifecycle</td><td>Sourcing, tenancy management, maintenance, Healthy Homes and RTA compliance; delegable to the property manager on first acquisition</td></tr>
       <tr><td class="label">Distribution cycle</td><td>Monthly net rental income (gross rent less property-management fees, operating costs, tax); time-weighted sub-period attribution</td></tr>
     </tbody>
@@ -1459,18 +1408,18 @@ sup.fnref{font-size:9.5px;color:var(--navy);font-weight:600;font-variant-numeric
 </section>
 
 
-<!-- ============ APPENDIX A·10 · DATA ROOM ============ -->
+<!-- ============ APPENDIX A·9 · DATA ROOM ============ -->
 <section class="section" id="a-dataroom">
   <div class="section-head">
-    <div class="num">A·10</div>
-    <div class="meta"><div class="label">Appendix A·10</div><div class="pager">What's in the data room</div></div>
+    <div class="num">A·9</div>
+    <div class="meta"><div class="label">Appendix A·9</div><div class="pager">What's in the data room</div></div>
   </div>
 
   <h2>What's in the data room.</h2>
   <p class="lede">Access on execution of a Non-Disclosure Agreement. Folder summaries below; document-level index available to qualified bidders on request.</p>
 
   <h3>Folder 01 · Legal and Regulatory</h3>
-  <p>Executed Master Trust Deed (30 January 2026); Home Trust Conditions template; Disclosure Statement; FMA Exemption Notice; FMA correspondence log; MinterEllisonRuddWatts written confirmation of FMA disclosure of founder prior-venture history; founder background brief; licence schedule; supervisor posture; entity structures; constitutions. Approximately 30 documents.</p>
+  <p>Executed Master Trust Deed (30 January 2026); Home Trust Conditions template; Disclosure Statement; FMA Exemption Notice; FMA correspondence log; founder background brief; licence schedule; supervisor posture; entity structures; constitutions.</p>
 
   <h3>Folder 02 · Compliance</h3>
   <p>AML/CFT Programme; AML Risk Assessment; PIE readiness pack; IRD correspondence; Dispute Resolution Scheme membership application; Privacy Policy; Business Continuity Plan; outsourcing register; CoFI fair-conduct notes.</p>
@@ -1479,7 +1428,7 @@ sup.fnref{font-size:9.5px;color:var(--navy);font-weight:600;font-variant-numeric
   <p>Architecture diagrams; component inventory; source-code access on exclusivity; hosting posture; security review; penetration test; intellectual-property assignment; Miquido statement of work; disaster recovery plan.</p>
 
   <h3>Folder 04 &middot; Commercial and Financial</h3>
-  <p>Ray White Hamilton Property Management Agreement, KYC/AML vendor agreement, banking agreements, cloud hosting agreements, cost schedule, profit &amp; loss, balance sheet, cash flow, 12-month forecast, monthly burn, bank statements, capital table, material-contracts register, warranty-schedule outline, rate card, process letter, indicative bid form.</p>
+  <p>Property Management Agreement (current asset), KYC/AML vendor agreement, banking agreements, cloud hosting agreements, cost schedule, profit &amp; loss, balance sheet, cash flow, 12-month forecast, monthly burn, bank statements, capital table, material-contracts register, warranty-schedule outline, rate card, process letter, indicative bid form.</p>
 </section>
 
 </details>
