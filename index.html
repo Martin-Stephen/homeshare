@@ -415,7 +415,7 @@ table tfoot td{padding-top:var(--s-16);border-top:1px solid var(--navy);font-wei
 
 /* Versus board: hero comparison of traditional vs Homeshare structure */
 .versus-board{margin:var(--s-24) 0 var(--s-32);border-radius:18px;overflow:hidden;background:var(--paper);border:1px solid var(--rule)}
-.vb-headers{display:grid;grid-template-columns:1fr 64px 1fr;align-items:stretch}
+.vb-headers{display:grid;grid-template-columns:1fr 110px 1fr;align-items:stretch}
 .vb-head{padding:var(--s-32);position:relative}
 .vb-head.vb-trad{background:var(--paper-2);border-right:1px solid var(--rule-soft)}
 .vb-head.vb-hs{background:linear-gradient(135deg,var(--navy) 0%,#172E4D 100%);color:var(--paper);border-left:1px solid var(--rule-soft)}
@@ -430,18 +430,18 @@ table tfoot td{padding-top:var(--s-16);border-top:1px solid var(--navy);font-wei
 .vb-head.vb-trad p{color:var(--ink-soft)}
 .vb-head.vb-hs p{color:rgba(251,249,244,0.78)}
 .vb-vs{display:flex;align-items:center;justify-content:center;font-family:'Source Serif 4',Georgia,serif;font-size:28px;color:var(--ink-soft);font-weight:400;letter-spacing:-0.02em;background:var(--paper);font-variant-numeric:normal;font-style:italic}
+
+/* Rows: flex inside each cell so icons flow naturally with text */
 .vb-rows{display:flex;flex-direction:column}
-.vb-row{display:grid;grid-template-columns:1fr 64px 1fr;border-top:1px solid var(--rule-soft);position:relative}
-.vb-row::before{content:'';position:absolute;left:50%;top:0;bottom:0;width:64px;transform:translateX(-50%);background:var(--paper)}
-.vb-row .vb-axis{position:relative;z-index:1;display:flex;align-items:center;justify-content:center;font-size:9.5px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--navy);padding:0 10px}
-.vb-row .vb-l,.vb-row .vb-r{padding:var(--s-20) var(--s-24);font-size:var(--t-13);line-height:1.55}
-.vb-row .vb-l{color:var(--ink-soft);background:rgba(244,240,229,0.4);position:relative;padding-left:var(--s-32)}
-.vb-row .vb-l::before{content:'';display:inline-block;width:14px;height:14px;border-radius:50%;background:rgba(0,0,0,0.05);position:absolute;left:var(--s-24);top:var(--s-20);margin-top:4px}
-.vb-row .vb-l::after{content:'\00d7';position:absolute;left:var(--s-24);top:var(--s-20);width:14px;text-align:center;color:var(--ink-soft);font-size:11px;line-height:14px;margin-top:4px}
-.vb-row .vb-r{color:var(--ink);font-weight:500;padding-left:var(--s-32);position:relative}
-.vb-row .vb-r::before{content:'';display:inline-block;width:14px;height:14px;border-radius:50%;background:var(--gold-soft);position:absolute;left:var(--s-24);top:var(--s-20);margin-top:4px}
-.vb-row .vb-r::after{content:'\2713';position:absolute;left:var(--s-24);top:var(--s-20);width:14px;text-align:center;color:var(--gold);font-size:10px;line-height:14px;font-weight:700;margin-top:4px}
-@media (max-width:760px){.vb-headers,.vb-row{grid-template-columns:1fr}.vb-head.vb-trad{border-right:none;border-bottom:1px solid var(--rule-soft)}.vb-head.vb-hs{border-left:none}.vb-vs{padding:var(--s-12) 0}.vb-row .vb-axis{justify-content:flex-start;padding:8px var(--s-20)}.vb-row::before{display:none}}
+.vb-row{display:grid;grid-template-columns:1fr 110px 1fr;border-top:1px solid var(--rule-soft)}
+.vb-row .vb-l,.vb-row .vb-r{padding:var(--s-20) var(--s-24);font-size:var(--t-13);line-height:1.5;display:flex;align-items:flex-start;gap:12px}
+.vb-row .vb-l{color:var(--ink-soft);background:rgba(244,240,229,0.4)}
+.vb-row .vb-l::before{content:'\00d7';flex:0 0 auto;width:20px;height:20px;border-radius:50%;background:rgba(0,0,0,0.06);color:var(--ink-soft);font-size:12px;font-weight:600;display:inline-flex;align-items:center;justify-content:center;line-height:1;margin-top:1px}
+.vb-row .vb-r{color:var(--ink);font-weight:500}
+.vb-row .vb-r::before{content:'\2713';flex:0 0 auto;width:20px;height:20px;border-radius:50%;background:var(--gold-soft);color:var(--gold);font-size:11px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;line-height:1;margin-top:1px}
+.vb-row .vb-axis{display:flex;align-items:center;justify-content:center;font-size:9.5px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--navy);padding:0 var(--s-12);background:var(--paper);border-left:1px solid var(--rule-soft);border-right:1px solid var(--rule-soft);text-align:center}
+
+@media (max-width:760px){.vb-headers,.vb-row{grid-template-columns:1fr}.vb-head.vb-trad{border-right:none;border-bottom:1px solid var(--rule-soft)}.vb-head.vb-hs{border-left:none}.vb-vs{padding:var(--s-12) 0}.vb-row .vb-axis{justify-content:flex-start;padding:8px var(--s-20);border-left:none;border-right:none;border-top:1px solid var(--rule-soft);border-bottom:1px solid var(--rule-soft)}}
 
 /* Capability grid: 8 platform features */
 .capgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s-16);margin:var(--s-24) 0 var(--s-32)}
