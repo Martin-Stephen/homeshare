@@ -82,30 +82,25 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--navy);outline-offse
 .canvas{max-width:1180px;margin:0 auto;padding:24px 24px 80px;display:flex;flex-direction:column;gap:24px}
 @media (max-width:680px){.canvas{padding:16px 12px 48px;gap:16px}}
 
-.card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:80px 72px;position:relative;overflow:hidden}
-@media (max-width:1000px){.card{padding:56px 48px;border-radius:24px}}
-@media (max-width:680px){.card{padding:40px 28px;border-radius:20px}}
+.card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:clamp(36px,5vw,68px) clamp(28px,4.5vw,64px);position:relative;overflow:hidden}
+@media (max-width:680px){.card{border-radius:20px}}
 
 .card.dark{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-2) 100%);color:#F5F0E5;box-shadow:var(--shadow-lift)}
-.card.dark::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold) 0%,var(--gold-2) 100%)}
 
 .card .eyebrow{font-size:var(--t-11);font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--navy);margin-bottom:var(--s-24);display:flex;align-items:center;gap:10px}
 .card .eyebrow::before{content:'';width:18px;height:1px;background:var(--navy)}
 .card.dark .eyebrow{color:var(--gold)}
 .card.dark .eyebrow::before{background:var(--gold)}
 
-.card h1,.card h2{font-family:'Source Serif 4',Georgia,serif;font-weight:500;color:var(--ink);font-variant-numeric:normal;letter-spacing:-0.028em;margin:0}
+.card h1,.card h2{font-family:'Source Serif 4',Georgia,serif;font-weight:500;color:var(--ink);font-variant-numeric:normal;letter-spacing:-0.022em;margin:0}
 .card.dark h1,.card.dark h2{color:#F5F0E5}
-.card h1{font-size:var(--t-96);line-height:0.96;letter-spacing:-0.032em;max-width:920px}
-.card h2{font-size:var(--t-64);line-height:1.04;max-width:880px}
-@media (max-width:1000px){.card h1{font-size:64px}.card h2{font-size:44px}}
-@media (max-width:680px){.card h1{font-size:42px;line-height:1.02}.card h2{font-size:32px;line-height:1.1}}
+.card h1{font-size:clamp(40px,5.6vw,76px);line-height:1.02;letter-spacing:-0.028em;max-width:920px}
+.card h2{font-size:clamp(30px,3.9vw,52px);line-height:1.08;max-width:880px}
 
-.card .lede{font-family:'Source Serif 4',Georgia,serif;font-size:var(--t-22);font-weight:400;line-height:1.45;color:var(--ink-2);max-width:780px;margin:var(--s-24) 0 var(--s-40);letter-spacing:-0.005em;font-variant-numeric:normal}
+.card .lede{font-family:'Source Serif 4',Georgia,serif;font-size:clamp(16px,1.4vw,20px);font-weight:400;line-height:1.5;color:var(--ink-2);max-width:760px;margin:clamp(16px,2vw,24px) 0 clamp(28px,3vw,40px);letter-spacing:-0.005em;font-variant-numeric:normal}
 .card.dark .lede{color:rgba(245,240,229,0.78)}
-@media (max-width:680px){.card .lede{font-size:var(--t-17);margin:var(--s-20) 0 var(--s-32)}}
 
-.card p{font-size:var(--t-17);line-height:1.6;color:var(--ink-2);margin:0 0 var(--s-16);max-width:760px}
+.card p{font-size:clamp(14px,1.1vw,16px);line-height:1.65;color:var(--ink-2);margin:0 0 var(--s-16);max-width:720px}
 .card.dark p{color:rgba(245,240,229,0.75)}
 .card strong{font-weight:600;color:var(--ink)}
 .card.dark strong{color:#F5F0E5}
@@ -116,8 +111,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--navy);outline-offse
 /* ============================================================
    §1 HERO
    ============================================================ */
-.hero{padding-top:120px;padding-bottom:120px;min-height:min(720px,90vh);display:flex;flex-direction:column;justify-content:center}
-@media (max-width:680px){.hero{padding-top:56px;padding-bottom:64px}}
+.hero{padding-top:clamp(56px,8vw,108px);padding-bottom:clamp(56px,8vw,108px);min-height:min(640px,82vh);display:flex;flex-direction:column;justify-content:center}
 .hero .accent{color:var(--navy);font-style:normal}
 .hero-credentials{display:flex;flex-wrap:wrap;gap:0;margin-top:var(--s-48);font-size:var(--t-13);font-weight:500;color:var(--ink-2);letter-spacing:0.02em}
 .hero-credentials .c{position:relative;padding:0 var(--s-24)}
@@ -131,11 +125,11 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--navy);outline-offse
    ============================================================ */
 .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:var(--s-48)}
 @media (max-width:900px){.stats{grid-template-columns:1fr}}
-.stat{background:var(--canvas);border-radius:var(--radius-inner);padding:var(--s-32) var(--s-32)}
-.stat .big{font-family:'Source Serif 4',Georgia,serif;font-size:72px;font-weight:500;line-height:1;letter-spacing:-0.028em;color:var(--navy);margin-bottom:var(--s-16);font-variant-numeric:normal}
-.stat .copy{font-size:var(--t-15);color:var(--ink);font-weight:500;line-height:1.45;margin-bottom:var(--s-12)}
+.stat{background:var(--canvas);border-radius:var(--radius-inner);padding:clamp(20px,2.4vw,32px)}
+.stat .big{font-family:'Source Serif 4',Georgia,serif;font-size:clamp(40px,4.5vw,60px);font-weight:500;line-height:1;letter-spacing:-0.024em;color:var(--navy);margin-bottom:clamp(10px,1.2vw,16px);font-variant-numeric:normal}
+.stat .copy{font-size:clamp(13px,1.1vw,15px);color:var(--ink);font-weight:500;line-height:1.5;margin-bottom:var(--s-12)}
 .stat .src{font-size:11.5px;color:var(--ink-soft);line-height:1.5;letter-spacing:0.01em}
-.opp-close{margin-top:var(--s-40);font-size:var(--t-15);color:var(--ink-soft);font-style:italic;max-width:760px}
+.opp-close{margin-top:clamp(40px,4vw,64px);font-size:clamp(13px,1.1vw,15px);color:var(--ink-soft);font-style:italic;max-width:760px;clear:both}
 
 /* ============================================================
    §3 HOW IT WORKS (worked-example diagram)
@@ -143,12 +137,11 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--navy);outline-offse
 .worked{margin:var(--s-48) 0 var(--s-24);display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:0;align-items:stretch}
 @media (max-width:900px){.worked{grid-template-columns:1fr;gap:var(--s-16)}}
 .wk{background:var(--canvas);border-radius:var(--radius-inner);padding:var(--s-32);text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:flex-start}
-.wk.middle{background:linear-gradient(180deg,#FAF6EC 0%,#F3ECD8 100%);border:1.5px solid var(--gold-soft);position:relative}
-.wk.middle::before{content:'';position:absolute;top:-1.5px;left:-1.5px;right:-1.5px;height:3px;background:linear-gradient(90deg,var(--gold),var(--gold-2));border-radius:var(--radius-inner) var(--radius-inner) 0 0}
+.wk.middle{background:#FBFAF3;box-shadow:0 1px 2px rgba(15,23,42,0.02),0 16px 32px rgba(15,23,42,0.08);transform:translateY(-4px)}
 .wk .ic{width:42px;height:42px;color:var(--navy);margin-bottom:var(--s-16);opacity:0.7}
 .wk.middle .ic{color:var(--gold);opacity:1}
 .wk .ic svg{width:100%;height:100%}
-.wk .big{font-family:'Source Serif 4',Georgia,serif;font-size:56px;font-weight:500;line-height:1;letter-spacing:-0.028em;color:var(--ink);margin-bottom:var(--s-12);font-variant-numeric:normal}
+.wk .big{font-family:'Source Serif 4',Georgia,serif;font-size:clamp(36px,3.5vw,48px);font-weight:500;line-height:1;letter-spacing:-0.024em;color:var(--ink);margin-bottom:var(--s-12);font-variant-numeric:normal}
 .wk.middle .big{color:var(--navy)}
 .wk .lbl{font-size:var(--t-13);font-weight:600;color:var(--ink);margin-bottom:var(--s-12);letter-spacing:-0.005em}
 .wk .meta{font-size:11.5px;color:var(--ink-soft);line-height:1.5;max-width:240px}
@@ -216,12 +209,11 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--navy);outline-offse
    §5 WHY US (DARK · versus board)
    ============================================================ */
 .versus{margin:var(--s-48) 0 var(--s-24);background:rgba(245,240,229,0.04);border:1px solid rgba(245,240,229,0.12);border-radius:var(--radius-inner);overflow:hidden}
-.v-headers{display:grid;grid-template-columns:1fr 80px 1fr}
+.v-headers{display:grid;grid-template-columns:1fr 110px 1fr}
 @media (max-width:760px){.v-headers{grid-template-columns:1fr}}
 .v-h{padding:var(--s-32)}
 .v-h.l{background:rgba(245,240,229,0.04);border-right:1px solid rgba(245,240,229,0.10)}
-.v-h.r{background:rgba(166,124,46,0.06);border-left:1px solid rgba(166,124,46,0.18);position:relative}
-.v-h.r::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),var(--gold-2))}
+.v-h.r{background:rgba(166,124,46,0.06);border-left:1px solid rgba(166,124,46,0.18)}
 .v-h .tag{font-size:9.5px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;margin-bottom:var(--s-12)}
 .v-h.l .tag{color:rgba(245,240,229,0.5)}
 .v-h.r .tag{color:var(--gold)}
@@ -244,14 +236,49 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--navy);outline-offse
 .v-row .axis{display:flex;align-items:center;justify-content:center;font-size:9.5px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);padding:0 var(--s-12);text-align:center;border-left:1px solid rgba(245,240,229,0.06);border-right:1px solid rgba(166,124,46,0.10)}
 @media (max-width:760px){.v-row .axis{justify-content:flex-start;padding:8px var(--s-20);border:none;border-top:1px solid rgba(245,240,229,0.08);border-bottom:1px solid rgba(245,240,229,0.08)}}
 
+/* Source line under versus board on dark card */
+.vs-src{margin-top:clamp(16px,1.8vw,24px);font-size:11.5px;color:rgba(245,240,229,0.5);line-height:1.55;font-style:italic;letter-spacing:0.01em;max-width:none}
+
 /* ============================================================
-   §6 TRUST (testimonial grid)
+   §5 ORG CHART (on the dark card)
+   ============================================================ */
+.orgchart{margin:clamp(40px,5vw,64px) 0 var(--s-16);display:flex;flex-direction:column;align-items:center;gap:0;position:relative}
+.org-row{display:flex;justify-content:center;gap:var(--s-16);position:relative;width:100%;flex-wrap:wrap}
+.org-row + .org-row{margin-top:var(--s-32)}
+.org-node{background:rgba(245,240,229,0.05);border:1px solid rgba(245,240,229,0.14);border-radius:14px;padding:var(--s-16) var(--s-20);min-width:240px;max-width:360px;flex:0 1 320px;position:relative;z-index:2;backdrop-filter:blur(8px)}
+.org-node.primary{background:rgba(166,124,46,0.10);border-color:rgba(166,124,46,0.35);min-width:280px}
+.org-node.deed{background:rgba(245,240,229,0.08);border-color:rgba(166,124,46,0.35);min-width:320px}
+.org-node h5{font-family:'Source Serif 4',Georgia,serif;font-size:var(--t-15);font-weight:500;color:#F5F0E5;margin:0 0 4px;line-height:1.25;letter-spacing:-0.005em;font-variant-numeric:normal}
+.org-node .org-tag{display:inline-block;font-size:9.5px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);margin-bottom:6px}
+.org-node .org-sub{font-size:var(--t-11);color:rgba(245,240,229,0.62);line-height:1.45;margin:4px 0 0}
+.org-row::before{content:'';position:absolute;top:-16px;left:50%;width:1px;height:16px;background:rgba(245,240,229,0.18);z-index:1}
+.org-row.first::before{display:none}
+@media (max-width:760px){.org-row::before{display:none}.org-node{flex:0 1 100%}}
+
+/* ============================================================
+   §6 WHAT'S READY (inventory list)
+   ============================================================ */
+.inventory{margin:clamp(40px,5vw,56px) 0 var(--s-16);display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+@media (max-width:760px){.inventory{grid-template-columns:1fr}}
+.inv-row{padding:clamp(20px,2.4vw,28px) clamp(20px,2.4vw,28px) clamp(20px,2.4vw,28px) clamp(56px,5vw,68px);border-bottom:1px solid var(--rule-soft);position:relative;display:flex;flex-direction:column;gap:6px}
+.inv-row:nth-child(odd){border-right:1px solid var(--rule-soft)}
+@media (max-width:760px){.inv-row{border-right:none !important}}
+.inv-row:nth-last-child(-n+2){border-bottom:none}
+@media (max-width:760px){.inv-row:nth-last-child(-n+2){border-bottom:1px solid var(--rule-soft)}.inv-row:last-child{border-bottom:none}}
+.inv-row .num{position:absolute;left:clamp(20px,2.4vw,28px);top:clamp(20px,2.4vw,28px);font-family:'Source Serif 4',Georgia,serif;font-size:18px;font-weight:500;color:var(--navy);line-height:1;letter-spacing:-0.012em;font-variant-numeric:normal;width:24px}
+.inv-row .ttl{font-size:var(--t-15);font-weight:600;color:var(--ink);letter-spacing:-0.005em;line-height:1.3}
+.inv-row .desc{font-size:var(--t-13);color:var(--ink-soft);line-height:1.5;margin:0}
+.inv-row .tag{display:inline-block;width:fit-content;font-size:9.5px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--navy);background:var(--navy-soft);padding:3px 9px;border-radius:4px;margin-top:8px}
+
+/* ============================================================
+   §7 TRUST (testimonial grid)
    ============================================================ */
 .quotes{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:var(--s-48)}
 @media (max-width:760px){.quotes{grid-template-columns:1fr}}
-.quote{background:var(--canvas);border-radius:var(--radius-inner);padding:var(--s-32);border-left:3px solid var(--gold);display:flex;flex-direction:column}
-.quote .q{font-family:'Source Serif 4',Georgia,serif;font-size:var(--t-17);font-weight:400;line-height:1.45;color:var(--ink);letter-spacing:-0.005em;margin:0 0 var(--s-20);font-style:italic;font-variant-numeric:normal}
-.quote .who{margin-top:auto;border-top:1px solid var(--rule-soft);padding-top:var(--s-16);font-size:var(--t-12);color:var(--ink-soft);line-height:1.45}
+.quote{background:var(--canvas);border-radius:var(--radius-inner);padding:var(--s-32);display:flex;flex-direction:column;position:relative}
+.quote .mark{position:absolute;top:18px;right:24px;font-family:'Source Serif 4',Georgia,serif;font-size:56px;line-height:1;color:var(--gold);opacity:0.20;font-weight:600}
+.quote .q{font-family:'Source Serif 4',Georgia,serif;font-size:var(--t-17);font-weight:400;line-height:1.5;color:var(--ink);letter-spacing:-0.005em;margin:0 0 var(--s-20);font-variant-numeric:normal;position:relative}
+.quote .who{margin-top:auto;padding-top:var(--s-16);font-size:var(--t-12);color:var(--ink-soft);line-height:1.45;border-top:1px solid var(--rule-soft)}
 .quote .who strong{display:block;color:var(--ink);font-weight:600;font-size:var(--t-13);margin-bottom:2px;letter-spacing:-0.005em}
 
 /* ============================================================
@@ -317,9 +344,9 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--navy);outline-offse
 
   <!-- §2 OPPORTUNITY -->
   <section class="card" id="opportunity">
-    <div class="eyebrow">The signal</div>
-    <h2>Retail demand for property is real, measured, and untapped.</h2>
-    <p class="lede">Two independent surveys, six months apart, agree: there&rsquo;s a large Kiwi audience that wants property exposure but is locked out of every existing syndicate by the minimum cheque.</p>
+    <div class="eyebrow">Market demand</div>
+    <h2>Retail demand for property is real, measured, and largely unmet.</h2>
+    <p class="lede">Two independent surveys, six months apart, surface a large Kiwi audience that wants property exposure at a ticket size most current syndicate minimums don&rsquo;t reach.</p>
     <div class="stats">
       <div class="stat">
         <div class="big">75%</div>
@@ -337,14 +364,14 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--navy);outline-offse
         <div class="src">Pollfish, March 2025, N=500</div>
       </div>
     </div>
-    <p class="opp-close">That audience will show up on day one of any retail-enabled commercial syndicate. The market is built. The product is not.</p>
+    <p class="opp-close">A retail audience that wants property exposure already exists. What it lacks is a syndicate-friendly way in. Homeshare is the rail.</p>
   </section>
 
   <!-- §3 HOW IT WORKS -->
   <section class="card" id="how">
     <div class="eyebrow">How it works</div>
-    <h2>A$15M commercial property &rarr; 150,000 retail-tradable shares &rarr; 5,000+ investors.</h2>
-    <p class="lede">A worked example. You bring the deal; the platform converts it into retail-tradable shares inside a ring-fenced per-deal trust. Origination, brand, fee schedule and operations stay in your hands.</p>
+    <h2>A worked example.</h2>
+    <p class="lede">Take a single income-producing asset. The platform converts it into retail-tradable shares inside a ring-fenced per-deal trust under the Homeshare scheme. Origination, brand, fee schedule, and operations stay with you.</p>
 
     <div class="worked">
       <div class="wk">
@@ -401,22 +428,13 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--navy);outline-offse
       </div>
     </div>
 
-    <div class="pills">
-      <span class="lead">Every deal inherits</span>
-      <span class="p">Hours, not weeks</span>
-      <span class="p">One scheme audit</span>
-      <span class="p">One AML programme</span>
-      <span class="p">One investor account, all deals</span>
-      <span class="p">Live secondary market</span>
-      <span class="p">28% PIE tax cap</span>
-    </div>
   </section>
 
   <!-- §4 PLATFORM -->
   <section class="card" id="platform">
-    <div class="eyebrow">The product</div>
-    <h2>Already built. Already deployed.</h2>
-    <p class="lede">The issuer console you&rsquo;d operate from on day one of partnership. Every per-deal trust, every unitholder, every distribution run, every FMA report &mdash; one screen.</p>
+    <div class="eyebrow">The platform</div>
+    <h2>The product, today.</h2>
+    <p class="lede">The issuer console at typical syndicator scale. Every per-deal trust, every unitholder, every distribution run, every FMA report, managed from a single screen. Built across two years; deployed in production.</p>
 
     <div class="console">
       <div class="cm-chrome">
@@ -535,16 +553,16 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--navy);outline-offse
 
   <!-- §5 WHY US (DARK) -->
   <section class="card dark" id="why">
-    <div class="eyebrow">The moat</div>
+    <div class="eyebrow">Why us</div>
     <h2>One scheme. Every deal.</h2>
-    <p class="lede">Every property syndicate in New Zealand today is its own legal entity. Separate constitution. Separate audit. Separate AML programme. Separate investor register. Two years and tens of thousands of dollars per deal. We collapsed eight things into one.</p>
+    <p class="lede">The conventional single-asset structure for NZ commercial syndicates is a per-deal proportionate ownership scheme, limited partnership, or company. Each carries its own constitution, audit, AML programme, and investor register. Some syndicators have already moved beyond that model; if you have, Homeshare slots in beside what you&rsquo;ve built. Where you haven&rsquo;t, the comparison below holds.</p>
 
     <div class="versus">
       <div class="v-headers">
         <div class="v-h l">
-          <div class="tag">Traditional</div>
+          <div class="tag">Conventional</div>
           <h4>New entity per property</h4>
-          <p>POS, LP, or company. Stood up from scratch every time you launch a syndicate.</p>
+          <p>POS, LP, or company. Typically stood up from scratch for each single-asset syndicate.</p>
         </div>
         <div class="v-vs">vs</div>
         <div class="v-h r">
@@ -555,64 +573,162 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--navy);outline-offse
       </div>
       <div class="v-rows">
         <div class="v-row">
-          <div class="l">4 to 8 weeks. A$30&ndash;50K legal per deal.</div>
+          <div class="l">Typically weeks of legal work and material upfront cost per deal.</div>
           <div class="axis">Setup</div>
           <div class="r">Hours. Template instantiation; no new deed, no FMA re-filing.</div>
         </div>
         <div class="v-row">
-          <div class="l">Separate audit and annual statements per syndicate.</div>
+          <div class="l">Often a separate audit and annual statements per syndicate.</div>
           <div class="axis">Audit</div>
           <div class="r">Single scheme-level audit covers every per-deal trust.</div>
         </div>
         <div class="v-row">
-          <div class="l">AML/CFT registration per entity.</div>
+          <div class="l">Separate AML/CFT registration per entity is common.</div>
           <div class="axis">Compliance</div>
           <div class="r">One scheme-level programme. One set of FMA filings.</div>
         </div>
         <div class="v-row">
-          <div class="l">Computershare or equivalent per deal.</div>
+          <div class="l">External registry per deal (Computershare or equivalent).</div>
           <div class="axis">Register</div>
           <div class="r">Single platform register. One investor account, every deal.</div>
         </div>
         <div class="v-row">
-          <div class="l">Investor KYC&rsquo;d per deal.</div>
+          <div class="l">Investors usually re-onboarded per deal.</div>
           <div class="axis">Onboarding</div>
           <div class="r">KYC once. Cross-deal friction approaches zero.</div>
         </div>
         <div class="v-row">
-          <div class="l">Exit only via 75% wind-up vote.</div>
+          <div class="l">Investor exit usually requires a sponsor-led wind-up.</div>
           <div class="axis">Liquidity</div>
           <div class="r">Live secondary market within &plusmn;25% AVM band.</div>
         </div>
         <div class="v-row">
-          <div class="l">PIE election per syndicate, where eligible.</div>
+          <div class="l">PIE election made per syndicate, where eligible.</div>
           <div class="axis">Tax</div>
           <div class="r">Listed-PIE election under one scheme-level framework.</div>
         </div>
       </div>
     </div>
+    <p class="vs-src">Conventional structure references: FMA property syndicate guidance, FMC Act 2013, NZ Securities Act (Real Property Proportionate Ownership Schemes) Exemption Notice 2002. Multi-asset funds and proprietary platforms operate differently &mdash; the comparison applies to the single-asset syndicate structure that is most common in the NZ market today.</p>
+
+    <h3>Group structure</h3>
+    <div class="orgchart">
+      <div class="org-row first">
+        <div class="org-node primary">
+          <div class="org-tag">Holding</div>
+          <h5>Homeshare Group Limited</h5>
+          <p class="org-sub">Founder-controlled. Platform IP, domains and trademarks assigned.</p>
+        </div>
+      </div>
+      <div class="org-row">
+        <div class="org-node">
+          <div class="org-tag">Licensed manager</div>
+          <h5>Homeshare Scheme Management Ltd</h5>
+          <p class="org-sub">FSP 1008923 &middot; sole director Martin van Blerk</p>
+        </div>
+        <div class="org-node">
+          <div class="org-tag">Licensed trustee</div>
+          <h5>Homeshare Trustees Limited</h5>
+          <p class="org-sub">In-house under sandbox &middot; replaceable per Deed cl 19</p>
+        </div>
+      </div>
+      <div class="org-row">
+        <div class="org-node deed">
+          <div class="org-tag">Constitutional document</div>
+          <h5>Master Trust Deed</h5>
+          <p class="org-sub">Executed 30 January 2026 by MinterEllisonRuddWatts &middot; 36 clauses governing the scheme and every per-deal trust</p>
+        </div>
+      </div>
+      <div class="org-row">
+        <div class="org-node">
+          <div class="org-tag">Per-deal trust</div>
+          <h5>Home Trust 1</h5>
+          <p class="org-sub">First deal &middot; ring-fenced per cl 2.2</p>
+        </div>
+        <div class="org-node">
+          <div class="org-tag">Per-deal trust</div>
+          <h5>Home Trust 2</h5>
+          <p class="org-sub">Independent register &middot; independent PIE election</p>
+        </div>
+        <div class="org-node">
+          <div class="org-tag">&hellip;to N</div>
+          <h5>Home Trust N</h5>
+          <p class="org-sub">Architecture supports unlimited per-deal trusts</p>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <!-- §6 TRUST -->
+  <!-- §6 WHAT'S READY -->
+  <section class="card" id="inventory">
+    <div class="eyebrow">What&rsquo;s ready</div>
+    <h2>Everything in place to issue.</h2>
+    <p class="lede">Six asset categories, all transferable, no legacy obligations. Standing this up from scratch is a multi-year, multi-million regulatory and platform build. We&rsquo;ve already done it.</p>
+
+    <div class="inventory">
+      <div class="inv-row">
+        <div class="num">1</div>
+        <div class="ttl">FMA Exemption Notice &amp; regulator relationship</div>
+        <p class="desc">Active sandbox engagement with the FMA. Notice runs to 30 November 2027; full FMC Act MIS transition documented and in progress.</p>
+        <span class="tag">Live</span>
+      </div>
+      <div class="inv-row">
+        <div class="num">2</div>
+        <div class="ttl">Master Trust Deed (MERW-drafted)</div>
+        <p class="desc">36 clauses, executed 30 January 2026. Reusable for every future per-deal trust by templated instantiation. No new deed, no FMA re-filing.</p>
+        <span class="tag">Executed</span>
+      </div>
+      <div class="inv-row">
+        <div class="num">3</div>
+        <div class="ttl">Retail platform &amp; issuer console</div>
+        <p class="desc">Onboarding, custody wallet, primary &amp; secondary market, NAV &amp; distribution engines, PIE tax engine, FMA audit trail. Production, staging, dev environments.</p>
+        <span class="tag">Deployed</span>
+      </div>
+      <div class="inv-row">
+        <div class="num">4</div>
+        <div class="ttl">Standing legal &amp; compliance relationships</div>
+        <p class="desc">Lead counsel MinterEllisonRuddWatts (Jeremy Muir). AML/CFT programme with The Compliance Company. Both relationships continue at the partner&rsquo;s option.</p>
+        <span class="tag">Assignable</span>
+      </div>
+      <div class="inv-row">
+        <div class="num">5</div>
+        <div class="ttl">Brand, domain, IP, design system</div>
+        <p class="desc">homeshare.co.nz, full brand system, codebase IP, trademarks. All assigned to Homeshare Group Limited.</p>
+        <span class="tag">Owned</span>
+      </div>
+      <div class="inv-row">
+        <div class="num">6</div>
+        <div class="ttl">Capital structure</div>
+        <p class="desc">Founder-controlled. No priced equity round. Full schedule shared on diligence.</p>
+        <span class="tag">Simple</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- §7 TRUST -->
   <section class="card" id="trust">
-    <div class="eyebrow">Independent voices</div>
-    <h2>Built with the people who&rsquo;d flag it if it wasn&rsquo;t real.</h2>
-    <p class="lede">Two years of regulatory work supervised by lead NZ counsel. Compliance designed in from day one. Property operations validated by Ray White. Brand and product validated by independent partners.</p>
+    <div class="eyebrow">What partners say</div>
+    <h2>Validated by the people we work with.</h2>
+    <p class="lede">Two years of regulatory work supervised by lead NZ counsel. Compliance designed in from day one. Property operations supported by Ray White. Brand and product validated by independent partners.</p>
 
     <div class="quotes">
       <div class="quote">
+        <span class="mark">&ldquo;</span>
         <p class="q">&ldquo;Homeshare has demonstrated a meticulous approach to helping ensure that the structure meets New Zealand&rsquo;s legal and compliance standards. Their commitment to investor protection is something we support.&rdquo;</p>
         <div class="who"><strong>Jeremy Muir</strong>Partner &middot; MinterEllisonRuddWatts</div>
       </div>
       <div class="quote">
+        <span class="mark">&ldquo;</span>
         <p class="q">&ldquo;Homeshare has taken compliance seriously from the very beginning. By embedding robust compliance processes from day one, they&rsquo;re setting a new benchmark for trust and integrity in property investment.&rdquo;</p>
         <div class="who"><strong>Jeanette Kreft</strong>Managing Director &middot; The Compliance Company</div>
       </div>
       <div class="quote">
+        <span class="mark">&ldquo;</span>
         <p class="q">&ldquo;With decades of PM expertise, we know strong partnerships matter. Homeshare complements our commitment to excellence, giving everyday investors confidence their properties are well-managed.&rdquo;</p>
         <div class="who"><strong>Fraser Coombes &amp; An&eacute;l Mostert</strong>Managing Director &amp; Development Manager &middot; Ray White</div>
       </div>
       <div class="quote">
+        <span class="mark">&ldquo;</span>
         <p class="q">&ldquo;Homeshare is reshaping property investing into something simple, intuitive, and aspirational. It&rsquo;s the kind of brand vision we love to champion.&rdquo;</p>
         <div class="who"><strong>James Blair</strong>Group Managing Director &middot; Brand &amp; Marketing Partner</div>
       </div>
@@ -621,7 +737,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--navy);outline-offse
 
   <!-- §7 LET'S TALK (DARK) -->
   <section class="card dark" id="talk">
-    <div class="eyebrow">Take the next step</div>
+    <div class="eyebrow">Next step</div>
     <h2>Let&rsquo;s talk.</h2>
     <p class="lede">30 minutes. No NDA, no commitment, no obligation. A conversation about what your next deal could look like on Homeshare. Reply with a time that works and you&rsquo;ll get a calendar link back.</p>
 
