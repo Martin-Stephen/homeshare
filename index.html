@@ -79,14 +79,14 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--navy);outline-offse
 .cover .sub{font-family:'Source Serif 4',Georgia,serif;font-size:var(--t-22);font-weight:400;line-height:1.4;color:var(--ink-2);max-width:740px;margin:0 0 var(--s-48);letter-spacing:-0.008em;font-variant-numeric:normal}
 @media (max-width:900px){.cover .sub{font-size:var(--t-17)}}
 
-.cover-metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:0;padding:var(--s-32) 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);margin-top:var(--s-48)}
+.cover-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:0;padding:var(--s-32) 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);margin-top:var(--s-48)}
 .cover-metrics .m{padding:0 var(--s-32);border-right:1px solid var(--rule-soft)}
 .cover-metrics .m:first-child{padding-left:0}
 .cover-metrics .m:last-child{padding-right:0;border-right:none}
 .cover-metrics .m .lbl{font-size:var(--t-11);font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:var(--s-12)}
 .cover-metrics .m .v{font-family:'Source Serif 4',Georgia,serif;font-size:32px;font-weight:500;color:var(--ink);line-height:1;letter-spacing:-0.018em;font-variant-numeric:normal}
 .cover-metrics .m .s{font-size:var(--t-12);color:var(--ink-soft);margin-top:6px;line-height:1.4}
-@media (max-width:900px){.cover-metrics{grid-template-columns:1fr 1fr}.cover-metrics .m{padding:var(--s-16);border-right:1px solid var(--rule-soft);border-bottom:1px solid var(--rule-soft)}.cover-metrics .m:nth-child(even){border-right:none}.cover-metrics .m:nth-last-child(-n+2){border-bottom:none}.cover-metrics .m .v{font-size:24px}}
+@media (max-width:900px){.cover-metrics{grid-template-columns:1fr}.cover-metrics .m{padding:var(--s-16) 0;border-right:none;border-bottom:1px solid var(--rule-soft)}.cover-metrics .m:last-child{border-bottom:none}.cover-metrics .m .v{font-size:26px}}
 
 .cover-meta{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s-32);padding-top:var(--s-48);font-size:var(--t-12);color:var(--ink-soft)}
 .cover-meta .col strong{display:block;font-size:var(--t-11);font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:var(--s-8)}
@@ -364,6 +364,31 @@ table tfoot td{padding-top:var(--s-16);border-top:1px solid var(--navy);font-wei
 .cover-hero{margin:var(--s-24) 0 var(--s-48)}
 .cover-hero .hero-text{max-width:900px}
 
+/* WORKED EXAMPLE: A$15M building -> 150,000 shares -> retail */
+.worked{margin:var(--s-32) 0 var(--s-24)}
+.worked-header{margin-bottom:var(--s-24)}
+.worked-header .we-kicker{font-size:var(--t-11);font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);margin-bottom:var(--s-8)}
+.worked-header h4{font-family:'Source Serif 4',Georgia,serif;font-size:24px;font-weight:500;color:var(--ink);margin:0;letter-spacing:-0.012em;line-height:1.25;font-variant-numeric:normal}
+.worked-flow{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;align-items:stretch;gap:0}
+@media (max-width:900px){.worked-flow{grid-template-columns:1fr;gap:var(--s-16)}}
+.we-stage{background:var(--paper);border:1px solid var(--rule);border-radius:18px;padding:var(--s-32) var(--s-24);text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;transition:box-shadow 0.3s var(--ease),transform 0.3s var(--ease)}
+.we-stage:hover{box-shadow:0 16px 40px rgba(30,58,95,0.08);transform:translateY(-2px)}
+.we-stage.middle{background:var(--paper-2);border-color:var(--navy);border-width:1.5px}
+.we-stage .we-icon{width:48px;height:48px;display:flex;align-items:center;justify-content:center;margin-bottom:var(--s-16);color:var(--navy)}
+.we-stage.middle .we-icon{color:var(--gold)}
+.we-stage .we-icon svg{width:100%;height:100%}
+.we-stage .we-big{font-family:'Source Serif 4',Georgia,serif;font-size:56px;font-weight:500;color:var(--ink);line-height:1;letter-spacing:-0.026em;margin-bottom:var(--s-12);font-variant-numeric:normal}
+.we-stage.middle .we-big{color:var(--navy)}
+.we-stage .we-lbl{font-size:var(--t-13);font-weight:600;color:var(--ink);margin-bottom:var(--s-12);letter-spacing:-0.005em}
+.we-stage .we-meta{font-size:11.5px;color:var(--ink-soft);line-height:1.55;max-width:240px}
+@media (max-width:900px){.we-stage .we-big{font-size:42px}}
+
+.we-arrow{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0 var(--s-20);min-width:120px;gap:6px}
+.we-arrow .we-arrow-label{font-size:10px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--navy);text-align:center;white-space:nowrap}
+.we-arrow .we-arrow-sub{font-size:10px;color:var(--ink-soft);text-align:center;letter-spacing:0.04em;line-height:1.35;max-width:140px}
+.we-arrow svg{width:42px;height:14px}
+@media (max-width:900px){.we-arrow{flex-direction:row;width:100%;justify-content:center;min-width:0;padding:0}.we-arrow svg{transform:rotate(90deg)}}
+
 /* Documents list (A·7) */
 .docs-list{list-style:none;padding:0;margin:var(--s-16) 0 var(--s-32);display:grid;gap:var(--s-12);max-width:880px}
 .docs-list li{padding:var(--s-12) var(--s-16) var(--s-12) calc(var(--s-16) + 14px);border:1px solid var(--rule-soft);background:var(--paper);border-radius:10px;font-size:var(--t-13);color:var(--ink-2);line-height:1.55;position:relative}
@@ -418,6 +443,21 @@ sup.fnref{font-size:9.5px;color:var(--navy);font-weight:600;font-variant-numeric
 .processbox p{font-size:var(--t-15);line-height:1.65;color:var(--ink-2);margin:0 0 var(--s-12);max-width:none}
 .processbox p:last-child{margin-bottom:0}
 .processbox p strong{color:var(--ink);font-weight:600}
+
+/* Contact CTA cards (§07) */
+.contact-cards{display:grid;grid-template-columns:1.4fr 1fr;gap:var(--s-24);margin:var(--s-32) 0 var(--s-32);max-width:920px}
+@media (max-width:900px){.contact-cards{grid-template-columns:1fr}}
+.contact-card{background:var(--paper);border:1px solid var(--rule);border-radius:18px;padding:var(--s-32);text-decoration:none;color:inherit;display:flex;flex-direction:column;gap:var(--s-12);transition:box-shadow 0.3s var(--ease),transform 0.3s var(--ease)}
+.contact-card:hover{box-shadow:0 16px 40px rgba(30,58,95,0.10);transform:translateY(-2px)}
+.contact-card.primary{background:linear-gradient(135deg,var(--navy) 0%,#172E4D 100%);color:var(--paper);border-color:var(--navy)}
+.contact-card.primary:hover{box-shadow:0 18px 48px rgba(30,58,95,0.22)}
+.contact-card .cc-kicker{font-size:var(--t-11);font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--ink-soft)}
+.contact-card.primary .cc-kicker{color:rgba(251,249,244,0.7)}
+.contact-card .cc-big{font-family:'Source Serif 4',Georgia,serif;font-size:28px;font-weight:500;line-height:1.18;letter-spacing:-0.014em;color:var(--ink);font-variant-numeric:normal}
+.contact-card.primary .cc-big{color:var(--paper)}
+.contact-card .cc-sub{font-size:var(--t-12);color:var(--ink-soft);line-height:1.55}
+.contact-card.primary .cc-sub{color:rgba(251,249,244,0.7)}
+.contact-card.primary .cc-sub a,.contact-card .cc-sub a{color:inherit;text-decoration:underline}
 </style>
 </head>
 <body>
@@ -440,13 +480,13 @@ sup.fnref{font-size:9.5px;color:var(--navy);font-weight:600;font-variant-numeric
 <!-- Left-side TOC navigation -->
 <nav class="sidenav" aria-label="Section navigation">
   <a href="#cover" data-target="cover"><span class="ix">00</span><span class="lb">Overview</span></a>
-  <a href="#fit" data-target="fit"><span class="ix">01</span><span class="lb">Strategic rationale</span></a>
-  <a href="#what" data-target="what"><span class="ix">02</span><span class="lb">Business</span></a>
-  <a href="#how" data-target="how"><span class="ix">03</span><span class="lb">Architecture</span></a>
-  <a href="#inherit" data-target="inherit"><span class="ix">04</span><span class="lb">Transferring assets</span></a>
+  <a href="#fit" data-target="fit"><span class="ix">01</span><span class="lb">The opportunity</span></a>
+  <a href="#what" data-target="what"><span class="ix">02</span><span class="lb">What we built</span></a>
+  <a href="#how" data-target="how"><span class="ix">03</span><span class="lb">How it works</span></a>
+  <a href="#inherit" data-target="inherit"><span class="ix">04</span><span class="lb">What&rsquo;s ready</span></a>
   <a href="#why-now" data-target="why-now"><span class="ix">05</span><span class="lb">Why now</span></a>
   <a href="#founder" data-target="founder"><span class="ix">06</span><span class="lb">Founder</span></a>
-  <a href="#process" data-target="process"><span class="ix">07</span><span class="lb">Process</span></a>
+  <a href="#process" data-target="process"><span class="ix">07</span><span class="lb">Let&rsquo;s talk</span></a>
   <div class="sep"></div>
   <a href="#appendix" data-target="appendix"><span class="ix">A</span><span class="lb">Appendix</span></a>
 </nav>
@@ -455,20 +495,19 @@ sup.fnref{font-size:9.5px;color:var(--navy);font-weight:600;font-variant-numeric
 
 <!-- ============ COVER ============ -->
 <section class="cover" id="cover">
-  <div class="eyebrow">Confidential Acquisition Opportunity · Prepared May 2026</div>
+  <div class="eyebrow">A strategic invitation for AU and NZ property syndicators &middot; May 2026</div>
 
   <div class="cover-hero">
     <div class="hero-text">
-      <h1>Retail-enable your <span class="accent">wholesale syndicates.</span></h1>
-      <p class="sub">A New Zealand-licensed Managed Investment Scheme platform, built for property syndicators. First retail offer can launch within ~90 days post-close, under your brand and on your commercial terms.</p>
+      <h1>Retail-enable your <span class="accent">commercial syndicates.</span></h1>
+      <p class="sub">A New Zealand-licensed Managed Investment Scheme platform, ready to plug into your next deal. Your origination. Your brand. Your fee schedule. We bring the retail rail.</p>
     </div>
   </div>
 
   <div class="cover-metrics">
-    <div class="m"><div class="lbl">Structure</div><div class="v">NZ MIS</div><div class="s">Licensed manager, trustee, deed</div></div>
-    <div class="m"><div class="lbl">FMA sandbox</div><div class="v">2-year window</div><div class="s">to 30 November 2027</div></div>
-    <div class="m"><div class="lbl">Deed executed</div><div class="v">Jan 2026</div><div class="s">36 clauses, MERW-drafted</div></div>
-    <div class="m"><div class="lbl">First retail deal</div><div class="v">~90 days</div><div class="s">post-close, your brand</div></div>
+    <div class="m"><div class="lbl">Status</div><div class="v">FMA-licensed</div><div class="s">Manager, trustee, deed executed</div></div>
+    <div class="m"><div class="lbl">Platform</div><div class="v">Live</div><div class="s">Issuer console, investor app, audit trail</div></div>
+    <div class="m"><div class="lbl">Your next deal</div><div class="v">~90 days</div><div class="s">From handshake to first retail subscription</div></div>
   </div>
 </section>
 
@@ -480,7 +519,7 @@ sup.fnref{font-size:9.5px;color:var(--navy);font-weight:600;font-variant-numeric
     <div class="meta"><div class="label">Section 01</div><div class="pager">Page 01 / 07</div></div>
   </div>
 
-  <h2>Strategic rationale.</h2>
+  <h2>The opportunity.</h2>
   <p class="lede">Three concrete ways an AU or NZ commercial property syndicator can deploy Homeshare. None require new origination, brand changes, or commercial-term concessions. Residential is the sandbox restriction; the deed defines Property as &ldquo;real property&rdquo;, so the architecture supports office, industrial, retail and multi-tenant commercial under full FMC Act MIS.</p>
 
   <div class="fit3">
@@ -530,7 +569,7 @@ sup.fnref{font-size:9.5px;color:var(--navy);font-weight:600;font-variant-numeric
     <div class="meta"><div class="label">Section 02</div><div class="pager">Page 02 / 07</div></div>
   </div>
 
-  <h2>Business.</h2>
+  <h2>What we built.</h2>
   <p class="lede">A licensed New Zealand financial product, ready to issue retail tickets. Pre-revenue, no live deal yet, founder-controlled, no priced equity round. Designed for property syndicators, residential under sandbox; the deed architecture supports any real-property asset class.</p>
 
   <p><strong>The licensed manager and trustee operate under an FMA-issued exemption</strong> that admitted the scheme to NZ&rsquo;s regulatory sandbox in late 2025. A 9 to 12 month transition to full FMC Act MIS authorisation is in progress with the FMA and MinterEllisonRuddWatts (lead legal counsel).</p>
@@ -551,70 +590,72 @@ sup.fnref{font-size:9.5px;color:var(--navy);font-weight:600;font-variant-numeric
     <div class="meta"><div class="label">Section 03</div><div class="pager">Page 03 / 07</div></div>
   </div>
 
-  <h2>Architecture.</h2>
-  <p class="lede">A syndicator brings any income-producing deal. Homeshare converts it into retail-tradable units inside a per-deal trust, with the manager, trustee, deed, and platform already in place. The acquirer keeps origination, brand, and commercial terms.</p>
+  <h2>How it works.</h2>
+  <p class="lede">You bring the deal. We turn it into retail-tradable shares. You keep origination, brand, fee schedule, and operations.</p>
 
-  <h3>The deal lifecycle</h3>
+  <div class="worked">
+    <div class="worked-header">
+      <div class="we-kicker">A worked example</div>
+      <h4>A$15M Auckland office, retail-tradable in 30 days.</h4>
+    </div>
 
-  <div class="dealflow">
-    <div class="dealflow-frame">
-
-      <div class="entity">
-        <div class="e-num">1</div>
-        <div class="e-head">
-          <div class="e-kicker">Syndicator</div>
-          <h4>Your deal</h4>
+    <div class="worked-flow">
+      <div class="we-stage">
+        <div class="we-icon">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="8" y="8" width="32" height="36" rx="1.5"/>
+            <line x1="14" y1="16" x2="18" y2="16"/><line x1="22" y1="16" x2="26" y2="16"/><line x1="30" y1="16" x2="34" y2="16"/>
+            <line x1="14" y1="24" x2="18" y2="24"/><line x1="22" y1="24" x2="26" y2="24"/><line x1="30" y1="24" x2="34" y2="24"/>
+            <line x1="14" y1="32" x2="18" y2="32"/><line x1="22" y1="32" x2="26" y2="32"/><line x1="30" y1="32" x2="34" y2="32"/>
+            <line x1="21" y1="44" x2="27" y2="44" stroke-width="2"/>
+          </svg>
         </div>
-        <div class="e-body">
-          <span>Originate the asset</span>
-          <span>Set the commercial terms</span>
-          <span>Keep your investor brand</span>
-          <span>Operate as you do today</span>
-        </div>
+        <div class="we-big">A$15M</div>
+        <div class="we-lbl">Commercial property</div>
+        <div class="we-meta">Single asset. Office, industrial, retail, or specialist. ~6% gross yield. Your origination, your terms.</div>
       </div>
 
-      <div class="connector"><span class="label">Deal flows in</span></div>
-
-      <div class="entity center">
-        <div class="e-num">2</div>
-        <div class="e-head">
-          <div class="e-kicker">Homeshare platform</div>
-          <h4>Per-deal trust, ring-fenced, tax-efficient</h4>
-        </div>
-        <div class="components">
-          <div class="c"><div class="c-t">MERW-drafted deed</div><div class="c-s">36 clauses</div></div>
-          <div class="c"><div class="c-t">Tokenised register</div><div class="c-s">Per deal</div></div>
-          <div class="c"><div class="c-t">Bare-trust wallet</div><div class="c-s">Custodial bank account</div></div>
-          <div class="c"><div class="c-t">PIE tax election</div><div class="c-s">28% retail cap</div></div>
-          <div class="c"><div class="c-t">Monthly distributions</div><div class="c-s">Time-weighted</div></div>
-          <div class="c"><div class="c-t">Secondary market</div><div class="c-s">&plusmn;25% AVM band</div></div>
-        </div>
-        <div class="e-foot">
-          <strong>Counterparties integrated</strong>
-          Custodial bank, AML/CFT programme, KYC vendor, AVM data, scheme audit. Plug-in providers; acquirer brings own.
-        </div>
+      <div class="we-arrow">
+        <span class="we-arrow-label">Wrap</span>
+        <svg viewBox="0 0 42 14" fill="none" stroke="#1E3A5F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="0" y1="7" x2="34" y2="7"/><path d="M 30 2 L 38 7 L 30 12"/></svg>
+        <span class="we-arrow-sub">FMA-licensed manager. MERW-drafted deed.</span>
       </div>
 
-      <div class="connector"><span class="label">Units issued</span></div>
-
-      <div class="entity">
-        <div class="e-num">3</div>
-        <div class="e-head">
-          <div class="e-kicker">Retail investors</div>
-          <h4>Subscribe, hold, exit</h4>
+      <div class="we-stage middle">
+        <div class="we-icon">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4">
+            <rect x="6"  y="6"  width="9" height="9" rx="1"/><rect x="19" y="6"  width="9" height="9" rx="1"/><rect x="32" y="6"  width="9" height="9" rx="1"/>
+            <rect x="6"  y="19" width="9" height="9" rx="1"/><rect x="19" y="19" width="9" height="9" rx="1" fill="currentColor"/><rect x="32" y="19" width="9" height="9" rx="1"/>
+            <rect x="6"  y="32" width="9" height="9" rx="1"/><rect x="19" y="32" width="9" height="9" rx="1"/><rect x="32" y="32" width="9" height="9" rx="1"/>
+          </svg>
         </div>
-        <div class="e-body">
-          <span>Low-minimum tickets</span>
-          <span>Digital KYC onboarding</span>
-          <span>Monthly distributions to wallet</span>
-          <span>Match-based exit on secondary market</span>
-        </div>
+        <div class="we-big">150,000</div>
+        <div class="we-lbl">Shares &times; A$100 each</div>
+        <div class="we-meta">Ring-fenced per-deal trust. 28% PIE tax cap. 0.71% Trust Service Fee. &plusmn;25% AVM secondary band.</div>
       </div>
 
+      <div class="we-arrow">
+        <span class="we-arrow-label">Distribute</span>
+        <svg viewBox="0 0 42 14" fill="none" stroke="#1E3A5F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="0" y1="7" x2="34" y2="7"/><path d="M 30 2 L 38 7 L 30 12"/></svg>
+        <span class="we-arrow-sub">From a A$100 minimum.</span>
+      </div>
+
+      <div class="we-stage">
+        <div class="we-icon">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="16" cy="18" r="6"/><circle cx="32" cy="14" r="6"/><circle cx="24" cy="24" r="6.5"/>
+            <path d="M 6 42 Q 6 32 16 32 Q 26 32 26 42" stroke-linecap="round"/>
+            <path d="M 22 42 Q 22 28 32 28 Q 42 28 42 42" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="we-big">5,000+</div>
+        <div class="we-lbl">Retail investors</div>
+        <div class="we-meta">Digital onboarding. Monthly distributions to wallet. Match-based exit on secondary market.</div>
+      </div>
     </div>
   </div>
 
-  <h3>A new deal goes live in days, not months</h3>
+  <h3>Live in 30 days</h3>
 
   <div class="workflow2">
     <div class="workflow2-track">
@@ -667,7 +708,7 @@ sup.fnref{font-size:9.5px;color:var(--navy);font-weight:600;font-variant-numeric
     <div class="meta"><div class="label">Section 04</div><div class="pager">Page 04 / 07</div></div>
   </div>
 
-  <h2>Transferring assets.</h2>
+  <h2>What&rsquo;s ready.</h2>
   <p class="lede">Six asset categories. All assignable, no legacy obligations.</p>
 
   <ol class="inherit-list">
@@ -791,24 +832,23 @@ sup.fnref{font-size:9.5px;color:var(--navy);font-weight:600;font-variant-numeric
     <div class="meta"><div class="label">Section 07</div><div class="pager">Page 07 / 07</div></div>
   </div>
 
-  <h2>Process.</h2>
-  <p class="lede">Targeted strategic sale. No public auction. Convention-standard timeline.</p>
+  <h2>Let&rsquo;s talk.</h2>
+  <p class="lede">If any of this is interesting, the next step is a 30-minute call. No commitment, no NDA, no obligation. Just a conversation about what your next deal looks like and whether Homeshare is the right rail for it.</p>
 
-  <div class="processbox">
-    <p>Targeted strategic sale to <strong>3–5 qualified invitees</strong>. Indicative non-binding offers within <strong>30 days</strong> of NDA execution. Exclusivity granted to a single preferred bidder for <strong>15 days</strong> at indicative-bid stage. Preferred close approximately <strong>90 days</strong> from indicative bid, subject to FMA change-of-control consent.</p>
-    <p>Process counsel: <strong>MinterEllisonRuddWatts</strong> · Jeremy Muir. M&amp;A adviser available on qualified enquiry.</p>
+  <div class="contact-cards">
+    <a class="contact-card primary" href="mailto:martin@homeshare.co.nz?subject=Homeshare%20%E2%80%94%20intro%20call">
+      <div class="cc-kicker">Email the founder direct</div>
+      <div class="cc-big">martin@homeshare.co.nz</div>
+      <div class="cc-sub">Reply with a date that works. Founder, not a chain of intermediaries.</div>
+    </a>
+    <div class="contact-card">
+      <div class="cc-kicker">Founder</div>
+      <div class="cc-big">Martin van Blerk</div>
+      <div class="cc-sub">Homeshare Group Limited<br>Level 3, 527 Victoria Street, Hamilton 3204, New Zealand<br><a href="https://homeshare.co.nz" target="_blank" rel="noopener">homeshare.co.nz</a></div>
+    </div>
   </div>
 
-  <h3>Contact</h3>
-  <table>
-    <thead><tr><th style="width:32%">Contact</th><th>Detail</th></tr></thead>
-    <tbody>
-      <tr><td class="label">Principal<br><span style="font-size:10.5px;color:var(--ink-soft)">Founder, Homeshare Group Limited</span></td><td><strong>Martin van Blerk</strong> · martin@homeshare.co.nz<br>Level 3, 527 Victoria Street, Hamilton 3204, New Zealand</td></tr>
-      <tr><td class="label">Legal counsel</td><td>MinterEllisonRuddWatts · Jeremy Muir</td></tr>
-    </tbody>
-  </table>
-
-  <p class="source">Detailed indicative timeline and phase descriptions in the appendix.</p>
+  <p class="source">All material in this deck is non-confidential. The technical pack (Master Trust Deed, Disclosure Statement, Licence Conditions, Home Trust Conditions, platform components, capital structure schedule) is available on a short NDA.</p>
 </section>
 
 
