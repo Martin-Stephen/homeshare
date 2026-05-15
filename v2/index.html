@@ -360,12 +360,15 @@ table tfoot td{padding-top:var(--s-16);border-top:1px solid var(--navy);font-wei
 .shotstack .shot .shot-head .ttl{font-size:var(--t-13);font-weight:600;color:var(--ink);letter-spacing:-0.005em}
 .shotstack .shot .shot-head .meta{font-size:var(--t-11);color:var(--ink-soft);letter-spacing:0.04em;text-transform:uppercase}
 
-/* Hero visual on cover: large free-floating product photo */
-.cover-hero{display:grid;grid-template-columns:1fr 1.15fr;gap:var(--s-64);align-items:center;margin:var(--s-24) 0 var(--s-48)}
-.cover-hero .hero-art{position:relative;margin:0}
-.cover-hero .hero-art::before{content:'';position:absolute;top:-15%;right:-10%;width:100%;height:130%;background:radial-gradient(ellipse at center,rgba(166,124,46,0.14) 0%,rgba(166,124,46,0) 60%);pointer-events:none;z-index:0}
-.cover-hero .hero-art img{width:108%;max-width:none;height:auto;display:block;position:relative;z-index:1;filter:drop-shadow(0 30px 40px rgba(30,58,95,0.12)) drop-shadow(0 4px 12px rgba(30,58,95,0.06))}
-@media (max-width:900px){.cover-hero{grid-template-columns:1fr;gap:var(--s-32)}.cover-hero .hero-art img{width:100%}}
+/* Cover content layout: text-only, full width */
+.cover-hero{margin:var(--s-24) 0 var(--s-48)}
+.cover-hero .hero-text{max-width:900px}
+
+/* Documents list (A·7) */
+.docs-list{list-style:none;padding:0;margin:var(--s-16) 0 var(--s-32);display:grid;gap:var(--s-12);max-width:880px}
+.docs-list li{padding:var(--s-12) var(--s-16) var(--s-12) calc(var(--s-16) + 14px);border:1px solid var(--rule-soft);background:var(--paper);border-radius:10px;font-size:var(--t-13);color:var(--ink-2);line-height:1.55;position:relative}
+.docs-list li::before{content:'';position:absolute;left:var(--s-16);top:18px;width:4px;height:4px;border-radius:50%;background:var(--gold)}
+.docs-list li strong{color:var(--ink);font-weight:600}
 
 /* Appendix CTA at the end of main flow */
 .appendix-cta{margin:var(--s-96) 0 var(--s-48);padding:var(--s-48) var(--s-48);background:linear-gradient(135deg,var(--paper-2) 0%,var(--paper-3) 100%);border:1px solid var(--rule);border-radius:18px;display:grid;grid-template-columns:1fr auto;align-items:center;gap:var(--s-32);position:relative;overflow:hidden}
@@ -427,8 +430,8 @@ sup.fnref{font-size:9.5px;color:var(--navy);font-weight:600;font-variant-numeric
     <span class="conf">Strictly Private &amp; Confidential</span>
   </div>
   <div class="right">
-    <a href="#fit">Why this matters</a>
-    <a href="#how">How it works</a>
+    <a href="#fit">Strategic rationale</a>
+    <a href="#how">Architecture</a>
     <a href="#process">Process</a>
     <a href="#appendix">Appendix</a>
   </div>
@@ -436,11 +439,11 @@ sup.fnref{font-size:9.5px;color:var(--navy);font-weight:600;font-variant-numeric
 
 <!-- Left-side TOC navigation -->
 <nav class="sidenav" aria-label="Section navigation">
-  <a href="#cover" data-target="cover"><span class="ix">00</span><span class="lb">Cover</span></a>
-  <a href="#fit" data-target="fit"><span class="ix">01</span><span class="lb">How you'd use it</span></a>
-  <a href="#what" data-target="what"><span class="ix">02</span><span class="lb">What this is</span></a>
-  <a href="#how" data-target="how"><span class="ix">03</span><span class="lb">How it works</span></a>
-  <a href="#inherit" data-target="inherit"><span class="ix">04</span><span class="lb">What transfers</span></a>
+  <a href="#cover" data-target="cover"><span class="ix">00</span><span class="lb">Overview</span></a>
+  <a href="#fit" data-target="fit"><span class="ix">01</span><span class="lb">Strategic rationale</span></a>
+  <a href="#what" data-target="what"><span class="ix">02</span><span class="lb">Business</span></a>
+  <a href="#how" data-target="how"><span class="ix">03</span><span class="lb">Architecture</span></a>
+  <a href="#inherit" data-target="inherit"><span class="ix">04</span><span class="lb">Transferring assets</span></a>
   <a href="#why-now" data-target="why-now"><span class="ix">05</span><span class="lb">Why now</span></a>
   <a href="#founder" data-target="founder"><span class="ix">06</span><span class="lb">Founder</span></a>
   <a href="#process" data-target="process"><span class="ix">07</span><span class="lb">Process</span></a>
@@ -457,11 +460,8 @@ sup.fnref{font-size:9.5px;color:var(--navy);font-weight:600;font-variant-numeric
   <div class="cover-hero">
     <div class="hero-text">
       <h1>Retail-enable your <span class="accent">wholesale syndicates.</span></h1>
-      <p class="sub">A New Zealand-licensed Managed Investment Scheme platform, built for property syndicators. First retail deal goes live in approximately 90 days post-close, under your brand and on your commercial terms.</p>
+      <p class="sub">A New Zealand-licensed Managed Investment Scheme platform, built for property syndicators. First retail offer can launch within ~90 days post-close, under your brand and on your commercial terms.</p>
     </div>
-    <figure class="hero-art">
-      <img src="../assets/hero-product.png" alt="Homeshare retail product, live at homeshare.co.nz" />
-    </figure>
   </div>
 
   <div class="cover-metrics">
@@ -480,8 +480,8 @@ sup.fnref{font-size:9.5px;color:var(--navy);font-weight:600;font-variant-numeric
     <div class="meta"><div class="label">Section 01</div><div class="pager">Page 01 / 07</div></div>
   </div>
 
-  <h2>How you'd use it.</h2>
-  <p class="lede">Three concrete ways an AU or NZ property syndicator can deploy Homeshare on day one. None require new origination, brand changes, or commercial-term concessions.</p>
+  <h2>Strategic rationale.</h2>
+  <p class="lede">Three concrete ways an AU or NZ commercial property syndicator can deploy Homeshare. None require new origination, brand changes, or commercial-term concessions. Residential is the sandbox restriction; the deed defines Property as &ldquo;real property&rdquo;, so the architecture supports office, industrial, retail and multi-tenant commercial under full FMC Act MIS.</p>
 
   <div class="fit3">
     <div class="col gold">
@@ -506,18 +506,18 @@ sup.fnref{font-size:9.5px;color:var(--navy);font-weight:600;font-variant-numeric
   <div class="usecases">
     <div class="uc">
       <div class="uc-num">01</div>
-      <h5>Retail-enable existing inventory</h5>
-      <p>Take any wholesale syndicate currently restricted to accredited investors and make it retail-tradable in weeks. Your pipeline becomes the day-one inventory; no new origination required.</p>
+      <h5>Retail-enable an unlisted commercial fund</h5>
+      <p>Take any single-asset office, industrial, retail or specialist commercial syndicate and offer fractional units to retail investors at a low minimum. Existing wholesale tranche unaffected; retail rides alongside in the same per-deal trust under your fee schedule. Available under full FMC Act MIS post-sandbox.</p>
     </div>
     <div class="uc">
       <div class="uc-num">02</div>
       <h5>Buy out of the FMA queue</h5>
-      <p>A new entrant faces 12–18 months of FMA work before issuing a single retail unit. At close, you step into an active engagement with a documented path to full FMC Act MIS authorisation in 9–12 months.</p>
+      <p>A new entrant faces 12 to 18 months of FMA work before issuing a single retail unit. At close, you step into an active engagement with a documented path to full FMC Act MIS authorisation in 9 to 12 months.</p>
     </div>
     <div class="uc">
       <div class="uc-num">03</div>
       <h5>Brand and terms unchanged</h5>
-      <p>The first retail deal launches under the acquirer's own brand. Fee schedule and unit count are configured per deal. The acquirer keeps full control over how each deal is priced and presented to investors.</p>
+      <p>Every offer launches under the acquirer&rsquo;s own brand. Fee schedule and unit count are configured per deal. The acquirer keeps full control over how each deal is priced and presented to investors.</p>
     </div>
   </div>
 </section>
@@ -530,8 +530,8 @@ sup.fnref{font-size:9.5px;color:var(--navy);font-weight:600;font-variant-numeric
     <div class="meta"><div class="label">Section 02</div><div class="pager">Page 02 / 07</div></div>
   </div>
 
-  <h2>What this is.</h2>
-  <p class="lede">A licensed New Zealand financial product, ready to issue retail tickets. Pre-revenue, no live deal yet, ~A$2.3M invested to date. 100% founder-held, no external equity, no preference stack.</p>
+  <h2>Business.</h2>
+  <p class="lede">A licensed New Zealand financial product, ready to issue retail tickets. Pre-revenue, no live deal yet, founder-controlled, no priced equity round. Designed for property syndicators, residential under sandbox; the deed architecture supports any real-property asset class.</p>
 
   <p><strong>The licensed manager and trustee operate under an FMA-issued exemption</strong> that admitted the scheme to NZ&rsquo;s regulatory sandbox in late 2025. A 9 to 12 month transition to full FMC Act MIS authorisation is in progress with the FMA and MinterEllisonRuddWatts (lead legal counsel).</p>
 
@@ -551,7 +551,7 @@ sup.fnref{font-size:9.5px;color:var(--navy);font-weight:600;font-variant-numeric
     <div class="meta"><div class="label">Section 03</div><div class="pager">Page 03 / 07</div></div>
   </div>
 
-  <h2>How it works.</h2>
+  <h2>Architecture.</h2>
   <p class="lede">A syndicator brings any income-producing deal. Homeshare converts it into retail-tradable units inside a per-deal trust, with the manager, trustee, deed, and platform already in place. The acquirer keeps origination, brand, and commercial terms.</p>
 
   <h3>The deal lifecycle</h3>
@@ -667,7 +667,7 @@ sup.fnref{font-size:9.5px;color:var(--navy);font-weight:600;font-variant-numeric
     <div class="meta"><div class="label">Section 04</div><div class="pager">Page 04 / 07</div></div>
   </div>
 
-  <h2>What transfers at close.</h2>
+  <h2>Transferring assets.</h2>
   <p class="lede">Six asset categories. All assignable, no legacy obligations.</p>
 
   <ol class="inherit-list">
@@ -714,10 +714,10 @@ sup.fnref{font-size:9.5px;color:var(--navy);font-weight:600;font-variant-numeric
     <li>
       <div class="n">6</div>
       <div class="body">
-        <h4>Clean cap table</h4>
-        <p>100% founder-held common equity. No external investors, no preference stack, no convertibles, no options. Reverse-merger-friendly.</p>
+        <h4>Simple capital structure</h4>
+        <p>Founder-controlled. No priced equity round; no institutional investors; no preference stack; no options pool. A small set of pre-priced contributions has been recorded as Future Equity entitlements convertible at a trigger event. Full schedule disclosed on diligence.</p>
       </div>
-      <div class="tag">Clean</div>
+      <div class="tag">Founder-led</div>
     </li>
   </ol>
 
@@ -754,7 +754,7 @@ sup.fnref{font-size:9.5px;color:var(--navy);font-weight:600;font-variant-numeric
     </div>
   </div>
 
-  <p class="source">Comparable transaction detail in the appendix. Founder bio and transition terms in Section 05.</p>
+  <p class="source">Founder bio and transition terms in Section 06.</p>
 
   <div class="pullquote2">
     <p class="q">&ldquo;Homeshare has taken compliance seriously from the very beginning. By embedding robust compliance processes from day one, they&rsquo;re setting a new benchmark for trust and integrity in property investment.&rdquo;</p>
@@ -770,13 +770,13 @@ sup.fnref{font-size:9.5px;color:var(--navy);font-weight:600;font-variant-numeric
     <div class="meta"><div class="label">Section 06</div><div class="pager">Page 06 / 07</div></div>
   </div>
 
-  <h2>Founder and transition.</h2>
-  <p class="lede">Founder-led, 100% founder-held. Available for a structured 6–12 month transition. Acquirer appoints permanent operating leadership post-close.</p>
+  <h2>Founder.</h2>
+  <p class="lede">Founder-led, founder-controlled. Available for a structured 6 to 12 month transition. Acquirer appoints permanent operating leadership post-close.</p>
 
   <h3>Founder background</h3>
   <p><strong>Martin van Blerk</strong>, founder and sole director, Homeshare Group Limited.</p>
   <p>In February 2022, Mr van Blerk founded Pixelmon, a digital collectibles project whose primary mint generated approximately US$70 million in sales. He led the project through delivery against the published post-launch roadmap and in October 2022 sold a controlling interest to LiquidX Ventures (Singapore). Animoca Brands subsequently led a US$8.0 million seed round for the project in 2024. Mr van Blerk retains a minority founder interest and is not involved in operations.</p>
-  <p>He founded Homeshare in 2024 to bring the same product-and-distribution discipline to a regulated New Zealand financial product. The company has operated as 100% founder-held since incorporation.</p>
+  <p>He founded Homeshare in 2024 to bring the same product-and-distribution discipline to a regulated New Zealand financial product. The company is founder-controlled; no priced equity round has been raised. A small set of pre-priced contributions has been recorded as Future Equity entitlements convertible at a trigger event, with the full schedule disclosed on diligence.</p>
 
   <h3>Transition</h3>
   <p>Mr van Blerk is available for a 6 to 12 month transition consulting engagement covering FMA relationship handover, legal continuity with MinterEllisonRuddWatts, and operational knowledge transfer. The acquirer is expected to appoint a CEO, Compliance Lead, and independent directors post-close.</p>
@@ -817,7 +817,7 @@ sup.fnref{font-size:9.5px;color:var(--navy);font-weight:600;font-variant-numeric
   <div class="text">
     <h3>For diligence</h3>
     <h4 id="appendix-cta-title">Want the full picture? Open the appendix.</h4>
-    <p>Regulatory pathway, group structure, partners, fee model, comparable transactions, capital structure, licence and deed schedules, platform components, and data-room index.</p>
+    <p>Regulatory pathway, group structure, partners, fee model, licence and deed schedules, platform components, and the list of documents on diligence.</p>
   </div>
   <a href="#appendix" class="btn" id="openAppendixBtn">
     <span>View appendix</span>
@@ -845,7 +845,7 @@ sup.fnref{font-size:9.5px;color:var(--navy);font-weight:600;font-variant-numeric
   <div class="body">
     <div class="label">Appendix</div>
     <h2>Supporting schedules.</h2>
-    <p>Reference material for diligence: regulatory pathway, partners, fee model, comparable transactions, organisation and capital structure, licence and deed text, platform components, indicative timeline, and data-room contents. Structured for the curious reader; the front matter stands without it.</p>
+    <p>Reference material for diligence: regulatory pathway, partners, fee model, licence and deed text, platform components, and the list of documents available on diligence. Structured for the curious reader; the front matter stands without it.</p>
   </div>
 </div>
 
@@ -867,7 +867,7 @@ sup.fnref{font-size:9.5px;color:var(--navy);font-weight:600;font-variant-numeric
       <div class="org-node primary">
         <div class="org-tag">Holding</div>
         <h5>Homeshare Group Limited</h5>
-        <p class="org-sub">100% founder-held · platform IP, domains and trademarks assigned</p>
+        <p class="org-sub">Founder-controlled &middot; platform IP, domains and trademarks assigned</p>
       </div>
     </div>
     <div class="org-row org-multi">
@@ -992,8 +992,8 @@ sup.fnref{font-size:9.5px;color:var(--navy);font-weight:600;font-variant-numeric
       <tr><td class="label">Licensed manager and trustee entities</td><td>Established and operating</td><td class="status">Complete</td></tr>
       <tr><td class="label">AML/CFT programme</td><td>Documented (The Compliance Company)</td><td class="status">Complete</td></tr>
       <tr><td class="label">Regulation 87 custodial-money assurance</td><td>Operating</td><td class="status">Complete</td></tr>
-      <tr><td class="label">Auditor</td><td>Appointed</td><td class="status">Complete</td></tr>
-      <tr><td class="label">PDS lodgement on Disclose Register</td><td>In preparation with MERW</td><td class="status muted">9–12 months</td></tr>
+      <tr><td class="label">Audit</td><td>Not required while sandbox exemption applies (FMC Act Part 7 subpart 3 exempted under the Exemption Notice 2025). To be appointed at full FMC Act MIS authorisation.</td><td class="status muted">9 to 12 months</td></tr>
+      <tr><td class="label">PDS lodgement on Disclose Register</td><td>In preparation with MERW</td><td class="status muted">9 to 12 months</td></tr>
       <tr><td class="label">External licensed supervisor appointment</td><td>Scoped</td><td class="status muted">9–12 months</td></tr>
       <tr><td class="label">Independent custody arrangements</td><td>Scoped</td><td class="status muted">9–12 months</td></tr>
       <tr><td class="label">Capital adequacy submission</td><td>Scoped</td><td class="status muted">9–12 months</td></tr>
@@ -1067,126 +1067,15 @@ sup.fnref{font-size:9.5px;color:var(--navy);font-weight:600;font-variant-numeric
 </section>
 
 
-<!-- ============ APPENDIX A·5 · COMPARABLE TRANSACTIONS ============ -->
-<section class="section" id="a-comparables">
-  <div class="section-head">
-    <div class="num">A·5</div>
-    <div class="meta"><div class="label">Appendix A·5</div><div class="pager">Comparable transactions</div></div>
-  </div>
-
-  <h2>Comparable transactions.</h2>
-  <p class="lede">Three transactions inform the expected consideration structure. Homeshare is pre-AUM; the right reference frame is deal structure, not a revenue multiple. The expected shape is cash at close plus a performance-linked deferred component.</p>
-
-  <h3>Recent precedents skew cash-light and performance-heavy</h3>
-
-  <div class="cmps2">
-    <div class="cmp-legend2">
-      <div class="item"><span class="sw cash"></span>Cash at close</div>
-      <div class="item"><span class="sw def"></span>Performance-linked deferred</div>
-      <div class="item"><span class="sw und"></span>Undisclosed</div>
-    </div>
-
-    <div class="cmp2-row featured">
-      <div class="cmp-kicker">Closest precedent</div>
-      <h5>Praemium ← Iress (OneVue Platform Business)</h5>
-      <div class="cmp-date">February 2024</div>
-      <div class="cmp2-bar">
-        <div class="seg cash" style="width:5%"></div>
-        <div class="seg def" style="width:95%">95% performance-linked</div>
-      </div>
-      <div class="cmp2-amount">A$1M cash + A$20M earn-out · <span>neither tranche triggered<sup class="fnref">1</sup></span></div>
-    </div>
-
-    <div class="cmp2-row">
-      <div class="cmp-kicker">Trans-Tasman property</div>
-      <h5>Centuria → Augusta Capital</h5>
-      <div class="cmp-date">July–August 2020 (post-COVID restructure)</div>
-      <div class="cmp2-bar">
-        <div class="seg cash" style="width:25%">Cash</div>
-        <div class="seg def" style="width:75%">Stapled securities</div>
-      </div>
-      <div class="cmp2-amount">NZ$0.22 cash + 0.392 CNI / share · <span>compulsory acquisition, delisted 21 Aug 2020<sup class="fnref">2</sup></span></div>
-    </div>
-
-    <div class="cmp2-row">
-      <div class="cmp-kicker">Distribution-platform signal</div>
-      <h5>HUB24 → Reach Alternative Investments</h5>
-      <div class="cmp-date">September 2024</div>
-      <div class="cmp2-bar">
-        <div class="seg und" style="width:100%">Price undisclosed</div>
-      </div>
-      <div class="cmp2-amount">Minority equity + distribution partnership · <span>not a full acquisition</span></div>
-    </div>
-  </div>
-
-  <table>
-    <thead><tr><th style="width:26%">Transaction</th><th style="width:32%">Consideration structure</th><th>Relevance</th></tr></thead>
-    <tbody>
-      <tr><td class="label">Praemium ← Iress (OneVue)<br><span style="font-size:10.5px;color:var(--ink-soft)">Feb 2024</span></td><td>A$1.0M cash at close + up to A$20.0M performance-linked deferred over 18 months, tied to funds under administration. Neither earn-out tranche triggered.</td><td>Platform IP commanded modest cash at close; acquirer underwrote scaled migration through an FUA-linked deferred component. Template for the Homeshare structure.</td></tr>
-      <tr><td class="label">Centuria → Augusta<br><span style="font-size:10.5px;color:var(--ink-soft)">Jul–Aug 2020</span></td><td>NZ Takeovers Code full takeover. Initial NZ$2.00/share cash bid (Jan 2020) withdrawn 26 March 2020 in COVID reset. Completed at NZ$0.22 cash + 0.392 Centuria stapled securities per share.</td><td>Direct trans-Tasman precedent for AU acquirer appetite for NZ property platform infrastructure.</td></tr>
-      <tr><td class="label">HUB24 → Reach<br><span style="font-size:10.5px;color:var(--ink-soft)">Sep 2024</span></td><td>Minority equity stake combined with co-design distribution partnership. Price undisclosed.</td><td>Signal of AU wealth-platform appetite for retail-alternatives platforms. Reach previously raised at ~A$15M pre-money.</td></tr>
-    </tbody>
-  </table>
-
-  <div class="fn2">
-    <div class="fn2-row"><span class="marker">1</span><span><em>Praemium Limited, ASX release: Praemium acquires the OneVue platform business from Iress, 28 February 2024.</em></span></div>
-    <div class="fn2-row"><span class="marker">2</span><span><em>Centuria Capital Group NZ takeover documents (NZ Takeovers Panel, Jul–Aug 2020); MarketScreener, 26 March 2020.</em></span></div>
-  </div>
-</section>
-
-
-<!-- ============ APPENDIX A·6 · ORG & CAPITAL STRUCTURE ============ -->
-<section class="section" id="a-org">
-  <div class="section-head">
-    <div class="num">A·6</div>
-    <div class="meta"><div class="label">Appendix A·6</div><div class="pager">Organisation &amp; capital</div></div>
-  </div>
-
-  <h2>Organisation and capital structure.</h2>
-  <p class="lede">Founder-operated, no employees today. Independent directors and operating management anticipated to be appointed by the acquirer following completion.</p>
-
-  <div class="two-col">
-    <div>
-      <h3>Current organisation</h3>
-      <table>
-        <thead><tr><th style="width:42%">Position</th><th>Person or provider</th></tr></thead>
-        <tbody>
-          <tr><td class="label">Sole director and shareholder</td><td>Martin van Blerk</td></tr>
-          <tr><td class="label">Employees</td><td>None</td></tr>
-          <tr><td class="label">Legal counsel</td><td>MinterEllisonRuddWatts (Jeremy Muir)</td></tr>
-          <tr><td class="label">AML/CFT advisor</td><td>The Compliance Company</td></tr>
-          <tr><td class="label">External accountant</td><td>Engaged for statutory accounting and monthly close. Replaceable.</td></tr>
-          <tr><td class="label">Engineering partner</td><td>Miquido sp. z o.o. (Kraków)</td></tr>
-          <tr><td class="label">Auditor</td><td>Appointed; named in data room</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <div>
-      <h3>Capital structure</h3>
-      <table>
-        <thead><tr><th style="width:48%">Item</th><th>Detail</th></tr></thead>
-        <tbody>
-          <tr><td class="label">Issued capital</td><td>100% common, held by Martin van Blerk via Homeshare Group Limited</td></tr>
-          <tr><td class="label">External equity</td><td>Nil</td></tr>
-          <tr><td class="label">Preferred / convertible / options</td><td>Nil</td></tr>
-          <tr><td class="label">Cumulative invested capital</td><td>~A$2.3M founder common; no preference stack</td></tr>
-          <tr><td class="label">Platform IP, domains, trademarks</td><td>Assigned to Homeshare Group Limited</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</section>
-
-
-<!-- ============ APPENDIX A·7 · LICENCE & DEED ============ -->
+<!-- ============ APPENDIX A·5 · LICENCE & DEED ============ -->
 <section class="section" id="a-licence">
   <div class="section-head">
-    <div class="num">A·7</div>
-    <div class="meta"><div class="label">Appendix A·7</div><div class="pager">Licence &amp; Deed</div></div>
+    <div class="num">A·5</div>
+    <div class="meta"><div class="label">Appendix A·5</div><div class="pager">Licence &amp; Deed</div></div>
   </div>
 
   <h2>Licence and deed schedule.</h2>
-  <p class="lede">Detailed reference for the FMA exemption instrument and the load-bearing clauses of the Master Trust Deed. Full executed deed (36 clauses and schedules) available in data room / Folder 01.</p>
+  <p class="lede">Detailed reference for the FMA exemption instrument and the load-bearing clauses of the Master Trust Deed. The full executed deed (36 clauses and schedules) is on the documents list.</p>
 
   <h3>FMA exemption instrument</h3>
   <table>
@@ -1228,11 +1117,11 @@ sup.fnref{font-size:9.5px;color:var(--navy);font-weight:600;font-variant-numeric
 </section>
 
 
-<!-- ============ APPENDIX A·8 · PLATFORM SCREENSHOTS ============ -->
+<!-- ============ APPENDIX A·6 · PLATFORM SCREENSHOTS ============ -->
 <section class="section" id="a-platform">
   <div class="section-head">
-    <div class="num">A·8</div>
-    <div class="meta"><div class="label">Appendix A·8</div><div class="pager">Platform &amp; operations</div></div>
+    <div class="num">A·6</div>
+    <div class="meta"><div class="label">Appendix A·6</div><div class="pager">Platform &amp; operations</div></div>
   </div>
 
   <h2>Platform component schedule.</h2>
@@ -1270,27 +1159,45 @@ sup.fnref{font-size:9.5px;color:var(--navy);font-weight:600;font-variant-numeric
 </section>
 
 
-<!-- ============ APPENDIX A·9 · DATA ROOM ============ -->
+<!-- ============ APPENDIX A·7 · DOCUMENTS ============ -->
 <section class="section" id="a-dataroom">
   <div class="section-head">
-    <div class="num">A·9</div>
-    <div class="meta"><div class="label">Appendix A·9</div><div class="pager">What's in the data room</div></div>
+    <div class="num">A·7</div>
+    <div class="meta"><div class="label">Appendix A·7</div><div class="pager">Documents on diligence</div></div>
   </div>
 
-  <h2>What's in the data room.</h2>
-  <p class="lede">Access on execution of a Non-Disclosure Agreement. Folder summaries below; document-level index available to qualified bidders on request.</p>
+  <h2>Documents available on diligence.</h2>
+  <p class="lede">The key legal, regulatory, and operational documents that exist today and would be made available under NDA. This is a record of what is in hand, not a marketed data room.</p>
 
-  <h3>Folder 01 · Legal and Regulatory</h3>
-  <p>Executed Master Trust Deed (30 January 2026); Home Trust Conditions template; Disclosure Statement; FMA Exemption Notice; FMA correspondence log; founder background brief; licence schedule; supervisor posture; entity structures; constitutions.</p>
+  <h3>Legal and regulatory</h3>
+  <ul class="docs-list">
+    <li><strong>Master Trust Deed</strong> &middot; Execution Version, 30 January 2026, drafted by MinterEllisonRuddWatts. 36 clauses governing the scheme and every Home Trust.</li>
+    <li><strong>Home Trust Conditions template</strong> &middot; MERW, 30 January 2026. The per-deal instantiation document.</li>
+    <li><strong>Disclosure Statement</strong> &middot; MERW, 30 January 2026. Scheme-level investor disclosure.</li>
+    <li><strong>Financial Markets Conduct (Homeshare) Exemption Notice 2025</strong> &middot; FMA-issued. Effective 1 December 2025 to 30 November 2027.</li>
+    <li><strong>Proposed Licence Conditions</strong> &middot; Manager-specific licence terms (FSP 1008923).</li>
+    <li><strong>Application for Exemption</strong> &middot; The FMA application that led to sandbox admission, with all MERW drafts and FMA correspondence.</li>
+  </ul>
 
-  <h3>Folder 02 · Compliance</h3>
-  <p>AML/CFT Programme; AML Risk Assessment; PIE readiness pack; IRD correspondence; Dispute Resolution Scheme membership application; Privacy Policy; Business Continuity Plan; outsourcing register; CoFI fair-conduct notes.</p>
+  <h3>Compliance and operations</h3>
+  <ul class="docs-list">
+    <li><strong>Privacy Policy</strong> &middot; Final draft.</li>
+    <li><strong>Platform Terms and Conditions</strong> &middot; MERW-drafted.</li>
+    <li><strong>Client Money or Property Services Policy</strong> &middot; Homeshare Trustees.</li>
+    <li><strong>Process Chart</strong> &middot; Homeshare Trustees operational flow.</li>
+    <li><strong>Scheme Property Custodian Comparison (CMPS)</strong> &middot; MERW analysis.</li>
+    <li><strong>Property Management Agreement templates</strong> &middot; Related-party and third-party variants.</li>
+  </ul>
 
-  <h3>Folder 03 · Technology</h3>
-  <p>Architecture diagrams; component inventory; source-code access on exclusivity; hosting posture; security review; penetration test; intellectual-property assignment; Miquido statement of work; disaster recovery plan.</p>
+  <h3>Corporate and financial</h3>
+  <ul class="docs-list">
+    <li><strong>Entity records</strong> &middot; Homeshare Group Limited, Homeshare Scheme Management Limited, Homeshare Trustees Limited. Constitutions, directors&rsquo; resolutions, share transfer forms.</li>
+    <li><strong>Capital structure schedule</strong> &middot; Founder common equity plus the Future Equity entitlements (signed agreements available).</li>
+    <li><strong>Cost schedule to date</strong> &middot; Categorised: legal and regulatory, platform engineering, compliance, operations.</li>
+    <li><strong>Platform inventory</strong> &middot; Component list, environments, codebase IP and assignment.</li>
+  </ul>
 
-  <h3>Folder 04 &middot; Commercial and Financial</h3>
-  <p>Property Management Agreement (current asset), KYC/AML vendor agreement, banking agreements, cloud hosting agreements, cost schedule, profit &amp; loss, balance sheet, cash flow, 12-month forecast, monthly burn, bank statements, capital table, material-contracts register, warranty-schedule outline, rate card, process letter, indicative bid form.</p>
+  <p class="source">A consolidated index will be issued to qualified bidders on execution of the NDA. Anything not listed above does not exist today.</p>
 </section>
 
 </details>
